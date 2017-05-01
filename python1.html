@@ -1,0 +1,895 @@
+<!doctype html>
+<html lang="es">
+
+	<head>
+		<meta charset="utf-8">
+
+		<title>Python - bitson</title>
+
+		<meta name="description" content="Introducción a Python">
+		<meta name="author" content="Leandro E. Colombo Viña">
+
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<link rel="stylesheet" href="css/reveal.css">
+		<link rel="stylesheet" href="css/theme/night.css" id="theme">
+
+		<!-- For syntax highlighting -->
+		<link rel="stylesheet" href="lib/css/zenburn.css">
+
+		<!-- If the query includes 'print-pdf', use the PDF print sheet -->
+		<script>
+			document.write( '<link rel="stylesheet" href="css/print/' + ( window.location.search.match( /print-pdf/gi ) ? 'pdf' : 'paper' ) + '.css" type="text/css" media="print">' );
+		</script>
+
+		<!--[if lt IE 9]>
+		<script src="lib/js/html5shiv.js"></script>
+		<![endif]-->
+	</head>
+
+	<body>
+
+		<div class="reveal">
+
+			<!-- Any section element inside of this container is displayed as a slide -->
+			<div class="slides">
+                <section>
+                    <section>
+                        <h1>Python</h1>
+                        <h3>Primeros Pasos</h3>
+                        <hr>
+                        <p>
+                            <small><a href="http://www.bitson.com.ar">Leandro E. Colombo Viña</a> | <a href="http://twitter.com/lecovi">@lecovi</a> <br> 
+                                <a href="">colomboleandro@bitson.com.ar</a></small>
+                        </p>
+                    </section>
+
+                    <section>
+                        <h2>URL Presentación</h2>
+                        <a href="http://www.bitson.com.ar/cursos/python1">http://www.bitson.com.ar/cursos/python1</a>
+                        <hr>
+                        <h3>Archivos de Ejemplo</h3>
+                        <a href="http://www.bitson.com.ar/cursos/python1/archivos/">http://www.bitson.com.ar/cursos/python1/archivos/</a>
+                        <aside class="notes"><small>
+                            Pueden ver la presentación desde.
+                        </small></aside>
+                    </section>
+                </section>
+                
+				<section>
+					<section>
+						<h2>¿Python?</h2>
+						<p>Creado por <a href="http://es.wikipedia.org/wiki/Guido_van_Rossum">Guido van Rossum</a> a principios de los '90.</p>
+                        <ul>
+                            <li>Interpretado (Scripting).</li>
+                            <li>Tipado dinámico.</li>
+                            <li>Fuertemente tipado.</li>
+                            <li>Multiplataforma.</li>
+                            <li>Multiparadigma.</li>
+                        </ul>
+                        <aside class="notes"><small>
+                            Actualmente Guido trabaja en Dropbox.<br>
+                            Monty Python.<br>
+                            <hr>
+                            Interpretado -> "Semi-interpretado" (bytecode)<br>
+                            Sin declaración de variables.<br>
+                            Explicitar los cambios de tipos.<br>
+                            UNIX, Linux, Windows, MacOS, etc...<br>
+                            Programación: Imperativa, Estructurada, Funcional, OOP, Aspectos<br>
+					   </small></aside>
+					</section>
+				
+                    <section>
+						<h2>Características</h2>
+                        <ul>
+                            <li>Sintáxis simple, clara y sencilla.</li>
+                            <li>Fácil de aprender.</li>
+                            <li>Dinámico.</li>
+                            <li>Gestión automática de memoria.</li>
+                            <li>Gran cantidad de <a href="https://pypi.python.org/pypi">librerías</a>.</li>
+                        </ul>
+                        <p></p><br>
+                        <div class="fragment">
+                            <h3>No recomendable</h3>
+                            <ul>
+                                <li>Bajo nivel.</li>
+                                <li>Rendimiento crítico</li>
+                            </ul>
+                        </div>
+                        <aside class="notes"><small>
+                            Google, Reddit, YouTube, Yahoo, NASA.<br>
+                            Dropbox, OpenStack, OpenERP.<br>
+                            BitTorrent, Pilas Engine.<br>
+                            Mercurial, Calibre.<br>
+                            Ethical Hacking.<br>
+                            FRAGMENT: No Recomendable.<br>
+                        </small></aside>                        
+					</section>
+                    
+                    <section>
+                        <h2>Python Zen</h2>
+                        <p><a href="http://legacy.python.org/dev/peps/pep-0020/">PEP 20 -- The Zen of Python </a></p>
+                        <img width="60%" height="60%" src="img/zen-of-python-poster-a3.png" alt="Python Zen">
+                        <aside class="notes"><small>
+                            import this<br>
+                        </small></aside>    
+                    </section>
+                    
+                    <section>
+                        <h2>Python Zen</h2>
+                        <ul><small>
+                            <li>Bello es mejor que feo.</li>
+                            <li>Explícito es mejor que implícito.</li>
+                            <li>Simple es mejor que complejo.</li>
+                            <li>Complejo es mejor que complicado.</li>
+                            <li>Plano es mejor que anidado.</li>
+                            <li>Disperso es mejor que denso.</li>
+                            <li>La legibilidad cuenta.</li>
+                            <li>Los casos especiales no son tan especiales como para quebrantar las reglas.</li>
+                            <li>Aunque lo práctico gana a la pureza.</li>
+                            <li>Los errores nunca deberían dejarse pasar silenciosamente.</li>
+                            <li>A menos que hayan sido silenciados explícitamente.</li>
+                            <li>Frente a la ambigüedad, rechaza la tentación de adivinar.</li>
+                            <li>Debería haber una -y preferiblemente sólo una- manera obvia de hacerlo.</li>
+                            <li>Aunque esa manera puede no ser obvia al principio a menos que usted sea holandés.</li>
+                            <li>Ahora es mejor que nunca.</li>
+                            <li>Aunque nunca es a menudo mejor que ya mismo.</li>
+                            <li>Si la implementación es difícil de explicar, es una mala idea.</li>
+                            <li>Si la implementación es fácil de explicar, puede que sea una buena idea.</li>
+                            <li>Los espacios de nombres (namespaces) son una gran idea ¡Hagamos más de esas cosas!</li>
+                            </small>
+                        </ul>
+                    </section>
+                </section>
+                
+                <section>
+                    <section>
+						<h2>Instalación</h2>
+						<p>Implementaciones:</p>
+                        <ul>
+                            <li>CPython</li>
+                            <li>Jython</li>
+                            <li>IronPython</li>
+                            <li>PyPy</li>
+                        </ul>
+                        <aside class="notes"><small>
+                            Sitio oficial descargas: <a href="https://www.python.org/downloads/">https://www.python.org/downloads/</a><br>
+                            <strong>2.7.6</strong> vs <strong>3.4.0</strong><br>
+                        </small></aside>
+					</section>
+                    
+					<section>
+						<h2>Herramientas</h2>
+						<p>A través del intérprete o ejecutando scripts.</p>
+                        <img width="60%" height="60%" src="img/PythonInterprete.png" alt="Intérprete Python">
+					</section>
+
+                    <section>
+                        <h2>IDEs</h2>
+                        <small><a href="http://en.wikipedia.org/wiki/List_of_Python_software">http://en.wikipedia.org/wiki/List_of_Python_software</a></small>
+                        <ul>
+                            <li>Eclipse con PyDev: <a href="http://pydev.org/">http://pydev.org/</a></li>
+                            <li>NetBeans: <a href="https://blogs.oracle.com/geertjan/entry/python_in_netbeans_ide_71">Python Plugin</a></li>
+                            <li>NINJA IDE: <a href="http://ninja-ide.org/">http://ninja-ide.org/</a></li>
+                            <li>SPE: <a href="http://sourceforge.net/projects/spe/">Stani's Python Editor</a></li>
+                            <li><a href="http://eric-ide.python-projects.org/index.html">The Eric Python IDE</a></li>
+                            <li><a href="http://boa-constructor.sourceforge.net/">BOA Constructor</a></li>
+                            <li><a href="http://kdevelop.org/">Kdevelop</a></li>
+                            <hr>
+                            <li>PyCharm: <a href="http://www.jetbrains.com/pycharm/download/#linux">http://www.jetbrains.com/pycharm/</a></li>
+                            <li>Komodo: <a href="http://komodoide.com/">http://komodoide.com/</a></li>
+                            <li>Wing IDE: <a href="http://www.wingware.com/">http://www.wingware.com/</a></li>
+                        </ul>
+                        <aside class="notes"><small>
+                        </small></aside>
+                    </section>
+                    
+                    <section>
+                        <h2>Intérpretes Mejorados</h2>
+                        <ul>
+                            <li>IPython: <a href="http://ipython.org/">http://ipython.org/</a></li>
+                            <li>IDLE: <a href="https://docs.python.org/2/library/idle.html">https://docs.python.org/2/library/idle.html</a></li><br>
+                        </ul>
+                        <hr>
+                        <br>
+                        <h2>Editores Texto</h2>
+                        <ul>
+                            <li>vim: <a href="https://github.com/fisadev/fisa-vim-config">https://github.com/fisadev/fisa-vim-config</a></li>
+                            <li>emacs: <a href="http://www.emacswiki.org/emacs/PythonProgrammingInEmacs">Python Programming</a></li>
+                            <li>Geany: <a href="http://www.geany.org/">http://www.geany.org/</a></li>
+                        </ul>
+                        <aside class="notes"><small>
+                        </small></aside>
+                    </section>
+                    
+                    <section>
+                        <h2>Instalar PIP</h2>
+                        <p>Es un instalador de paquetes de Python.</p>
+                        <small>
+                        <ul>
+                            <li><a href="https://pypi.python.org/pypi/pip">pip en PyPI</a></li>
+                            <li><a href="http://www.pip-installer.org/en/latest/installing.html">Cómo instalar</a></li>
+                        </ul>
+                        </small>
+                        <pre><code>
+# apt-get install python-pip
+                        </code></pre>
+                        <pre><code>
+# yum install python-pip
+                        </code></pre>
+                        <aside class="notes"><small>
+                        </small></aside>
+                    </section>
+                    
+                    <section>
+                        <h2>Links de Interés</h2>
+                        <ul>
+                            <li>Sitio Oficial: <a href="https://www.python.org/">https://www.python.org/</a></li>
+                            <li>Comunidad Python Argentina: <a href="http://python.org.ar/">http://python.org.ar/</a></li><br>
+                        </ul>
+                        <aside class="notes"><small>
+                        </small></aside>
+                    </section>
+                    
+                    <section>
+                        <h2><a href="https://mega.co.nz/#F!1QBXwThA!xvx7c0mYu6gx-6ev8WrQPw">Libros</a> y Documentación</h2>
+                        <ul>
+                            <li>Python Para Todos: <a href="http://mundogeek.net/tutorial-python/">http://mundogeek.net/tutorial-python/</a></li>
+                            <li>Aprenda a pensar como un programador con Python: <a href="http://www.etnassoft.com/biblioteca/aprenda-a-pensar-como-un-programador-con-python/">Descarga de OpenLibra</a></li>
+                            <li>Tutorial Python PyAr: <a href="http://docs.python.org.ar/tutorial/index.html">http://docs.python.org.ar/tutorial/index.html</a></li>
+                            <hr>
+                            <li>The Python Tutorial: <a href="https://docs.python.org/2/tutorial/">https://docs.python.org/2/tutorial/</a></li>
+                            <li>Dive into Python: <a href="http://es.diveintopython.net/toc.html">http://es.diveintopython.net/toc.html</a></li>
+                            <li>Think Python <a href="http://www.greenteapress.com/thinkpython/">http://www.greenteapress.com/thinkpython/</a></li>
+                        </ul>
+                        <aside class="notes"><small>
+                        </small></aside>
+                    </section>
+				</section>
+                
+				<section id="so">
+                    <p><em>entonces...</em></p>
+					<h2>Manos a la obra</h2>
+					<img width="50%" height="50%" src="./img/ManosALaObra.gif" alt="Manos a la Obra">
+                    <aside class="notes"><small>
+                    </small></aside>
+				</section>                
+				
+                <section>
+                    <section>
+                        <h2>El Famoso...</h2>
+                        <img width="70%" height="70%" src="./img/PythonHolaMundo-Interprete.png" alt="Hola Mundo!">
+                        <aside class="notes"><small>
+                        </small></aside>
+                    </section>
+
+                    <section>
+                        <h2>y ahora como Script</h2>
+                        Creamos un archivo <a href="http://www.bitson.com.ar/cursos/python1/archivos/hola.py"><code>hola.py</code></a>
+                        <pre><code data-trim contenteditable>
+#!/usr/bin/python
+print("Hola Mundo!")
+                        </code></pre>
+                        <img width="60%" height="60%" src="./img/PythonHolaMundo-Script.png" alt="Hola Mundo!">
+                        <aside class="notes"><small>
+                            #! --> <em>shebang, hashbang o sharpbang</em>.<br>
+                            <code>#!/usr/bin/env python</code><br>
+                            Convertirlo en ejecutable con chmod<br>
+                            <code>print</code> --> en Python 3 es una función.<br>
+                        </small></aside>                    
+                    </section>
+
+                    <section>
+                        <h2>ASCII y Unicode</h2>
+                        <p>
+                            En <a href="https://docs.python.org/2/tutorial/interpreter.html">Python 2.x</a> los códigos fuente están en ASCII.<br>
+                            Mientras que en <a href="https://docs.python.org/3/tutorial/interpreter.html">Python 3.x</a> están en UTF-8.
+                        </p>
+                        <p>En el siguiente artículo se discute el soporte de Unicode en Python 2.x: <a href="https://docs.python.org/2/howto/unicode.html">https://docs.python.org/2/howto/unicode.html</a></p>
+                        <p>El <a href="http://legacy.python.org/dev/peps/pep-0263/">PEP 0263</a> <em>(Python Enhancement Proposals)</em> especifica cómo definir el <em>"encoding"</em>.</p>
+                        <pre><code data-trim contenteditable>
+#!/usr/bin/python
+# -*- coding: utf-8 -*-
+                        </code></pre>
+                        <hr>
+                        <small><a href="https://www.youtube.com/watch?v=pQJ0emlYv50">Entendiendo Unicode - Facundo Batista - PyConAr 2012</a></small>
+                        <aside class="notes"><small>
+                        </small></aside>
+                    </section>
+                    
+                    <section>
+                        <h2>Sintáxis Básica</h2>
+                        <p>Python tiene 31 palabras reservadas: <a href="http://www.bitson.com.ar/cursos/python1/archivos/keywords.py"><code>keywords.py</code></a></p>
+                        <pre><code>
+and     as      assert  break   class     continue    def     del
+elif    else    except  exec    finally   for         from    global  
+if      import  in      is      lambda    not         or      pass    
+print   raise   return  try     while     with        yield
+                        </code></pre>
+                        <p>Comentarios <em>inline</em> se indican comenzando con <code>#</code>.</p>
+                        <p>La separación de bloques se realiza por medio de identación (por lo general, 4 espacios).</p>
+                        <p>También viene con 80 funciones incorporadas: <a href="https://docs.python.org/2/library/functions.html">Built-in Functions</a></p>
+                        <aside class="notes"><small>
+                        </small></aside>
+                    </section>
+                </section>
+
+				<section>
+                    <section>
+                        <h2>Tipos de Datos Básicos</h2>
+                        <p><small>Se puede ver un ejemplo en <a href="http://www.bitson.com.ar/cursos/python1/archivos/datos_basicos.py">datos_basicos.py</a></small></p>
+                        <ol>
+                            <li>Númericos:</li>
+                            <ol>
+                                <li>Enteros.</li>
+                                <li>De Coma Flotante.</li>
+                                <li>Complejos.</li>
+                            </ol>
+                            <li>Cadenas de Texto:</li>
+                            <ol>
+                                <li>Strings.</li>
+                                <li>Unicode.</li>
+                                <li>Raw.</li>
+                            </ol>
+                            <li>Lógicos</li>
+                        </ol>
+                        <aside class="notes"><small>
+                        </small></aside>
+                    </section>
+                    
+                    <section>
+                        <h2>Conversión de Números</h2>
+                        <img width="80%" height="80%" src="./img/ConversionTipos-Numeros.png" alt="Conversión de Números">
+                        <aside class="notes"><small>
+                        </small></aside>                        
+                    </section>
+                    
+                    <section>
+                        <h2>Números Reales</h2>
+                        <img width="80%" height="80%" src="./img/NumerosReales.png" alt="Números Reales">
+                        <aside class="notes"><small>
+                        </small></aside>                        
+                    </section>
+                    
+                    <section>
+                        <h2>Números Complejos</h2>
+                        <img width="80%" height="80%" src="./img/NumerosComplejos.png" alt="Números Complejos">
+                        <aside class="notes"><small>
+                        </small></aside>                        
+                    </section>
+                    
+                    <section>
+                        <h2>Codificación</h2>
+                        <ul>
+                            <li><code>encode("<em>codificación</em>")</code>: codifica un Unicode.</li>
+                            <li><code>decode("<em>codificación</em>")</code>: codifica un String.</li>
+                        </ul>
+                        <img width="70%" height="70%" src="./img/CodificacionUnicode-String.png" alt="Codificación de Cadenas">
+                        <aside class="notes"><small>
+                        </small></aside>                        
+                    </section>
+                    
+                    <section>
+                        <h2>Métodos de cadenas</h2>
+                        <ul>
+                            <li><code><strong>strip("<em>caracter</em>")</strong></code>: "limpia" espacios al principio o al final.</li>
+                            <li><code><strong>split("<em>caracter</em>")</strong></code>: divide la cadena.</li>
+                            <li><code><strong>find("<em>substring</em>", "<em>i</em>", "<em>f</em>")</strong></code>: busca en la cadena.</li>
+                            <li><code><strong>startswith("<em>prefijo</em>", "<em>i</em>", "<em>f</em>")</strong></code>: busca si comienza con.</li>
+                            <li><code><strong>endswidth("<em>sufijo</em>", "<em>i</em>", "<em>f</em>")</strong></code>: busca si termina con.</li>
+                            <li><code><strong>find("<em>substring</em>", "<em>i</em>", "<em>f</em>")</strong></code>: busca en la cadena.</li>
+                            <li><code><strong>lower()</strong></code>: convierte en minúsculas.</li>
+                            <li><code><strong>upper()</strong></code>: convierte en mayúsculas.</li>
+                            <li><code><strong>isdigit()</strong></code>: ¿es numérica?.</li>
+                            <li><code><strong>isalpha()</strong></code>: ¿es alfanumérica?.</li>
+                            <li><code><strong>islower()</strong></code>: ¿está en minúsculas?.</li>
+                            <li><code><strong>isupper()</strong></code>: ¿está en mayúsculas?.</li>
+                        </ul>
+                        <aside class="notes"><small>
+                        </small></aside>                        
+                    </section> 
+                    
+                    <section>
+                        <h2>Ingreso de datos</h2>
+                        <ul>
+                            <li>Texto: <code>raw_input("<em>Mensaje para el usuario</em>")</code>.</li>
+                            <li>Valor: <code>input("<em>Mensaje para el usuario</em>")</code>.</li>
+                        </ul>
+                        <img width="70%" height="70%" src="./img/Raw_input-Input.png" alt="Ingreso de datos">
+                        <aside class="notes"><small>
+                        </small></aside>                        
+                    </section>
+                    
+                    <section>
+                        <h2>Formateo de datos</h2>
+                        <ul>
+                            <li>método <code>.format("<em>formato</em>")</code>.</li>
+                            <li>operador <code>%</code> (<em>no recomendado</em>).</li>
+                        </ul>
+                        <img width="70%" height="70%" src="./img/FormatString.png" alt="Formateo de Strings">
+                        <p>Más info: <a href="https://docs.python.org/2/library/string.html#format-string-syntax">Format String Syntax</a></p>
+                        <aside class="notes"><small>
+                        </small></aside>                        
+                    </section>
+                </section>
+                
+                <section>
+                    <section>
+                        <h2>Operadores Aritméticos</h2>
+                        <p><small>Se puede ver un ejemplo en <a href="http://www.bitson.com.ar/cursos/python1/archivos/op_aritmeticos.py">op_aritmeticos.py</a></small></p>
+                        <ol>
+                            <li>Suma: <code>+</code></li>
+                            <li>Resta: <code>-</code></li>
+                            <li>Multiplicación: <code>*</code></li>
+                            <li>División: <code>/</code></li>
+                            <li>Módulo: <code>%</code></li>
+                            <li>División Entera: <code>//</code></li>
+                            <li>Potenciación: <code>**</code></li>
+                        </ol>
+                        <aside class="notes"><small>
+                        </small></aside>                        
+                    </section>
+                </section>
+                
+                <section>
+                    <section>
+                        <h2>Operadores Lógicos</h2>
+                        <p><small>Se puede ver un ejemplo en <a href="http://www.bitson.com.ar/cursos/python1/archivos/op_logicos.py">op_logicos.py</a></small></p>
+                        <ol>
+                            <li>Suma: <code>or</code></li>
+                            <li>Producto: <code>and</code></li>
+                            <li>Negación: <code>not</code></li>
+                        </ol>
+                        <aside class="notes"><small>
+                        </small></aside>                        
+                    </section>
+                </section>
+                
+                <section>
+                    <section>
+                        <h2>Operadores Relacionales</h2>
+                        <p><small>Se puede ver un ejemplo en <a href="http://www.bitson.com.ar/cursos/python1/archivos/op_relacionales.py">op_relacionales.py</a></small></p>
+                        <ol>
+                            <li>Igualdad: <code>==</code></li>
+                            <li>No igualdad: <code>!=</code></li>
+                            <li>Mayor: <code>&gt;</code></li>
+                            <li>Menor: <code>&lt;</code></li>
+                            <li>Mayor o igual: <code>&gt;=</code></li>
+                            <li>Menor o igual: <code>&lt;=</code></li>                            
+                        </ol>
+                        <aside class="notes"><small>
+                        </small></aside>                        
+                    </section>
+                </section>
+                    
+                <section>
+                    <section>
+                        <h2>Operadores bit</h2>
+                        <p><small>Se puede ver un ejemplo en <a href="http://www.bitson.com.ar/cursos/python1/archivos/op_bit.py">op_bit.py</a></small></p>
+                        <ol>
+                            <li>and: <code>&amp;</code></li>
+                            <li>or: <code>|</code></li>
+                            <li>xor: <code>^</code></li>
+                            <li>not: <code>~</code></li>
+                            <li>desplazamiento a izquierda: <code>&lt;&lt; <em>N</em></code></li>
+                            <li>desplazamiento a derecha: <code>&gt;&gt; <em>N</em></code></li>
+                        </ol>
+                        <aside class="notes"><small>
+                        </small></aside>
+                    </section>                    
+				</section>
+
+				<section>
+                    <section>
+                        <h2>Colecciones</h2>
+                        <p><small>Se puede ver un ejemplo en <a href="http://www.bitson.com.ar/cursos/python1/archivos/colecciones.py">colecciones.py</a></small></p>
+                        <ol>
+                            <li>Listas.</li>
+                            <li>Tuplas.</li>
+                            <li>Diccionarios.</li>
+                        </ol>
+                        <aside class="notes"><small>
+                        </small></aside>                        
+                    </section>
+                    
+                    <section>
+                        <h2>Listas</h2>
+                        <ul>
+                            <li>Colección ordenada y modificable.</li>
+                            <li>Pueden contener cualquier tipo de dato.</li>
+                            <li>Se utilizan corchetes <strong>[ ]</strong>.</li>
+                            <li>Accesible como <code>lista[<em>posición</em>]</code></li>
+                            <li><em>Slicing</em>: <code>lista[<em>inicio</em>:<em>fin</em>:<em>salto</em>]</code></li>
+                        </ul>
+                        <aside class="notes"><small>
+                        </small></aside>                                                
+                    </section>
+                    <section>
+                        <h2>Probando Listas</h2>                    
+                        <img width="80%" height="80%" src="./img/Listas.png" alt="Listas">
+                        <aside class="notes"><small>
+                        </small></aside>                                                
+                    </section>
+                    
+                    <section>
+                        <h2>Métodos en Listas</h2>
+                        <ul>
+                            <li><code><strong>sort()</strong></code>: ordena la lista.</li>
+                            <li><code><strong>reverse()</strong></code>: invierte el orden.</li>
+                            <li><code><strong>pop(<em>posición</em>)</strong></code>: extrae un elemento.</li>
+                            <li><code><strong>append(<em>item</em>)</strong></code>: agrega un elemento.</li>
+                            <li><code><strong>insert(<em>posición, item</em>)</strong></code>: inserta un elemento.</li>
+                            <li><code><strong>remove(<em>item</em>)</strong></code>: elimina la primer ocurrencia de <em>item</em>.</li>
+                            <li><code><strong>count(<em>item</em>)</strong></code>: cuenta las ocurrencias de <em>item</em>.</li>
+                            <li><code><strong>index(<em>item</em>)</strong></code>: devuelve la posición de <em>item</em>.</li>
+                            <li><code><strong>extend(<em>lista</em>)</strong></code>: extiende la lista con <em>lista</em>.</li>
+                        </ul>
+                        <aside class="notes"><small>
+                        </small></aside>                                                
+                    </section>
+                    
+                    <section>
+                        <h2>Tuplas</h2>
+                        <ul>
+                            <li>Colección ordenada e Inmutable.</li>
+                            <li>Pueden contener cualquier tipo de dato.</li>
+                            <li>Se utilizan paréntesis <strong>( )</strong>.</li>
+                            <li>Accesible como <code>tupla[<em>posición</em>]</code></li>
+                            <li><em>Slicing</em>: <code>tupla[<em>inicio</em>:<em>fin</em>:<em>salto</em>]</code></li>
+                            <li>Más ligeras que las listas.</li>
+                            <li>No tienen métodos.</li>
+                        </ul>
+                        <aside class="notes"><small>
+                        </small></aside>      
+                    </section>
+                    
+                    <section>
+                        <h2>Probando Tuplas</h2>                    
+                        <img width="80%" height="80%" src="./img/Tuplas.png" alt="Tuplas">
+                        <aside class="notes"><small>
+                        </small></aside>                                                
+                    </section>
+                    
+                    <section>
+                        <h2>Diccionario</h2>
+                        <ul>
+                            <li>Colección NO ordenada.</li>
+                            <li>Modificable.</li>
+                            <li>Conjunto <em>clave - valor</em>.</li>
+                            <ul>
+                                <li>clave: cualquier tipo de dato inmutable.</li>
+                                <li>valor: cualquier tipo de dato.</li>
+                            </ul>
+                            <li>Se utilizan llaves <strong>{ }</strong>.</li>
+                            <li>Accesible como <code>diccionario[<em>clave</em>]</code></li>
+                            <li>No hay <em>Slicing</em>.</li>
+                        </ul>
+                        <aside class="notes"><small>
+                        </small></aside>                                                
+                    </section>
+                    
+                    <section>
+                        <h2>Probando Diccionarios</h2>                    
+                        <img width="80%" height="80%" src="./img/Diccionario.png" alt="Diccionario">
+                        <aside class="notes"><small>
+                        </small></aside>                                                
+                    </section>
+                    
+                    <section>
+                        <h2>Métodos en Diccionarios</h2>
+                        <ul>
+                            <li><code><strong>keys()</strong></code>: devuelve una lista de las claves.</li>
+                            <li><code><strong>values()</strong></code>: devuelve una lista de los valores.</li>
+                            <li><code><strong>items()</strong></code>: devuelve una lista de tuplas (<em>clave</em>, <em>valor</em>).</li>
+                            <li><code><strong>get(<em>clave</em>, <em>valor x defecto</em>)</strong></code>: devuelve el valor para clave o el valor por defecto si no existe.</li>
+                            <li><code><strong>pop(<em>clave</em>, <em>valor x defecto</em>)</strong></code>: remueve el valor para clave o el valor por defecto si no existe.</li>
+                            <li><code><strong>setdefault(<em>clave</em>, <em>valor x defecto</em>)</strong></code>: setea la clave y el valor por defecto.</li>
+                            <li><code><strong>clear()</strong></code>: elimina el contenido del diccionario.</li>
+                            <li><code><strong>update(<em>dict</em>)</strong></code>: actualiza el contenido del diccionario con los valores deL diccionario <em>dict</em>.</li>
+                        </ul>
+                        <aside class="notes"><small>
+                        </small></aside>                                                
+                    </section>                    
+                    <section>
+                        <h2>Extras</h2>
+                        <ul>
+                            <li>Con <code><strong>in</strong></code> podemos verificar la pertenencia de un elemento:</li>
+                            <ul>
+                                <li>Listas y Tuplas.</li>
+                                <li>Claves de un Diccionario.</li>
+                            </ul>
+                            <li>Con <code><strong>del</strong></code> podemos borrar:</li>
+                            <ul>
+                                <li>Listas y Tuplas con posición o <em>slicing</em>.</li>
+                                <li>Claves de un Diccionario.</li>
+                            </ul>
+                            <li>Con <code><strong>len</strong></code> nos devuelve la cantidad de elementos:</li>
+                            <ul>
+                                <li>Listas y Tuplas.</li>
+                                <li>Tuplas (claves, valor) de un Diccionario.</li>
+                            </ul>                            
+                        </ul>
+                        <aside class="notes"><small>
+                        </small></aside>                                                                        
+                    </section>
+				</section>
+
+				<section>
+                    <section>
+                        <h2>Control de Flujo</h2>
+                        <p><small>Se puede ver un ejemplo en <a href="http://www.bitson.com.ar/cursos/python1/archivos/control_flujo.py">control_flujo.py</a></small></p>
+                        <ul>
+                            <li>Condicionales: </li>
+                            <ol>
+                                <li><code>if</code></li>
+                                <li><code>if ... else</code></li>
+                                <li><code>if ... elif ... elif ... else</code></li>
+                            </ol>
+                            <li>Ciclos:</li>
+                            <ol>
+                                <li><code>while</code></li>
+                                <li><code>for ... in</code></li>
+                                <hr>
+                                <li><code>continue</code></li>
+                                <li><code>break</code></li>
+                            </ol>
+                        </ul>
+                        <aside class="notes"><small>
+                        </small></aside> 
+                    </section>
+                
+                    <section>
+                        <h2>If...elif...else</h2>
+                        <img width="80%" height="80%" src="img/if-elif-else.png" alt="IF ELIF ELSE">
+                        <p class="frament">¿Por qué me dice que no es una opción válida?</p>
+                        <aside class="notes"><small>
+                            Se ingresó el valor con raw_input => es texto no número.
+                        </small></aside>                    
+                    </section>
+                
+                    <section>
+                        <h2>While</h2>
+                        <img width="60%" height="60%" src="img/while.png" alt="WHILE">
+                        <aside class="notes"><small>
+                        </small></aside>                                        
+                    </section>
+                
+                    <section>
+                        <h2>For ... in</h2>
+                        <img width="80%" height="80%" src="img/for-in.png" alt="FOR IN">
+                        <aside class="notes"><small>
+                        </small></aside>                               
+                    </section>
+                </section>
+                
+				<section>
+                    <section>
+                        <h2>Funciones</h2>
+                        <p><small>Se puede ver un ejemplo en <a href="http://www.bitson.com.ar/cursos/python1/archivos/funciones.py">funciones.py</a></small></p>
+                        <ul>
+                            <li>Son fragmentos reutilizables de código (con o sin nombre).</li>
+                            <li>Pueden recibir argumentos.</li>
+                            <li>Devuelven un valor.</li>
+                        </ul>
+                        <pre><code data-trim contenteditable>
+def nombre_funcion(par1, par2, ...):
+    """ Esta función hace ...
+        ...
+    """
+    instruccion1
+    instruccion2
+    ...
+    instruccionN
+                        </code></pre>
+                        <aside class="notes"><small>
+                        </small></aside>   
+                    </section>
+                    
+                    <section>
+                        <h2>Definiendo funciones</h2>
+                        <img width="80%" height="80%" src="img/funciones.png" alt="Funciones">
+                        <aside class="notes"><small>
+                        </small></aside>                           
+                    </section>
+                    
+                    <section>
+                        <h2>Argumentos</h2>
+                        <ul>
+                            <li>Argumentos con identificadores.</li>
+                            <li>Argumentos con identificadores y valor por defecto.</li>
+                            <li>Tupla de Argumentos por posición (<code><strong>*</strong></code>).</li>
+                            <li>Diccionario de Argumentos (<code><strong>**</strong></code>).</li>
+                        </ul>
+                        <pre><code data-trim contenteditable>
+def nombre_funcion(par1, par2=100):
+    """ docstring
+        ...
+    """
+    instruccion1
+    instruccion2
+    ...
+    instruccionN
+    
+def otra_funcion(par1, par2, *args, **kwargs):
+    """ docstring
+        ...
+    """
+    instruccion1
+    instruccion2
+    ...
+    instruccionN
+                        </code></pre>
+                        <aside class="notes"><small>
+                        </small></aside>
+                    </section>
+                    
+                    <section>
+                        <h2>Usando argumentos</h2>
+                        <img width="80%" height="80%" src="img/funciones-argumentos.png" alt="Funciones y argumentos">
+                        <aside class="notes"><small>
+                        </small></aside>                          
+                    </section>
+                    
+                    <section>
+                        <h2>Argumentos Variables</h2>
+                        <img width="100%" height="100%" src="img/funciones-argumentosVariables.png" alt="Funciones y argumentos variables">
+                        <aside class="notes"><small>
+                        </small></aside>                          
+                    </section>
+                    
+                    <section>
+                        <h2>¿Valor o referencia?</h2>
+                        <img width="70%" height="70%" src="img/funciones-valor-referencia.png" alt="Argumentos por valor o por referencia">
+                        <aside class="notes"><small>
+                            Según el tipo de datos:<br>
+                            &#8226; Inmutables -> valor.<br>
+                            &#8226; Mutables -> referencia.
+                        </small></aside>                          
+                    </section>    
+                </section>
+                
+                <section>
+                    <section>
+                        <h2>Módulos</h2>
+                        <p><small>Se puede ver un ejemplo en <a href="http://www.bitson.com.ar/cursos/python1/archivos/modulos.py">modulos.py</a></small></p>
+                        <ul>
+                            <li>Archivos individuales con código.</li>
+                            <li>Se accede a ellos a través de <code>import</code>.</li>
+                        </ul>
+                        <pre><code>
+#!/bin/bash/python
+# coding: utf-8
+
+import funciones
+
+## Ahora podemos utilizar las funciones que hicimos antes.
+## Notemos que cuando realizamos el import, se ejecuta todo
+## el código anterior!
+funciones.imprimir_mensaje()                        
+                        </code></pre>
+                        <aside class="notes"><small>
+                        </small></aside>
+                    </section>
+                    
+                    <section>
+                        <h2>Importando selectivamente</h2>
+                        <p><small>Ejemplo de <a href="http://www.bitson.com.ar/cursos/python1/archivos/mensajes.py">mensajes.py</a></small></p>
+                        <pre><code>
+#!/usr/bin/python
+# coding: utf-8
+
+def mensaje1():
+        print("Imprimiendo primer mensaje")
+
+def mensaje2():
+        print("Imprimiendo el segundo mensaje")
+
+print("Esto se ejecuta siempre")
+
+if __name__ == "__main__":
+        print("Esto se imprime si no es una importación")                      
+                        </code></pre>
+                        <aside class="notes"><small>
+                        </small></aside>
+                    </section>
+
+                    <section>
+                        <h2>Importando selectivamente</h2>
+                        <p><small>Usándolo en <a href="http://www.bitson.com.ar/cursos/python1/archivos/modulos2.py">modulos2.py</a></small></p>
+                        <pre><code>
+#!/bin/bash/python
+# coding: utf-8
+
+import mensajes
+
+## Si queremos omitir el tener que escribir el nombre del
+## módulo cuando tenemos que llamar a la función podemos
+## utilizar las cláusulas from ... import ...
+from mensajes import mensaje1
+
+mensaje1()
+print("Esto no es de mensaje, es de módulos2")                  
+                        </code></pre>                        
+                        <aside class="notes"><small>
+                        </small></aside>
+                    </section>
+                </section>
+                
+                <section>
+                    <section>
+                        <h2>Ejercicios</h2>
+                        <a href="http://www.bitson.com.ar/cursos/python1/archivos/ejercicios.pdf">http://www.bitson.com.ar/cursos/python1/archivos/ejercicios.pdf</a>
+                        <hr>
+                        <h3>URL Presentación</h3>
+                        <a href="http://www.bitson.com.ar/cursos/python1">http://www.bitson.com.ar/cursos/python1</a>
+                        <hr>
+                        <h3>Archivos de Ejemplo</h3>
+                        <a href="http://www.bitson.com.ar/cursos/python1/archivos/archivos.tgz">http://www.bitson.com.ar/cursos/python1/archivos.tgz</a>
+                        <aside class="notes"><small>
+                            Pueden ver la presentación desde.
+                        </small></aside>
+                    </section>
+                </section>
+                
+				<section>
+					<h1>GRACIAS</h1>
+					<h3>Leandro E. Colombo Viña</h3>
+                    <a href="http://www.bitson.com.ar">www.bitson.com.ar</a>
+                    <hr>
+                    <small>
+                    Twitter: <a href="http://twitter.com/lecovi">@lecovi</a> <br> 
+                    Correo electrónico / G+: <a href="">colomboleandro@bitson.com.ar</a>
+                    </small>
+                    <br>
+                    <br>
+                    <br><small>
+                    <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">
+                        <img alt="Creative Commons License" style="border-width:0" src="http://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png" /></a>
+                    <p>Este trabajo está licenciado bajo <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License</a>.</p></small>
+				</section>
+
+			</div>
+
+		</div>
+        	
+        <script src="lib/js/head.min.js"></script>
+		<script src="js/reveal.min.js"></script>
+        
+		<script>
+
+			// Full list of configuration options available here:
+			// https://github.com/hakimel/reveal.js#configuration
+			Reveal.initialize({
+				controls: true,
+				progress: true,
+				history: true,
+				center: true,
+                slideNumber: true,
+                mouseWheel: true,
+                previewLinks: false,
+
+				theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
+				transition: Reveal.getQueryHash().transition || 'default', // default/cube/page/concave/zoom/linear/fade/none
+
+				// Parallax scrolling
+				// parallaxBackgroundImage: 'https://s3.amazonaws.com/hakim-static/reveal-js/reveal-parallax-1.jpg',
+				// parallaxBackgroundSize: '2100px 900px',
+
+				// Optional libraries used to extend on reveal.js
+				dependencies: [
+					{ src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+					{ src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+					{ src: 'plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+					{ src: 'plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }
+				]
+			});
+
+		</script>
+
+	</body>
+</html>

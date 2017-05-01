@@ -1,0 +1,1162 @@
+<!doctype html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+
+		<title>Taller de Git</title>
+
+		<meta name="description" content="Herramientas de programadores para NO programadores">
+		<meta name="author" content="Leandro E. Colombo Viña">
+
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<link rel="stylesheet" href="css/reveal.css">
+		<link rel="stylesheet" href="css/theme/black.css" id="theme">
+
+		<!-- For syntax highlighting -->
+		<link rel="stylesheet" href="lib/css/zenburn.css">
+
+		<!-- If the query includes 'print-pdf', use the PDF print sheet -->
+		<script>
+			document.write( '<link rel="stylesheet" href="css/print/' + ( window.location.search.match( /print-pdf/gi ) ? 'pdf' : 'paper' ) + '.css" type="text/css" media="print">' );
+		</script>
+
+		<!--[if lt IE 9]>
+		<script src="lib/js/html5shiv.js"></script>
+		<![endif]-->
+	</head>
+
+	<body>
+		<div class="reveal">
+			<div class="slides">
+                
+				<section id="presentation" data-background="img/flisol/FLISOL2014-16_9.png">
+                    <section>
+                        <h1>Taller de GIT</h1>
+                        <h3>Herramientas de Programadores para NO PROGRAMADORES</h3>
+                        <hr>
+                        <h6>Leandro E. Colombo Viña</h6>
+                        <small><a href="http://www.bitson.com.ar/">colomboleandro@bitson.com.ar</a> / <a href="http://twitter.com/lecovi">@lecovi</a></small>
+                        <hr>
+                        <small>
+                            <strong>URL Presentación:</strong><br>
+                            <a href="http://www.bitson.com.ar/flisol/git">http://www.bitson.com.ar/flisol/git</a><br>
+                            <br>
+                            <strong>Descarga de Archivos:</strong><br>
+                            <a href="http://www.bitson.com.ar/flisol/git/archivos.tgz">http://www.bitson.com.ar/flisol/git/archivos.tgz</a><br>
+                        </small>
+                        <aside class="notes">
+                        </aside>
+                    </section>
+				</section>
+
+				<section id="introduction">
+                    <section id="scm">
+                        <h2>¿Qué es un sistema de control de versiones?</h2>
+                        <p>
+                            Se ocupa de registrar los cambios en un archivo o serie de archivos a lo largo del tiempo para poder recuperar cualquier versión anterior.
+                        </p>
+                        <aside class="notes">
+                            SCM (Source Code Managment)<br>
+                            SVC (System Version Control). <br>
+                            CVS, Subversion, Bazaar, Mercurial y otros... <br>
+                            Diseñador gráfico o web. Programador o Escritor...<br>
+                        </aside>
+				    </section>
+                    
+					<section id="copies">
+						<h2>Si alguna vez te pasó esto</h2>
+						<small><p>
+							(a mí me pasó más de una vez...) <!--<a href="#" class="navigate-down">down</a>.-->
+						</p></small>
+						<p><img width="100%" height="100%" src="./img/CarpestasVersiones.png" alt="Varias Versiones"></p>
+                        <aside class="notes">
+                            Tener varias versiones en diferentes carpetas sin saber bien cuál es la correcta.
+                        </aside>
+					</section>
+                    
+					<section id="git">
+						<h2>Sería buenísimo implementar un sistema de control de versiones</h2>
+						<p>Git te puede ayudar a no tener más esos problemas.</p>
+                        <img width="100%" height="100%" src="./img/Git-Logo-White.png" alt="Logo Git">
+                        <aside class="notes"><small>
+                            ¿Por qué Git?<br>
+                            &#8226; Es rápido, es confiable, fácil de usar.<br>
+                            &#8226; Las versiones del kernel de linux se controlan con Git.<br>
+                            &#8226; Desarrollos no lineales --> soporta ramas.<br>
+                            &#8226; Creado por Linus Torvalds en el 2005<br>
+                            &#8226; Escrito en C, Bourne Shell, TCL y Perl<br>
+                            &#8226; Licencia GPL v.2<br>
+                            </small>
+                        </aside>
+					</section>
+                    
+					<section id="local">
+						<h2>Sistema Local de Control de Versiones</h2>
+						<p>"Copiar los archivos en otro directorio"</p>
+						<a class="test" href="http://cornify.com">
+							<img width="60%" height="60%" src="./img/LocalVersionControlSystems.png" alt="Local Version Control Systems">
+						</a><br/>
+                        <small><p><em>es fácil equivocarse y sobreescribir por error...</em></p></small>
+                        <aside class="notes">
+                            Hacer las copias en otros directorios es propenso a errores.<br>
+                            Se desarrollaron VCS locales con una simple DB.
+                        </aside>                        
+					</section>
+                    
+					<section id="models">
+						<h2>2 Modelos</h2>
+                        <p>Centralizado vs. Distribuido</p>
+						<p>
+                        <img width="50%" height="40%" src="./img/SistemaControlVersiones-Centralizado.png" alt="Sistema Centralizado">
+                        <img width="35%" height="40%" src="./img/SistemaControlVersiones-Distribuido.png" alt="Sistema Distribuido">
+                        </p>
+                        <aside class="notes"><small>
+                            Centralizado:<br>
+                            &#8226; Todo el mundo puede saber (hasta cierto punto) en qué están trabajando los otros colaboradores.<br>
+                            &#8226; Más fácil administrar un CVCS que tener que lidiar con DB locales.<br>
+                            &#8226; FALLO SERVIDOR ---> WARNING!<br>
+                            Distribuido:<br>
+                            &#8226; Cada cliente tiene una copia completa.<br>
+                            &#8226; MERGE --> con cuidado.<br>
+                            </small>
+                        </aside>                        
+					</section>
+
+                    <section id="snapshots">
+                        <h2>Instantáneas, no diferencias</h2>
+                        <p>Git modela los datos como un conjunto de "fotos" de un mini <em>file-system</em>.</p>
+                        <img width="100%" height="100%" src="./img/ModeloDatosGit.png" alt="Modelo Datos">
+                        <aside class="notes">
+                            Muchos sistemas sólo guardan las diferencias, como un BackUp Incremental.<br>
+                            Git utiliza enlaces para ser más eficiente.<br>
+                        </aside>
+                    </section>
+                    
+                    <section id="features">
+                        <h2>Características</h2>
+                        <ol>
+                            <li class="fragment">Casi todas las operaciones son locales.</li>
+                            <li class="fragment">Mantiene la integridad por medio de <em>cheksums</em>.</li>
+                            <li class="fragment">Generalmente sólo añade información.</li>
+                        </ol>
+                        <aside class="notes"><small>
+                            FRAGMENTS:<br>
+                            &#8226; LOCAL: Todo ocurre en tu máquina.<br>
+                            &#8226; ÍNTEGRO: Se utilizan HASH (20 bytes - 40 dígitos) para verificar la integridad de los archivos (SHA-1).<br>
+                            &#8226; INCREMENTAL: El sistema es incremental.<br>
+                            </small>
+                        </aside>
+                    </section>
+
+                    <section id="states">
+                        <h2>Los 3 Estados</h2>
+                        <ol>
+                            <li class="fragment">Trabajo.</li>
+                            <li class="fragment">Preparación.</li>
+                            <li class="fragment">Confirmado.</li>
+                        </ol>
+                        <p>
+                            <img class="fragment" width="40%" height="40%" src="./img/EstadosGit.png" alt="Estados Git">
+                        </p>
+                        <aside class="notes"><small>
+                            FRAGMENTS:<br>
+                            1) Trabajo: nuestros archivos no modificados.<br>
+                            2) Preparación: nuestros archivos modificados listos para ser registrados.<br>
+                            3) Confirmado: nuestros archivos ya registrados en el sistema.<br>
+                            </small>
+                        </aside>                    
+                    </section>                    
+				</section>
+
+				<section id="so">
+                    <p><em>entonces...</em></p>
+					<h2>Manos a la obra</h2>
+					<img width="50%" height="100%" src="./img/ManosALaObra.gif" alt="Manos a la Obra">
+                    <aside class="notes">
+                    </aside>                    
+				</section>
+
+				<section id="installation">
+                    <section id="linux">
+                        <h2>Instalando en GNU/Linux</h2>
+                        <h3><img width="30%" height="30%" src="./img/debian.png" alt="Logo Debian"></h3>
+                        <p><code># apt-get install git</code></p>
+                        <h3><img width="30%" height="30%" src="./img/fedora.png" alt="Logo Fedora"></h3>
+                        <p><code># yum install git-core</code></p>
+                        <aside class="notes">
+                            En todas las distros tenés el paquete de Git correspondiente y también algunos Front-End Gráficos como gitk.<br>
+                        </aside>
+                    </section>
+                    
+                    <section id="windows">
+                        <h2>Instalando en Windows</h2>
+                        <p>El proyecto msysGit tiene un proceso de instalación muy sencillo.</p>
+                        <a href="http://msysgit.github.com/">http://msysgit.github.com/</a>
+                        <aside class="notes">
+                            El clásico: Siguiente, Siguiente, Siguiente, Instalar...<br>
+                            Con las opciones por defecto está perfecto<br>
+                        </aside>                        
+                    </section>
+				</section>
+
+				<section id="configuration">
+                    <section id="config">
+                        <h2>Configurando Git</h2>
+                        <p>Git viene con una herramienta que se llama:<code> git config</code></p><br>
+                        <h3>Sistema</h3>
+                            <p><code class="console">/etc/gitconfig</code></p><br>
+                        <h3>Global</h3>
+                            <p><code>~/.gitconfig</code></p><br>
+                        <h3>Repositorio</h3>
+                            <p><code>.git/config</code></p><br>
+                        <aside class="notes">
+                            Las opciones puestas en el repositorio sobreescriben la global y la del sistema.<br>
+                            Las opciones puestas de manera global (por usuario) sobreescriben las del sistema.<br>
+                            Las opciones del sistema son utilizadas si no existen opciones globales ni del repositorio.<br>
+                            PASEMOS A CONFIGURARLO:<br>
+                        </aside>                        
+                    </section>
+                    
+                    <section id="identity">
+                        <h2>Identidad</h2>
+                        <pre> 
+$ git config --global user.name "Leandro E. Colombo Viña"
+$ git config --global user.email colomboleandro@bitson.com.ar
+                        </pre>
+                        <aside class="notes">
+                        </aside>
+                    </section>
+                    
+                    <section id="editor">
+                        <h2>Editor</h2>
+                        <pre> 
+$ git config --global core.editor vim
+                        </pre>
+                    </section>
+                    
+                    <section id="diff">
+                        <h2>Diferencias</h2>
+                        <pre> 
+$ git config --global merge.tool vimdiff
+                        </pre>
+                        <aside class="notes">
+                            Si se usa un front-end gráfico suele venir incluido.<br>
+                        </aside>
+                    </section>
+                    
+                    <section id="checking">
+                        <h2>Verificando tu configuración</h2>
+                        <pre> 
+$ git config --list
+                        </pre>
+                        <aside class="notes">
+                        </aside>
+                    </section>
+                    
+                    <section id="help">
+                        <h2>Help!</h2>
+                        <pre> 
+$ git help &lt;<em>comando</em>&gt;
+$ git &lt;<em>comando</em>&gt; --help
+$ man git-&lt;<em>comando</em>&gt;
+                        </pre>
+                        <aside class="notes">
+                            o Prof. Google!<br>
+                        </aside>
+                    </section>
+				</section>
+
+                <section id="working">
+                    <section id="creating">
+                        <h2>Creando un repositorio</h2>
+                        <p>En un nuevo directorio iniciamos un repositorio</p>
+                        <p>Abrimos una terminal y ejecutamos lo siguiente:</p>
+                        <pre> 
+<strong>~ $</strong> mkdir Manual_Programacion
+<strong>~ $</strong> cd Manual_Programacion
+<strong>~/Manual_Programacion $</strong> git init
+                        </pre>
+                        <aside class="notes">
+                            Se puede descargar los archivos de <a href="http://bitson.com.ar/flisol/git/archivos.tgz">bitson.com.ar/flisol/archivos.tgz</a><br>
+                        </aside>
+                    </section>
+
+                    <section id="adding">
+                        <h2>Agregando archivos</h2>
+                        <small><p>Ya tenemos listo nuestro repositorio. Git "le presta atención" a lo que hagamos dentro de este directorio.</p>
+                        <p>Colocamos los archivos que van a formar parte de nuestro repositorio en el directorio.</p>
+                        <p>Y debemos decirle a Git que queremos agregar estos archivos al repositorio.</p></small>
+                        <pre>   
+<strong>~/Manual_Programacion $</strong> git add *
+<strong>~/Manual_Programacion $</strong> git status
+<strong>~/Manual_Programacion $</strong> git commit -m "Iniciando el repositorio"
+                        </pre>
+                        <aside class="notes">
+                            Podemos agregar archivos por su nombre o con expresiones.<br>
+                            AGREGAMOS EL CONTENIDO DE LA CARPETA "01" (2 archivos: Banner.png y Manual.odt)<br>
+                            Después de copiar, podemos tirar un status para ver lo que Git detecta.<br>
+                            COMMIT --> STATUS<br>
+                        </aside>
+                    </section>
+
+                    <section id="workflow">
+                        <h2>Workflow</h2>
+                        <img width="100%" height="100%" src="./img/GitWorkflow.png" alt="Flujo de Trabajo Git">
+                        <aside class="notes"><small>
+                            Los archivos en un directorio de trabajo pueden estar: 
+                            &#8226; BAJO SEGUIMIENTO o <br>
+                            &#8226; SIN SEGUIMIENTO.<br>
+                            Si están BAJO SEGUIMIENTO: <br>
+                            &#8226; Sin modificaciones, <br>
+                            &#8226; modificado y <br>
+                            &#8226; preparados.<br>
+                            </small>
+                        </aside>                    
+                    </section>
+
+                    <section id="status">
+                        <h2>¿En qué estado estamos?</h2>
+                        <pre> 
+<strong>~/Manual_Programacion $</strong> git status
+On branch master
+nothing to commit, working directory clean
+                        </pre>
+                        <aside class="notes">
+                            Branch = rama.<br>
+                            Por ahora siempre será MASTER (principal).<br>
+                        </aside>                    
+                    </section>
+
+                    <section id="more_adding">
+                        <h2>Agregando más archivos</h2>
+                        <p>Agreguemos un simple archivo <code>README</code>.</p>
+                        <p>Observemos cómo Git nos informa sobre el estado.</p>
+                        <pre> 
+<strong>~/Manual_Programacion $</strong> vim README
+<strong>~/Manual_Programacion $</strong> git status
+On branch master
+Untracked files:
+  (use "git add &lt;file&gt;..." to include in what will be committed)
+
+       README
+
+nothing added to commit but untracked files present (use "git add" to track)
+                        </pre>
+                        <aside class="notes">
+                            AGREGAMOS EL CONTENIDO DE LA CARPETA "02" (archivo README)<br>
+                            El archivo README no está siendo seguido por Git.<br>
+                            &#8226; UTRACKED (sin seguimiento) => hay que agregarlo con ADD.<br>
+                        </aside>
+                    </section>
+
+
+                    <section id="following_files">
+                        <h2>Siguiendo nuestros archivos</h2>
+                        <pre> 
+<strong>~/Manual_Programacion $</strong> git add README
+<strong>~/Manual_Programacion $</strong> git status
+On branch master
+Changes to be committed:
+  (use "git reset HEAD &lt;file&gt;..." to unstage)
+
+     new file:   README
+
+                        </pre>  
+                        <aside class="notes">
+                            Ahora README está siendo seguido por Git. "STAGED" = to be commited.<br>
+                            ¿Qué pasa si hacemos un cambio en el archivo ODT?<br>
+                        </aside>                        
+                    </section>
+
+                    <section id="pre-stagging">
+                        <h2>Preparando archivos modificados</h2>
+                        <p>Hagamos una pequeña modificación en el archivo: <code> manual.odt</code>.</p>
+                        <pre> 
+<strong>~/Manual_Programacion $</strong> git status
+On branch master
+Changes to be committed:
+  (use "git reset HEAD &lt;file&gt;..." to unstage)
+
+     new file:   README
+
+Changes not staged for commit:
+  (use "git add &lt;file&gt;..." to update what will be committed)
+  (use "git checkout -- &lt;file&gt;..." to discard changes in working directory)
+
+     modified:   manual.odt
+
+                        </pre>
+                        <aside class="notes">
+                            AGREGAMOS EL CONTENIDO DE LA CARPETA "03" (archivo <code>manual.odt</code> MODIFICADO!).<br>
+                        </aside>                        
+                    </section>
+
+                    <section id="stagging">
+                        <h2>Agregamos los cambios</h2>
+                        <p>Si queremos agregar todos los cambios en todos los archivos:</p>
+                        <pre> 
+<strong>~/Manual_Programacion $</strong> git add .  
+<strong>~/Manual_Programacion $</strong> git status
+On branch master
+Changes to be committed:
+  (use "git reset HEAD &lt;file&gt;..." to unstage)
+
+     new file:   README
+     modified:   manual.odt
+
+                        </pre>
+                        <aside class="notes">
+                            Recursivamente.<br>
+                        </aside>
+                    </section>
+
+                    <section id="commiting">
+                        <h2>Registrando cambios</h2>
+                        <p>Entonces ahora sólo resta registrar estos últimos cambios.</p>
+                        <pre> 
+<strong>~/Manual_Programacion $</strong> git commit  
+                        </pre>
+                        <p>Dentro del COMMIT:</p>
+                        <pre>
+Agregando archivo README y modificación de manual.
+
+Hasta ahora iniciamos el repositorio, y después agregamos un archivo nuevo
+(README), hicimos una modificación en el manual y ahora estamos fijando el
+estado para que quede una versión.
+                        </pre>
+                        <aside class="notes"><small>
+                            Se abre el editor de texto que configuramos y describimos el cambio.<br>
+                            En la primera línea una breve descripción.<br>
+                            Dejamos una línea en blanco y podemos explayarnos todo lo que querramos.<br>
+                            <br>
+                            ¿Tenemos que agregar TODOS los archivos del directorio de trabajo?
+                            </small>
+                        </aside>
+                    </section>
+
+                    <section id="gitignore">
+                        <h2>Ignorando algunos archivos</h2>
+                        <p>Crear en el directorio raíz de nuestro repositorio el archivo: <code> .gitignore</code></p>
+                        <ul>
+                            <li>Las líneas en blanco o que empiezan por <code>#</code> son omitidas.</li>
+                            <li>Se pueden usar patrones <strong>glob</strong> estándar.</li>
+                            <li>Se puede indicar un directorio agregando una barra (<code>/</code>) al final del nombre.</li>
+                            <li>Se puede negar un patrón añadiendo <code>!</code> adelante del patrón.</li>
+                        </ul>
+                        <aside class="notes"><small>
+                            Los patrones glob son expresiones regulares simplificadas que pueden ser usadas por las shells. <br>
+                            Por ejemplo, archivos temporales. Abrir <code>manual.odt</code> y tirar un STATUS aparece un archivo ".~lock.manual.odt#"<br>
+                            </small>
+                        </aside>
+                    </section>
+
+                    <section id="gitignore_example">
+                        <h2>Por Ejemplo</h2>
+                        <p>Creamos el archivo <code>.gitignore </code>y agregamos:</p>
+                        <pre><strong>###########################################################################
+## Acá agregamos los patrones que queremos ignorar.
+##
+##  - Las líneas en blanco o que comienzan con '#' son ignoradas
+##  - Se pueden usar patrones GLOB estándar:
+##      - *: Un asterisco reconoce cero o más caracteres.
+##      - [xyz]: Cualquier conjunto de caracteres, en este caso, x o y o z.
+##      - ?: Un signo de interrogación reconoce un único caracter.
+##      - [a-d]: Caracteres entre corchetes separados por un guión reconoce
+##               cualquier caracter entre ellos. En este caso: a, b, c o d.
+##  - Se pueden indicar directorios con una barra al final. Por ejemplo: 
+##      Temporales/
+##  - Se puede negar cualquier patrón agregando un signo de admiración (!) 
+##    adelante del patrón. Por ejemplo:
+##      !*.c
+###########################################################################
+
+## Ignorando archivos temporales de libreoffice:</strong>
+.~*
+                        </pre>
+                        <aside class="notes">
+                            Con esto le estamos indicando que debemos omitir todos los archivos que comiencen con un punto y seguido de '~'.<br>
+                            AGREGAMOS EL CONTENIDO DE LA CARPETA "04" (archivo gitignore: COPIARLO COMO OCULTO!!!!).<br>
+                            <code>git status</code> detecta la inclusión del gitignore. => ADD!<br>
+                        </aside>
+                    </section>
+
+                    <section id="ignoring">
+                        <h2>Agregando al repositorio</h2>
+                        <p>Ahora debemos agregar el <code>.gitignore</code> al repositorio:</p>
+                        <pre>
+<strong>~/Manual_Programacion $</strong> git add .gitignore                          
+                        </pre>
+                        <p>Abrir el <code>manual.odt</code> y consultar el estado del repositorio:</p>
+                        <pre> 
+<strong>~/Manual_Programacion $</strong> git status
+                        </pre>
+                        <p class="fragment">Notemos como nos aparece el archivo temporal.</p>
+                        <aside class="notes"><small>
+                            Antes de hacer el COMMIT, abrir el archivo manual y tirar un STATUS.<br>
+                            FRAGMENTS: Aparece el archivo temporal<br>
+                            En la proxima diapo, después del COMMIT veremos los cambios!<br>
+                            </small>
+                        </aside>                        
+                    </section>
+
+                    <section id="ommiting">
+                        <h2>Saltando 1 paso</h2>
+                        <p>Se puede omitir el estado de preparación (<em>staged</em>) utilizando la opción <code>-a</code>.</p>
+                        <pre> 
+<strong>~/Manual_Programacion $</strong> git commit -a -m "Agregando archivo .gitignore"
+                        </pre>
+                        <div class="fragment">
+                            <p>Volver a abrir el <code>manual.odt</code> y a consultar el estado del repositorio:</p>
+                            <pre> 
+<strong>~/Manual_Programacion $</strong> git status
+                            </pre>
+                        </div>
+                        <aside class="notes"><small>
+                            El parámetro <code>-a</code> nos ahorra un ADD en caso de haber hecho modificaciones.<br>
+                            &#8226; FRAGMENT: Volver a abrir el manual y tirar un STATUS después de haber hecho el COMMIT.<br>
+                            </small>
+                        </aside>
+                    </section>
+
+                    <section id="history">
+                        <h2>Viendo los cambios</h2>
+                        <p>¿Cómo podemos hacer para visualizar los cambios realizados hasta el momemento?</p>
+                        <pre> 
+<strong>~/Manual_Programacion $</strong> git log
+                        </pre>
+                        <aside class="notes"><small>
+                            Vamos a ver:<br>
+                            &#8226; El HASH del commit, <br>
+                            &#8226; quién lo realizó, <br>
+                            &#8226; en qué momento <br>
+                            &#8226; y la descripción que ha hecho.<br>
+                            Con el parámetro <code>--pretty=format:""</code>. Consultar libro u hoja de manual para los formatos.<br>
+                            </small>
+                        </aside>
+                    </section>
+            </section>
+                
+                <section id="editing">
+                    <section id="erasing">
+                        <h2>Eliminando archivos</h2>
+                        <p>
+                            Se deben eliminar del área de seguimiento (<em>staged</em>).
+                            Se utiliza el comando<code> git rm </code>que lo elimina del repositorio y del directorio de trabajo.
+                        </p>
+                        <p>Copiar archivos dentro del directorio de trabajo:</p>
+                        <pre class="fragment"> 
+<strong>~/Manual_Programacion $</strong> git add .
+<strong>~/Manual_Programacion $</strong> git commit -a -m "Agregando material"
+                        </pre>
+                        <div class="fragment">
+                            <p>Ahora sí, después de haber registrado los cambios, eliminamos la carpeta:</p>
+                            <pre> 
+<strong>~/Manual_Programacion $</strong> git rm -r Material/
+                            </pre>
+                        </div>
+                        <div class="fragment">
+                            <p>Verificamos el estado, hay que volver a registrar los cambios:</p>
+                            <pre> 
+<strong>~/Manual_Programacion $</strong> git commit -a -m "Sacando material"
+                            </pre>                    
+                        </div>
+                        <aside class="notes"><small>
+                            Si sólo lo eliminás del directorio de trabajo con <code>rm</code> aparecerá como <code>"Modificados pero no actualizados"</code>.<br>
+                            El comando <code>git rm</code> acepta patrones GLOB.<br>
+                            AGREGAMOS EL CONTENIDO DE LA CARPETA "05" (carpeta Material/).<br>
+                            FRAGMENTS:<br>
+                            &#8226; COMMIT "Agregando Material"<br>
+                            &#8226; Eliminar Carpeta<br>
+                            &#8226; COMMIT "Sacando Material"<br>
+                            </small>
+                        </aside>
+                    </section>
+                    
+                    <section id="rm_cached">
+                        <h2>Eliminando del seguimiento</h2>
+                        <p>Usamos el parámetro <code> --cached </code>.</p>
+                        <div class="fragment">
+                            <p>Copiamos archivos al directorio de trabajo y los agregamos.</p>
+                            <pre> 
+<strong>~/Manual_Programacion $</strong> git status
+<strong>~/Manual_Programacion $</strong> git add .
+<strong>~/Manual_Programacion $</strong> git status
+                            </pre>                    
+                        </div>
+                        <div class="fragment">
+                            <p>UPS! Fue un error... entonces los borramos del seguimiento:</p>
+                            <pre> 
+<strong>~/Manual_Programacion $</strong> git rm --cached -r Material/
+<strong>~/Manual_Programacion $</strong> git status
+                            </pre>                    
+                        </div>
+                        <div class="fragment">
+                            <p>Debemos ignorarlos:</p>
+                            <pre> 
+<strong>~/Manual_Programacion $</strong> git commit -a -m "Omitiendo Material/ (.gitignore)"
+                            </pre>                    
+                        </div>
+                        <aside class="notes"><small>
+                            Después de borrar con <code>cached</code> deberás incluir ese archivo al <code>gitignore</code> para que no se vuelva a agregar por error.<br>
+                            FRAGMENTS:
+                            AGREGAMOS EL CONTENIDO DE LA CARPETA "05" (carpeta Material/).<br>
+                            &#8226; Agregamos los archivos "por error".<br>
+                            &#8226; Eliminamos del seguimiento.<br>
+                            AGREGAMOS EL CONTENIDO DE LA CARPETA "06" (archivo gitignore actualizado!).<br>
+                            &#8226; Ignoramos los archivos.<br>
+                            </small>
+                        </aside>                        
+                    </section>
+
+                    <section id="moving">
+                        <h2>Moviendo archivos</h2>
+                        <p>Para mover archivos utilizaremos el comando<code> git mv</code>. Esto nos permitirá mover (renombrar) archivos.</p>
+                        <div class="fragment">
+                            <p>Renombramos el archivo README a README.txt:</p>
+                            <pre> 
+<strong>~/Manual_Programacion $</strong> git mv README README.txt
+<strong>~/Manual_Programacion $</strong> git status
+                            </pre>                    
+                        </div>
+                        <div class="fragment">
+                            <p>Confirmamos el cambio:</p>
+                            <pre> 
+<strong>~/Manual_Programacion $</strong> git commit -a -m "Renombrando README"
+<strong>~/Manual_Programacion $</strong> git status
+                            </pre>                    
+                        </div>
+                        <div class="fragment">
+                            <p>Verificamos en el SO:</p>
+                            <pre> 
+<strong>~/Manual_Programacion $</strong> ls
+                            </pre>                    
+                        </div>
+                        <aside class="notes"><small>
+                            FRAGMENTS:
+                            &#8226; Renombramos el archivo README a README.txt<br>
+                            &#8226; COMMIT<br>
+                            &#8226; ls<br>
+                            Es lo mismo que hacer:<br>
+                            &#8226; <code>mv Archivo1 Archivo2</code><br>
+                            &#8226; <code>git rm Archivo1</code><br>
+                            &#8226; <code>git add Archivo2</code><br>
+                            </small>
+                        </aside>       
+                    </section>
+				</section>
+                
+                <section id="what_for">
+                    <h2>¿Y todo esto? ¿Para qué?</h2>
+                    <p><em>Para cuando hay problemas...</em></p><br>
+                    <img width="60%" height="60%" src="img/Mafalda-Equivocarse.jpg" alt="Mafalda Equivocarse">
+                </section>
+                
+				<section id="advanced">
+                    <section id="amend">
+                        <h2>Modificando el último commit</h2>
+                        <pre> 
+<strong>~/Manual_Programacion $</strong> git commit --amend
+                        </pre>
+                        <ul>
+                            <li class="fragment">Para cambiar el texto del commit.</li>
+                            <li class="fragment">Si nos olvidamos agregar algún archivo.</li>
+                        </ul>                 
+                        <aside class="notes"><small>
+                            FRAGMENTS:<br>
+                            &#8226; Cambiar el texto del COMMIT.<br>
+                            &#8226; Agregar más archivos al COMMIT.<br>
+                            </small>
+                        </aside>
+                    </section>
+                    
+                    <section id="amendding">
+                        <h2>Modifiquemos el último commit</h2>
+                        <p>Hacemos un cambio en el <code>manual.odt</code>, lo registramos y con <code>amend</code> rectificamos.</p>
+                        <pre> 
+<strong>~/Manual_Programacion $</strong> git commit -a -m "Realizando cambio para deshacer"
+<strong>~/Manual_Programacion $</strong> git commit --amend
+                        </pre>
+                        <div class="fragment">
+                            <p>Nos abre el editor de texto para editar la descripción del COMMIT:</p>
+                            <pre> 
+"Agregando subtítulo a manual.odt"
+                            </pre>                    
+                        </div>              
+                        <div class="fragment">
+                            <p>Agregamos más archivos al directorio de trabajo y rectificamos de nuevo:</p>
+                            <pre> 
+<strong>~/Manual_Programacion $</strong> git add c.jpg
+<strong>~/Manual_Programacion $</strong> git commit --amend
+                            </pre>                    
+                        </div>
+                        <aside class="notes"><small>
+                            AGREGAMOS EL CONTENIDO DE LA CARPETA "07" (archivo manual.odt MODIFICADO!).<br>
+                            FRAGMENTS:<br>
+                            &#8226; Texto del COMMIT corregido.<br>
+                            VERIFICAR con <code>git log</code><br>
+                            &#8226; AGREGAMOS EL CONTENIDO DE LA CARPETA "08" (archivo c.jpg).<br>
+                            VERIFICAR con <code>git log</code><br></small>
+                        </aside>
+                    </section>
+                    
+                    <section id="undo">
+                        <h2>Deshacer modificaciones</h2>
+                        <p>Después de realizar un cambio, podemos volver a la versión anterior en la etapa <em>staged</em>.</p>
+                        <pre>
+<strong>~/Manual_Programacion $</strong> git checkout -- <em>&lt;file&gt;</em>
+                        </pre>
+                        <aside class="notes"><small>
+                            Realizamos otro cambio en el manual.odt. Abrir y poner cualquier cosa.<br>
+                            STATUS --> Para ver el cambio detectado.<br>
+                            Si queremos descartar el cambio recién realizado:<br>
+                            <code>git checkout -- manual.odt</code><br>
+                            Si abrimos el manual.odt, veremos que ha vuelto al estado original! SOBREESCRITO!<br>
+                            STATUS --> Estamos sin cambios ;-)<br>
+                            </small>
+                        </aside>
+                    </section>
+
+                    <section id="step_back">
+                        <h2>Volver sobre nuestros pasos</h2>
+                        <img width="30%" height="30%" src="img/back_to_the_future.jpg" alt="Back to the Future">
+                        <p>Si fuese necesario volver a algún <em>commit</em> anterior porque los cambios realizados no nos convencen.</p>
+                        <p>Utilizaremos el comando <code>git reset</code>. Para esto necesitamos saber el <strong>hash</strong> del commit, ya que así los identificaremos.</p>
+                        <aside class="notes">
+                        </aside>                        
+                    </section>
+                    
+                    <section id="looking_hash">
+                        <h2>Buscando commits</h2>
+                        <p>Utilizando el comando <code>git log</code> y el comando <code>git reflog</code>, podremos ver a qué <em>commit</em> nos queremos mover.</p>
+                        <pre> 
+<strong>~/Manual_Programacion $</strong> git log --pretty=format:"%h %s" 
+                        </pre>
+                        <pre> 
+<strong>~/Manual_Programacion $</strong> git reflog 
+                        </pre>                        
+                        <aside class="notes">
+                            Cada uno de ustedes va a tener seguramente un hash diferente.<br>
+                        </aside>                        
+                    </section>
+                    
+                    <section id="reset_type">
+                        <h2>Pasos firmes o ...</h2>
+                        <p>Para hacer un cambio <em>"suave"</em>:</p>
+                        <pre>
+<strong>~/Manual_Programacion $</strong> git reset --soft <em>&lt;commit&gt;</em>
+                        </pre>
+                        <p>O un cambio <em>"fuerte"</em>:</p>
+                        <pre>
+<strong>~/Manual_Programacion $</strong> git reset --hard <em>&lt;commit&gt;</em>
+                        </pre>
+                        <aside class="notes"><small>
+                            <code>SOFT</code> no toca el índice. Vuelve sólo el puntero HEAD al COMMIT indicado.<br>
+                            <code>HARD</code>, descartará todos los cambios y volverá al COMMIT indicado.<br>
+                            <br>
+                            Volvemos al 1º COMMIT con <code>soft</code>.<br>
+                            STATUS --> DETECTA TODO LO "NUEVO" QUE HAY.<br>
+                            Volver al último COMMIT con <code>soft</code>.<br>
+                            <br>
+                            Repetir con <code>hard</code>. Mirar el directorio con "ls".<br>
+                            </small>
+                        </aside>
+                    </section>
+                </section>
+
+				<section id="branching">
+					<section id="branch">
+						<h2>Ramificándonos</h2>
+                        <img width="20%" height="20%" src="img/branching_out.gif" alt="Branching out">
+						<p>¿Qué es una rama?</p>
+                        <img class="fragment" width="70%" height="70%" src="img/RamasMaster.png" alt="Ramas Master">
+						<aside class="notes"><small>                                                 
+							Maneja las ramificaciones es increíblemente rápida.<br>
+                            Promueve un ciclo de desarrollo donde las ramas se crean y se unen.<br>
+                            Poderosa y exclusiva herramienta.<br>
+                            Una rama es realmente un simple archivo que contiene los 40 caracteres SHA-1<br>
+                            FRAGMENTS:
+                            &#8226; IMAGEN RAMAS MASTER.<br>
+                            </small>
+						</aside>
+					</section>
+					
+                    <section id="testing">
+                        <h2>Creando una rama</h2>
+                        <p>Creamos una rama llamada <code>testing</code>.</p>
+                        <pre> 
+<strong>~/Manual_Programacion $</strong> git branch testing
+                        </pre>
+                        <img width="70%" heigth="70%" src="img/RamasTesting.png" alt="Ramas Testing">
+                        <aside class="notes"><small>
+                            </small>
+                        </aside>
+					</section>
+                    
+                    <section id="head">
+                        <h2>¿Cómo sabe Git dónde estamos trabajando?</h2>
+                        <img width="70%" height="70%" src="img/RamasHead.png" alt="Ramas Head">
+                        <aside class="notes"><small>
+                            </small>
+                        </aside>
+                    </section>                    
+                    
+                    <section id="checkout">
+                        <h2>Saltando de Rama en Rama</h2>
+                        <p>Cambiamos el puntero HEAD con el comando <code>checkout</code>.</p>
+                        <pre> 
+<strong>~/Manual_Programacion $</strong> git checkout testing
+                        </pre>                        
+                        <img width="70%" height="70%" src="img/RamasCambioHead.png" alt="Ramas Cambio Head">
+                        <aside class="notes"><small>
+                            <code>git branch</code> --> Informa en qué rama estás.
+                            </small>
+                        </aside>
+                    </section>
+                    
+                    <section id="forwarding_testing">
+                        <h2>Haciendo cambios en la nueva rama</h2>
+                        <p>Editemos el archivo <code>README</code>.</p>
+                        <pre> 
+<strong>~/Manual_Programacion $</strong> git commit -a -m "Editando README en rama TESTING."
+                        </pre>                        
+                        <img width="70%" height="70%" src="img/RamasCommitTesting.png" alt="Ramas Commit Testing">
+                        <aside class="notes"><small>
+                            AGREGAMOS EL CONTENIDO DE LA CARPETA "11" (archivo README MODIFICADO!).<br>
+                            </small>
+                        </aside>
+                    </section>
+                    
+                    <section id="master_back">
+                        <h2>Volviendo a Master</h2>
+                        <pre> 
+<strong>~/Manual_Programacion $</strong> git checkout master
+                        </pre>                        
+                        <img width="70%" height="70%" src="img/RamasMasterBack.png" alt="Ramas Master Back">
+                        <aside class="notes"><small>
+                            </small>
+                        </aside>
+                    </section>
+                    
+                    <section id="forwarding_master">
+                        <h2>Modificando Master</h2>
+                        <p>Editemos el archivo <code>README</code>.</p>
+                        <pre> 
+<strong>~/Manual_Programacion $</strong> git commit -a -m "Editando README en rama MASTER."
+                        </pre>                        
+                        <aside class="notes"><small>
+                            AGREGAMOS EL CONTENIDO DE LA CARPETA "12" (archivo README MODIFICADO!).<br>
+                            </small>
+                        </aside>
+                    </section>
+                    
+                    <section id="diverging">
+                        <h2>Divergente</h2>
+                        <p>¿qué hemos hecho?</p>              
+                        <img width="70%" height="70%" src="img/RamasDivergente.png" alt="Ramas Divergente">
+                        <aside class="notes"><small>
+                            Saltar de rama en rama con CHECKOUT y ver el contenido del README<br>
+                            </small>
+                        </aside>
+                    </section>
+                    
+                    <section id="merge">
+                        <h2>Mezclando</h2>
+                        <p>Para fusionar nuestrar ramas tendremos que utilizar el comando <code>merge</code>.</p>
+                        <pre> 
+<strong>~/Manual_Programacion $</strong> git merge testing
+                        </pre>                             
+                        <p>Si no necesitamos más la rama la podemos borrar con el parámetro <code>-d</code>.</p>
+                        <pre> 
+<strong>~/Manual_Programacion $</strong> git branch -d testing
+                        </pre>
+                        <img width="40%" height="40%" src="img/RamasMerge.png" alt="Ramas Divergente">
+                        <aside class="notes"><small>
+                            Con <code>git branch</code> muestra en qué rama estamos parados.<br>
+                            </small>
+                        </aside>
+                    </section>
+                    
+                    <section id="conflicts">
+                        <h2>Resolviendo conflictos</h2>
+                        <p>A veces Git no puede resolver solo la unión de las ramas y necesitará que decidamos qué hacer.</p>                     
+                        <p>Con <code>status</code> nos informará qué no pudo resolver.</p>
+                        <p>Editemos (resolviendo) el archivo y agreguemos a la etapa <em>staged</em>.</p>
+                        <pre> 
+<strong>~/Manual_Programacion $</strong> vim README.txt
+<strong>~/Manual_Programacion $</strong> git add README.txt
+                        </pre>
+                        <p>Terminemos la fusión con <code>commit</code>.</p>
+                        <pre> 
+<strong>~/Manual_Programacion $</strong> git commit
+                        </pre>                                             
+                        <aside class="notes"><small>
+                            Con STATUS nos informa que tenemos que resolver un conflicto con README.txt.<br>
+                            Unmerged => Sin Fusionar.<br>
+                            Abramos el archivo README y veamos el contenido.<br>
+                            COMMIT abre el editor de texto y confirmamos la fusión con la descripción.<br>
+                            </small>
+                        </aside>
+                    </section>
+				</section>
+
+				<section id="cloud">
+                    <section id="publishing">
+                        <h2>Publicando nuestro trabajo</h2>
+                        <img width="30%" height="30%" src="img/newsboy.gif" alt="Newboy Extra!">
+                        <p>Existen múltiples servicios para alojar nuestros repositorios en la nube:</p>
+                        <ul>
+                            <li class="fragment">Google Code</li>
+                            <li class="fragment">GitHub</li>
+                            <li class="fragment">Bitbucket</li>
+                        </ul>
+                        <aside class="notes">
+                            FRAGMENTS:<br>
+                            &#8226; Google Code<br>
+                            &#8226; GitHub<br>
+                            &#8226; Bitbucket<br>
+                        </aside>
+                    </section>
+                    
+                    <section id="google_code">
+                        <h2><img width="50%" height="50%" src="img/GoogleCode/Google_Code_wordmark2.png" alt="Google Code Logo"></h2>
+                        <p><img width="10%" height="10%" src="img/GoogleCode/Google_Code2.png" alt="Google Code Logo"></p>
+                        <ul>
+                            <li class="fragment">Si ya tenés una cuenta de Google, ya tenés!</li>
+                            <li class="fragment">Gratis.</li>
+                            <li class="fragment">Soporte para Git, Mercurial y Subversion.</li>
+                            <li class="fragment">Repositorios públicos.</li>
+                            <li class="fragment">Open Source Projects.</li>
+                            <li class="fragment">Cuota de 4 GiB.</li>
+                        </ul><br>
+                        <p>
+                            <img width="50%" height="50%" src="img/GoogleCode/gd-logo2.png" alt="Google Developers Logo">
+                        </p>
+                        <aside class="notes"><small>
+                            FRAGMENTS:<br>
+                            &#8226; Si ya tenés una cuenta de Google, ya tenés!<br>
+                            &#8226; Gratis!<br>
+                            &#8226; Git, Mercurial y Subversion.<br>
+                            &#8226; Repositorios públicos.<br>
+                            &#8226; Open Source Projects.<br>
+                            &#8226; Cuota de 4 GiB, se puede pedir más pero queda sujeto a aprobación.<br></small>
+                        </aside>            
+                    </section>
+
+                    <section id="github">
+                        <h2><img width="30%" height="30%" src="img/GitHub/GitHub_Logo.png" alt="GitHub Logo"></h2>
+                        <img width="8%" height="8%" src="img/GitHub/GitHub-Mark-Light-120px-plus.png" alt="GitHub Mark"><br>
+                        <ul>
+                            <li class="fragment">Repositorios públicos Gratis y privados Pagos.</li>
+                            <li class="fragment">Soporte para Git.</li>
+                            <li class="fragment">Sin Cuota.</li>
+                            <li class="fragment">Comunidad más grande en Open Source Projects.</li>
+                            <li class="fragment"><a href="https://pages.github.com/">Página para tu proyecto</a> &amp; <a href="https://training.github.com/">Entrenamiento.</a></li>
+                            <li class="fragment">Soporte para Organizaciones.</li>
+                            <li class="fragment">Cliente para Windows &amp; Mac.</li>
+                        </ul><br>
+                        <p><img width="20%" height="20%" src="img/GitHub/Octocat.png" alt="GitHub Octocat"></p>
+                        <aside class="notes"><small>
+                            FRAGMENTS:
+                            &#8226; Repositorios públicos Gratis y privados Pagos.<br>
+                            &#8226; Soporte para Git.<br>
+                            &#8226; Open Source Projects.<br>
+                            &#8226; Sin Cuota.<br>
+                            &#8226; Comunidad más grande.<br>
+                            &#8226; Página para tu proyecto.<br>
+                            &#8226; Organizaciones.<br>
+                            &#8226; Entrenamiento.<br>
+                            &#8226; Cliente para Windows &amp; Mac.<br></small>
+                        </aside>            
+                    </section>
+                    
+                    <section id="bitbucket">
+                        <h2><img width="30%" height="30%" src="img/Bitbucket/bitbucket_logo.png" alt="Bitbucket Logo"></h2>
+                        <img width="8%" height="8%" src="img/Bitbucket/bitbucket_icon_metro_style__blue.png" alt="GitHub Mark"><br>
+                        <ul>
+                            <li class="fragment">Repositorios públicos y privados Gratis.</li>
+                            <li class="fragment">Soporte para Git o Mercurial.</li>
+                            <li class="fragment">Sin Cuota.</li>
+                            <li class="fragment"><a href="https://confluence.atlassian.com/display/BITBUCKET/Publishing+a+Website+on+Bitbucket">Página para tu proyecto</a> &amp; <a href="https://www.atlassian.com/git?utm_source=bitbucket&utm_medium=link&utm_campaign=homepage&utm_content=free_git_tutorials">Tutoriales.</a></li>
+                            <li class="fragment">Gratis hasta 5/8 usuarios.</li>
+                            <li class="fragment">Cliente para Windows &amp; Mac.</li>
+                        </ul><br>
+                        <aside class="notes"><small>
+                            FRAGMENTS:
+                            &#8226; Repositorios públicos y privados Gratis.<br>
+                            &#8226; Soporte para Git o Mercurial.<br>
+                            &#8226; Open Source Projects.<br>
+                            &#8226; Sin Cuota.<br>
+                            &#8226; Página para tu proyecto.<br>
+                            &#8226; Tutoriales.<br>
+                            &#8226; Gratis para 5/8 usuarios.<br>
+                            &#8226; Cliente para Windows &amp; Mac.<br></small>
+                        </aside>                    
+                    </section>
+
+                    <section id="using_bitbucket">
+                        <h2>Creando un repositorio en Bitbucket</h2>
+                        <p><a href="https://confluence.atlassian.com/display/BITBUCKET/Bitbucket+101">Tutorial</a></p>
+                        <ol>
+                            <li class="fragment">Crear cuenta en <a href="https://bitbucket.org/account/signin/">https://bitbucket.org/account/signin/</a></li>
+                            <li class="fragment">Crear un repositorio, presionando sobre el botón <strong>Crear</strong>.</li>
+                            <li class="fragment">Completar el formulario. Terminamos con el botón <strong>Crear Repositorio</strong>.</li>
+                        </ol>
+                        <pre class="fragment">
+<strong>https://bitbucket.org/</strong><em>&lt;username&gt;</em>/<em>&lt;repositorio&gt;</em>
+                        </pre>                    
+                        <aside class="notes">
+                            FRAGMENTS:<br>
+                            &#8226; Crear cuenta<br>
+                            &#8226; Crear repositorio<br>
+                            &#8226; Formulario<br>
+                            &#8226; URL<br>
+                        </aside>                    
+                    </section>
+
+                    <section id="pushing">
+                        <h2>Subiendo el repositorio</h2>
+                        <pre>
+<strong>~/Manual_Programacion $</strong> git remote add <em>&lt;nombre&gt;</em> https://<em>&lt;username&gt;</em>@bitbucket.org/<em>&lt;username&gt;</em>/<em>&lt;repositorio&gt;</em>.git
+                        </pre>
+                        <p class="fragments">Si le ponemos el nombre <code>bb</code>, mi nombre de usuario <code>colomboleandro</code> y el repositorio <code>prueba1</code>:</p>
+                        <pre class="fragments">
+<strong>~/Manual_Programacion $</strong> git remote add bb https://colomboleandro@bitbucket.org/colomboleandro/prueba1.git
+<strong>~/Manual_Programacion $</strong> git push -u bb --all
+Password for 'https://colomboleandro@bitbucket.org':
+Counting objects: ....
+....
+Branch master set up to track remote branch master from bb.
+                        </pre>
+                        <aside class="notes">
+                            Hay que agregar la dirección del repositorio remoto<br>
+                            Subir el repositorio completo.<br>
+                            Después git tendrá en cuenta el repositorio remoto.<br>
+                        </aside>
+                    </section>
+
+                    <section id="updating">
+                        <h2>Actualizando nuestro repositorio</h2>
+                        <p>Continuando con el flujo de trabajo, después deberemos actualizar nuestro repositorio remoto.</p>
+                        <p>Agreguemos algún archivo a nuestro directorio de trabajo:</p>
+                        <pre class="fragment">
+<strong>~/Manual_Programacion $</strong> git add .
+<strong>~/Manual_Programacion $</strong> git status
+<strong>~/Manual_Programacion $</strong> git commit -a -m "Agregando más archivos"
+                        </pre>
+                        <div class="fragment">
+                            <p>Realicemos alguna modificación:</p>
+                            <pre>
+<strong>~/Manual_Programacion $</strong> git status
+<strong>~/Manual_Programacion $</strong> git commit -a -m "Modificando archivos"
+<strong>~/Manual_Programacion $</strong> git status
+                            </pre>
+                        </div>
+                        <div class="fragment">
+                            <p>Publiquemos ambos cambios:</p>
+                            <pre>
+<strong>~/Manual_Programacion $</strong> git push bb
+                            </pre>
+                        </div>
+                        <aside class="notes"><small>
+                            AGREGAMOS EL CONTENIDO DE LA CARPETA "09" (archivos manual.odt MODIFICADO, Logo Bitson y Apunte DLO).<br>
+                            FRAGMENTS:
+                            &#8226; COMMIT --> "Agregando más archivos"
+                            Si tiramos un STATUS después del COMMIT, este nos informa que el repo local está 1 COMMIT por delante del remoto.<br>
+                            &#8226; Modifiquemos algún archivo.
+                            AGREGAMOS EL CONTENIDO DE LA CARPETA "10" (archivos manual.odt MODIFICADO).<br>
+                            Ahora STATUS informa que estamos adelantados en 2 COMMITS.<br>
+                            &#8226; PUSH<br>
+                            <br>
+                            CIERRE!
+                            </small>
+                        </aside>
+                    </section>
+                </section>
+                
+                <section id="links">
+                    <h2>Repositorio Taller de Git en Bitbucket</h2>
+                    <p><a href="https://bitbucket.org/colomboleandro/tallergit">https://bitbucket.org/colomboleandro/tallergit</a></p><br>
+                    <h2>Presentación</h2>
+                    <p><a href="http://www.bitson.com.ar/flisol/git">www.bitson.com.ar/flisol/git</a></p><br>
+                    <h2>Archivos</h2>
+                    <p>Comprimidos en un <code>tar.gz</code></p>
+                    <p>Descargar: <a href="http://www.bitson.com.ar/flisol/git/archivos.tgz">http://www.bitson.com.ar/flisol/git/archivos.tgz</a></p><br>
+                    <small><p>Para descomprimir: <code>tar xfz archivos.tgz</code></p></small>
+                </section>
+                
+                <section id="more_info">
+                    <h2>Más info</h2>
+                    <ul>
+                        <li>Libro git en Español: <a href="http://git-scm.com/book/es">http://git-scm.com/book/es</a></li>
+                        <li><a href="http://code.google.com/">Google Code:</a></li>
+                        <ul>
+                            <li><a href="http://blog.desdelinux.net/iniciando-un-proyecto-con-git-y-google-code-parte-i/">Guía Git &amp; Google Code.</a></li>
+                        </ul>
+                        <li><a href="https://github.com/">GitHub:</a></li>
+                        <ul>
+                            <li><a href="https://pages.github.com/">Páginas de GitHub.</a></li>
+                            <li><a href="https://training.github.com/">Entrenamiento de GitHub.</a></li>
+                        </ul>
+                        <li><a href="https://bitbucket.org/">Bitbucket:</a></li>
+                        <ul>
+                            <li><a href="https://www.atlassian.com/git?utm_source=bitbucket&utm_medium=link&utm_campaign=homepage&utm_content=free_git_tutorials">Atlassian Git Tutorials.</a></li>
+                            <li><a href="https://confluence.atlassian.com/display/BITBUCKET/Bitbucket+101">Tutorial Bitbucket.</a></li>
+                        </ul>
+                    </ul>
+                    <br>
+                    <br>
+                    <h5>Esta presentación fue realizada con</h5>
+                    <p><a href="http://lab.hakim.se/reveal-js/#/">reveal.js</a></p>
+                    <small><a href="https://github.com/hakimel/reveal.js">Repositorio en GitHub</a></small>
+                </section>
+                
+				<section id="thanks">
+					<h1>Gracias</h1>
+					<h3>Leandro E. Colombo Viña</h3>
+                    <a href="http://www.bitson.com.ar">www.bitson.com.ar</a>
+				</section>
+
+			</div>
+
+		</div>
+
+		<script src="lib/js/head.min.js"></script>
+		<script src="js/reveal.min.js"></script>
+
+		<script>
+			// Full list of configuration options available here:
+			// https://github.com/hakimel/reveal.js#configuration
+			Reveal.initialize({
+				controls: true,
+				progress: true,
+				history: true,
+				center: true,
+                
+
+				theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
+				transition: Reveal.getQueryHash().transition || 'fade', // default/cube/page/concave/zoom/linear/fade/none
+
+				// Parallax scrolling
+				// parallaxBackgroundImage: 'https://s3.amazonaws.com/hakim-static/reveal-js/reveal-parallax-1.jpg',
+				// parallaxBackgroundSize: '2100px 900px',
+
+				// Optional libraries used to extend on reveal.js
+				dependencies: [
+					{ src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+					{ src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+					{ src: 'plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+					{ src: 'plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }
+				]
+			});
+
+		</script>
+
+	</body>
+</html>

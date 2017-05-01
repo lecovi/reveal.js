@@ -1,0 +1,353 @@
+<!doctype html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+
+		<title>Estructuras Estáticas en C - Estructura de Datos - IFTS N°18</title>
+
+		<meta name="description" content="Estructuras Estáticas en C">
+		<meta name="author" content="Leandro E. Colombo Viña">
+
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<link rel="stylesheet" href="css/reveal.css">
+		<link rel="stylesheet" href="css/theme/default.css" id="theme">
+
+		<!-- For syntax highlighting -->
+		<link rel="stylesheet" href="lib/css/zenburn.css">
+
+		<!-- If the query includes 'print-pdf', include the PDF print sheet -->
+		<script>
+			if( window.location.search.match( /print-pdf/gi ) ) {
+				var link = document.createElement( 'link' );
+				link.rel = 'stylesheet';
+				link.type = 'text/css';
+				link.href = 'css/print/pdf.css';
+				document.getElementsByTagName( 'head' )[0].appendChild( link );
+			}
+		</script>
+
+		<!--[if lt IE 9]>
+		<script src="lib/js/html5shiv.js"></script>
+		<![endif]-->
+	</head>
+
+	<body>
+
+		<div class="reveal">
+
+			<!-- Any section element inside of this container is displayed as a slide -->
+			<div class="slides">
+				<section>
+					<h1>Estructuras Estáticas</h1>
+					<hr>
+                    <h3>Estructura de Datos</h3>
+                    <h4>Instituto de Formación Técnica Superior Nº18</h4>
+					<p>
+						<small><a href="http://lecv.ifts18.edu.ar/edd">Leandro E. Colombo Viña</a> / <a href="http://lecv.ifts18.edu.ar/edd">estructura@ifts18.edu.ar</a></small>
+					</p>
+				</section>
+
+				<section>
+					<h2>Tipos de Datos Estructurados</h2>
+					<h3>Tipos de Datos Abstractos - TDA</h3>
+
+					<aside class="notes">
+					</aside>
+				</section>
+
+				<!-- Example of nested vertical slides -->
+				<section>
+					<section>
+						<h2>La vez pasada...</h2>
+						<p>Vimos como manejar arreglos:</p>
+                        <ul>
+                            <li class="fragment highlight-current-blue">Unidimensionales = <b>Vectores</b></li>
+                            <ul class="fragment">
+                                <li>Cadena de Caracteres = <b>String</b></li>
+                            </ul>
+                            <li class="fragment highlight-current-blue">Multidimensionales = <b>Matrices</b></li>
+                        </ul>
+						
+					</section>
+					<section>
+						<h2>Los tipos de datos estructurados</h2>
+						<p>Pueden contener más de un componente simple o estructurado a la vez.</p>
+                        <p>Se caracterizan por:</p>
+                        <ul>
+                            <li class="fragment">El tipo o los los tipos de los componentes.</li>
+                            <li class="fragment">La forma de la organización</li>
+                            <li class="fragment">La forma de acceso a los componentes</li>
+                        </ul>
+					</section>
+                    <section>
+                        <h2>Los tipos de datos estructurados</h2>
+                        <ul>
+                            <li class="fragment highlight-green">array: arreglo homogéneo de acceso directo por índice.</li>
+                            <li class="fragment highlight-green">string: cadena de caracteres, caso particular del array.</li>
+                            <li class="fragment highlight-blue">struct: estructura heterogénea, agrupación de datos.</li>
+                            <li class="fragment highlight-red">union: compartir memoria, superposición de datos.</li>
+                            <li class="fragment highlight-red">bits: campos de bits, partición de datos.</li>
+                        </ul>
+                    </section>
+				</section>
+
+				<section>
+                    <section>
+                        <h2>El tipo "array"</h2>
+                        <p>Una organización de datos caracterizada por:</p>
+                        <ul>
+                            <li>Todos los componentes son del mismo tipo (homogéneo).</li>
+                            <li>Acceso directo a cada uno de sus componentes a través de un índice.</li>
+                            <li>Todos sus componentes se pueden seleccionar arbitrariamente y son igualmente accesibles.</li>
+                        </ul>
+                        <pre><code class="cpp">
+int v[100], a[100][100];
+v[10] = 5; v[i] = 0; v[i++] = 3;
+/* Inicializacion de vector y de array */
+for (i = 0; i &lt; 100; i++) v[i] = 0;
+for (i = 0; i &lt; 100; i++)
+	for (j = 0; j &lt; 100; j++) a[i][j] = 0;
+                        </code></pre>
+                    </section>
+
+                    <section>
+                        <h2>El subtipo "string"</h2>
+                        <p>Una cadena de caracteres es <strong>un "array" unidimensional de tipo "char" que termina con el carácter nulo (NULL == '\0')</strong></p>
+                        <p>El lenguaje no tiene operadores para manejar cadenas de caracteres. </p>
+                        <p>Se manejan con funciones de biblioteca <strong>string.h</strong></p>
+                    </section>
+                </section>
+                
+				<section>
+                    <section>
+                        <h2>El tipo "struct"</h2>
+                        <p>La estructura es un <em>conjunto</em> de una o más variables, agrupadas u organizadas bajo un único nombre, cuyos miembros pueden ser de tipos diferentes.</p>
+                        <p>La estructura <em>la define</em> el programador y es un <em>nuevo tipo de dato.</em></p>
+                    </section>
+                    <section>
+                        <h3>Definición de un struct</h3>
+                        <pre><code class="cpp">
+struct identificador_plantilla {
+         tipo_dato1  componente1;
+         tipo_dato2  componente2;
+         ...    ...
+         tipo_datoN  componenteN;
+};
+                        </code></pre>
+                    </section>
+                    
+                    <section>
+                        <h3>Declaración de una variable struct</h3>
+                        <pre><code class="cpp">
+struct identificador_plantilla identificador_variable;
+                        </code></pre>
+                    </section>
+                    
+                    <section>
+                        <h3>Ejemplo: estructura para puntos en la pantalla</h3>
+                        <pre><code class="cpp">
+/* Definición de la estructura */
+struct point {
+    int x;
+    int y;
+};
+
+/* Declaración de una variable "coordenada" */
+struct point coordenada;
+
+/* Acceso al elemento con sintáxis operador punto */
+coordenada.x = 300;
+coordenada.y = 200;
+                        </code></pre>
+                    </section>
+				</section>
+
+				<section>
+					<h2>Ejercicios</h2>
+					<ol>
+						<li>Cree una estructura para manejar coordenadas en el plano.</li>
+						<li>Cree una estructura para manejar fechas.</li>
+						<li>Cree una estrucutra para nombre, apellido y DNI.</li>
+						<li>Cree una nueva estrucutura para manejar los datos de las últimas 2 en una única estructura.</li>
+					</ol>
+				</section>
+
+				<section>
+                    <section>
+					   <h2>Nuevos tipos: typedef</h2>
+                        <p>Forma de definir un nuevo tipo de datos.</p>
+                        <pre><code class="cpp">
+/* Definimos un nuevo Tipo */
+typedef int entero;
+
+/* Usamos esa nueva definición */
+entero numero;
+numero = 4;
+printf("%d\n", numero)
+                        </code></pre>
+                    </section>
+                    
+                    <section>
+                        <h2>typedef y struct</h2>
+                        <p>¿Cómo usamos el typedef con los struct?</p>
+                        <pre><code class="cpp">
+struct alumno {
+    char apellido[30];
+    char nombre[20];
+    float nota1;
+    float nota2;
+    float nota3;
+    float promedio;
+};
+typedef struct alumno ALUMNO;
+                        </code></pre>
+                    </section>
+                    <section>
+                        <h2>typedef y struct</h2>
+                        <p>o más simple...</p>
+                        <pre><code class="cpp">
+typedef struct {
+    char apellido[30];
+    char nombre[20];
+    float nota1;
+    float nota2;
+    float nota3;
+    float promedio;
+} ALUMNO;
+                        </code></pre>                        
+                    </section>
+				</section>
+                
+                <section>
+                    <section>
+                        <h2>Alineación de datos en las estructuras</h2>
+                        <p class="fragment">La mayoría de los procesadores requieren que los objetos de <strong>n-bytes</strong> se guarden en memoria en direcciones <strong>n*k</strong> (es decir alineados comenzando en direcciones pares)</p>
+                        <p class="fragment">Los datos no alineados tienen un efecto colateral en el acceso con buses de gran ancho.</p>
+                    </section>
+                    <section>
+                        <h2>Alineación de datos en las estructuras</h2>
+                        <p class="fragment">Por default, en general los compiladores agregan "relleno" (pad) en las estructuras para asegurar la apropiada alineación, en especial con los array.</p>
+                        <p class="fragment">El relleno (Padding) asegura la alineación con el objeto más grande (que es el que tiene mayor requerimiento).</p>
+                        <small class="fragment">
+                            <ul>
+                                <li>Reordená para ahorrar memoria.</li>
+                                <li>Reordená para acceder más rápido.</li>
+                            </ul>
+                        </small>
+                        <hr>
+                        <p class="fragment">
+                        <small><strong>Ejercicio:</strong> Armá una estructura, averiguá cuanto ocupa en memoria con <em>sizeof</em> y reordená para ver los cambios.</small>
+                        </p>
+                    </section>
+                </section>
+                
+                <section>
+                    <section>
+                        <h2>Bonus Track: Los tipos enumerativos</h2>
+                        <p>En la declaración o definición se establece un conjunto de valores posibles representados por identificadores.</p>
+                        <pre><code class="cpp">
+enum colores {rojo, azul, amarillo, verde};
+enum colores color;
+                        </code></pre>
+                        <small>
+                            <ul>
+                                <li>La variable "color" es de tipo "enum colores"</li>
+                                <li>Los valores posibles son 4 y están identificados por esos nombres que se llaman enumeradores</li>
+                                <li>El compilador asigna un valor a cada enumerador empezando en cero.</li>
+                            </ul>
+                        </small>
+                    </section>
+                    <section>
+                        <h2>Bonus Track: Los tipos enumerativos</h2>
+                        <p>Por ejemplo: </p>
+                        <pre><code class="cpp">
+enum dias {domingo, lunes, martes, miercoles, jueves, viernes, sabado};
+enum dias dia;
+                        </code></pre>
+                        <small>
+                            <p>El ENUMERADOR domingo VALE 0.</p>
+                            <p>El ENUMERADOR lunes VALE 1.</p>
+                            <p>...</p>
+                            <p>El ENUMERADOR sabado VALE 6.</p>
+                        </small>
+                    </section>
+                    
+                    <section>
+                        <h2>Bonus Track: Los tipos enumerativos</h2>
+                        <p>Usándolo con <em>typedef</em>.</p>
+                        <pre><code class="cpp">
+/* Definición */
+typedef enum {dom, lun, mar, mie, jue, vie, sab} DIA;
+
+/* Declaración de variable e inicialización */
+DIA dia0 = lun;
+                        </code></pre>
+                    </section>
+                    
+                    <section>
+                        <h2>Bonus Track: Los tipos enumerativos</h2>
+                        <p>La utilidad de los tipos enumerativos se basa en dos aspectos:</p>
+                        <ul>
+                            <li>Mejoran la claridad del programa, por su carácter autodocumentador.</li>
+                            <li>Obligan al compilador a hacer test de consistencia de tipo.</li>
+                        </ul>
+                    </section>
+                </section>
+                
+                <section>
+                    <h1>Consultas</h1>
+                </section>
+                
+                <section>
+                    <h1>Gracias</h1>
+                </section>                
+                
+				<section data-background="img/thats_all.jpg">
+				</section>
+
+			</div>
+
+		</div>
+
+		<script src="lib/js/head.min.js"></script>
+		<script src="js/reveal.min.js"></script>
+
+		<script>
+
+			// Full list of configuration options available here:
+			// https://github.com/hakimel/reveal.js#configuration
+			Reveal.initialize({
+				controls: true,
+				progress: true,
+				history: true,
+				center: true,
+                mouseWheel: true,
+                embedded: true, 
+
+				theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
+				transition: Reveal.getQueryHash().transition || 'default', // default/cube/page/concave/zoom/linear/fade/none
+
+				// Parallax scrolling
+				// parallaxBackgroundImage: 'https://s3.amazonaws.com/hakim-static/reveal-js/reveal-parallax-1.jpg',
+				// parallaxBackgroundSize: '2100px 900px',
+
+				// Optional libraries used to extend on reveal.js
+				dependencies: [
+					{ src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+					{ src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+					{ src: 'plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+					{ src: 'plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }
+				]
+			});
+
+		</script>
+
+	</body>
+</html>

@@ -1,0 +1,557 @@
+<!doctype html>
+<html lang="es">
+
+	<head>
+		<meta charset="utf-8">
+
+		<title>Python - bitson</title>
+
+		<meta name="description" content="Programación Orientada a Objetos con Python">
+		<meta name="author" content="Leandro E. Colombo Viña">
+
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<link rel="stylesheet" href="css/reveal.css">
+		<link rel="stylesheet" href="css/theme/night.css" id="theme">
+
+		<!-- For syntax highlighting -->
+		<link rel="stylesheet" href="lib/css/zenburn.css">
+
+		<!-- If the query includes 'print-pdf', use the PDF print sheet -->
+		<script>
+			document.write( '<link rel="stylesheet" href="css/print/' + ( window.location.search.match( /print-pdf/gi ) ? 'pdf' : 'paper' ) + '.css" type="text/css" media="print">' );
+		</script>
+
+		<!--[if lt IE 9]>
+		<script src="lib/js/html5shiv.js"></script>
+		<![endif]-->
+	</head>
+
+	<body>
+
+		<div class="reveal">
+
+			<!-- Any section element inside of this container is displayed as a slide -->
+			<div class="slides">
+                <section>
+                    <section>
+                        <h1>Python</h1>
+                        <h3>Programación Orientada a Objetos</h3>
+                        <hr>
+                        <p>
+                            <small><a href="http://www.bitson.com.ar">Leandro E. Colombo Viña</a> | <a href="http://twitter.com/lecovi">@lecovi</a> <br> 
+                                <a href="http://www.bitson.com.ar"><em>colomboleandro &lt;at&gt; bitson.com.ar</em></small>
+                        </p>
+                    </section>
+
+                    <section>
+                        <h2>URL Presentación</h2>
+                        <a href="http://www.bitson.com.ar/cursos/python2">http://www.bitson.com.ar/cursos/python2</a>
+                        <hr>
+                        <h3>Archivos de Ejemplo</h3>
+                        <a href="./archivos/archivos.tar.gz">http://www.bitson.com.ar/cursos/python2/archivos/archivos.tar.gz</a>
+                        <aside class="notes"><small>
+                            Pueden ver la presentación desde.
+                        </small></aside>
+                    </section>
+                </section>
+                
+                <section>
+                    <h2>El Zen de Python</h2>
+                    <p><a href="http://docs.python-guide.org/en/latest/">The Hitchhiker’s Guide to Python!</a></p>
+                    <img width="70%" height="70%" src="img/zen-of-python-poster-a3.png" alt="El Zen de Python">
+                    <aside class="notes"><small>
+                    </small></aside>
+                </section>
+
+                <section>
+                    <section>
+                        <h2>¿OOP? <em>#$&amp;!</em> WTF!?</h2>
+                        <ul>
+                            <li class="fragment">Modelamos pensando en objetos.</li>
+                            <li class="fragment">¿Qué son objetos?</li>
+                            <ul>
+                                <li class="fragment">Como en la vida real, cosas...</li>
+                            </ul>
+                            <li class="fragment">¿Qué importa de estos objetos?</li>
+                            <ul>
+                                <li class="fragment">Cómo son, sus características, sus <em>atributos</em>.</li>
+                                <li class="fragment">Qué hacen, sus acciones, sus <em>métodos</em>.</li>
+                            </ul>
+                        </ul>
+                        <p><br></p>
+                        <div class="fragment">
+                                <small>
+                                    <p><a href="http://objectstart.com/">http://objectstart.com/</a><br>
+                                        <a href="http://librosweb.es/libro/python/capitulo_5.html">http://librosweb.es/libro/python/</a>
+                                    </p>
+                                </small>
+                            </div>
+                        <aside class="notes"><small>
+                            FRAGMENTS:<br>
+                            &#8226; Modelamos pensando en objetos.<br>
+                            &#8226; ¿qué son los objetos?<br>
+                            &#8226; cosas.<br>
+                            &#8226; ¿qué interesa?<br>
+                            &#8226; atributos<br>
+                            &#8226; métodos<br>
+                        </small></aside>
+                    </section>
+
+                    <section>
+                        <h2>Características</h2>
+                        <ul>
+                            <li class="fragment grow">Abstracción</li><br>
+                            <li class="fragment grow">Encapsulamiento</li><br>
+                            <li class="fragment grow">Polimorfismo</li><br>
+                            <li class="fragment grow">Herencia</li>
+                        </ul>
+                        <aside class="notes"><small>
+                            FRAGMENTS: grow<br>
+                            &#8226; Abstracción: miramos las caracterísiticas esenciales del objeto. La que las DISTINGUE.<br>
+                            &#8226; Encapsulamiento: no interesa cómo es la implementación.<br>
+                            &#8226; Polimorfismo: lo que hace el objeto depende de quién es MOVER = reptar/caminar.<br>
+                            &#8226; Herencia: los objetos heredan propiedades y comportamientos por TIPO.<br>
+                        </small></aside>
+                    </section>
+
+                    <section>
+                        <h2>Glosario</h2>
+                        <ul>
+                            <li class="fragment highlight-current-blue"><strong>Clase:</strong> tipos de objetos.</li>
+                            <li class="fragment highlight-current-blue"><strong>Objeto:</strong> instancia de la clase.</li>
+                            <li class="fragment highlight-current-blue"><strong>Atributos:</strong> características del objeto.</li>
+                            <li class="fragment highlight-current-blue"><strong>Métodos:</strong> las acciones que puede realizar.</li>
+                        </ul>
+                        <aside class="notes"><small>
+                            FRAGMENTS: blue<br>
+                        </small></aside>
+                    </section>
+                </section>     
+ 
+                <section>
+                    <section>
+                        <h2>Creando clases</h2>
+                        <p><small>Tenemos un ejemplo en <a href="./archivos/persona.py">persona.py</a></small></p>
+                        <pre><code class="python">
+#!/usr/bin/python
+# coding: utf-8
+
+class Persona:
+    """Abstracción de los objetos Persona"""
+    def __init__(self, nombre):
+        self.nombre = nombre
+        print("Acabo de ser creado y me llamo {nombre}").format(nombre=nombre)
+
+    def avanzar(self):
+        print("Soy {nombre} y estoy caminando hacia adelante!").format(nombre=self.nombre)
+                        </code></pre>
+                        <aside class="notes"><small>
+                            Hacer el ejemplo con el IDE: Eclipse.<br>
+                            <code>__init__</code>: Método especial --> se llama al instanciar la clase.<br>
+                            <code>self</code>: convención! --> es una referencia.<br>
+                        </small></aside>
+                    </section>
+                    
+                    <section>
+                        <h2>Probando la clase</h2>
+                        <p><small>Tenemos un ejemplo en <a href="./archivos/prueba_persona.py">prueba_persona.py</a></small></p>
+                        <pre><code class="python">
+#!/usr/bin/python
+# coding: utf-8
+
+import persona
+
+sujeto1 = persona.Persona("Juan")
+sujeto2 = persona.Persona("Pedro")
+
+sujeto1.avanzar()
+sujeto2.avanzar()
+                        </code></pre>
+                        <aside class="notes"><small>
+                            Hacer el ejemplo con el IDE: Eclipse.<br>
+                            Identificar los objetos llamando a <code>id</code><br>
+                        </small></aside>
+                    </section>                    
+                </section>
+
+                <section>
+                    <h2>Polimorfismo</h2>
+                    <p><small>Tenemos un ejemplo en <a href="./archivos/prueba_polimorfismo.py">prueba_polimorfismo.py</a>, 
+                        <a href="./archivos/persona.py">persona.py</a>, 
+                        <a href="./archivos/reptil.py">reptil.py</a></small></p>
+                        <pre><code class="python">
+#!/usr/bin/python
+# coding: utf-8
+
+import persona
+import reptil
+
+sujeto = persona.Persona("Jorge")
+animal = reptil.Reptil("Pitón")
+
+sujeto.avanzar()
+animal.avanzar()
+                        </code></pre>
+                    <em>¡No existe la sobrecarga de métodos!</em>
+                    <aside class="notes"><small>
+                        Hacer el ejemplo con el IDE: Eclipse.<br>
+                        Notar como el método avanzar responde a cada objeto de manera diferente.<br>
+                    </small></aside>
+                </section>
+                
+                <section>
+                    <section>
+                        <h2>Encapsulamiento</h2>
+                        <p><small>Tenemos un ejemplo en <a href="./archivos/encapsulamiento.py">encapsulamiento.py</a></small></p>
+                        <ul>
+                            <div class="fragment roll-in">
+                                <li>No hay modificadores de acceso.</li>
+                                <ul><li><em>"We are all consenting adults"</em></li></ul>
+                            </div>
+                            <div class="fragment roll-in">
+                                <li><strong>Name Mangling: <a href="http://legacy.python.org/dev/peps/pep-0008/#method-names-and-instance-variables">PEP 8</a></strong></li>
+                                <ul>
+                                    <li><code>público</code></li>
+                                    <li><code>_semi_privado</code></li>
+                                    <li><code>__privado</code></li>
+                                </ul>
+                            </div>
+                            <li class="fragment roll-in">Propiedades</li>
+                        </ul>
+                        <aside class="notes"><small>
+                            FRAGMENTS: roll-in<br>
+                            &#8226; Sin modificadores de acceso.<br>
+                            &#8226; Name-mangling.<br>
+                            &#8226; Properties --> getters y setters (por ejemplo c/validación).<br>
+                            Hacer el ejemplo con el IDE: NetBeans.<br>
+                        </small></aside>
+                    </section>
+                    
+                    <section>
+                        <h2>Encapsulando</h2>
+                        <pre><code class="python">
+class Encapsulamiento:
+    def __init__(self):
+        self.__atributo_privado = "este atributo es privado."
+        self._atributo_semi_privado = "este atributo es \"casi\" privado."
+        self.atributo_publico = "este atributo es público."
+
+    def publico(self):
+        return "Este es un método Público"
+
+    def _semi_privado(self):
+        return "Este es un método Semi Privado"
+
+    def __privado(self):
+        return "Este es un método Privado"
+
+    def get_atributo_privado(self):
+        return self.__atributo_privado
+
+    def set_atributo_privado(self, valor):
+        self.__atributo_privado = valor
+
+    secreto = property(get_atributo_privado, set_atributo_privado)
+                        </code></pre>
+                        <aside class="notes"><small>
+                        </small></aside>
+                    </section>                
+                </section>               
+                
+                <section>
+                    <section>
+                        <h2>Herencia</h2>
+                        <p><small>Tenemos un ejemplo en <a href="./archivos/trabajador.py">trabajador.py </a></small></p>
+                        <pre><code class="python">
+class Trabajador:
+    def __init__(self, nombre):
+        self.nombre = nombre
+        
+    def trabajar(self):
+        print("-{name}: Trabajo muy duro! Como un esclavo!").format(name=self.nombre)
+
+
+class Jubilado(Trabajador):
+    def trabajar(self):
+        print("-{name}: Ya no trabajo! Soy JUBILADO!!").format(name=self.nombre)
+
+
+class Menor(Trabajador):
+    def trabajar(self):
+        print("-{name}: EXPLOTADOR!!!!").format(name=self.nombre)
+                        </code></pre>
+                        <aside class="notes"><small>
+                            Sobreescribe métodos.<br>
+                            Hacer el ejemplo con el IDE: Eclipse.<br>
+                        </small></aside>
+                    </section>
+                    
+                    <section>
+                        <h2>Herencia Múltiple</h2>
+                        <p><small>Tenemos un ejemplo en <a href="./archivos/multiple.py">multiple.py</a></small></p>
+                        <pre><code class="python">
+import trabajador
+
+class Persona:
+    def __init__(self, edad):
+        self.edad =  edad
+        
+    def trabajar(self):
+        print("-Persona: tengo {age} años.").format(age=self.edad)
+        
+
+class Empleado(Persona, trabajador.Trabajador):
+    def __init__(self, nombre, edad):
+        self.nombre = nombre
+        self.edad = edad
+        
+    def identidad(self):
+        print("Soy {name} y tengo {age} años").format(name=self.nombre, age=self.edad)
+                        </code></pre>
+                        <aside class="notes"><small>
+                        </small></aside>
+                    </section>
+                </section>
+
+                <section>
+                    <h2>Métodos Especiales</h2>
+                    <ul>
+                        <li><strong><code>__init__</code>:</strong> tareas de inicialización.</li>
+                        <li><strong><code>__new__</code>:</strong> constructor (clase).</li>
+                        <li><strong><code>__del__</code>:</strong> destructor del objeto (limpieza).</li>
+                        <li><strong><code>__str__</code>:</strong> lo que usa <code>print</code>.</li>
+                        <li><strong><code>__cmp__</code>:</strong> comparador entre objetos.</li>
+                        <li><strong><code>__len__</code>:</strong> longitud del objeto.</li>
+                    </ul>
+                    <aside class="notes"><small>
+                    </small></aside>
+                </section>                
+ 
+                <section>
+                    <section>
+                        <h2>Excepciones</h2>
+                        <p><small>Tenemos un ejemplo en <a href="./archivos/excepciones.py">excepciones.py</a></small></p>
+                        <pre><code class="python">
+#!/usr/bin/python
+# coding: utf-8
+
+variable = input("1° Caso) Ingrese un número: ")
+
+try:
+    numero = input("2° Caso) Ingrese otro número: ")
+except Exception as e:
+    print("Ha ocurrido un error: {excepcion}".format(excepcion=e))
+else:
+    print("Usted ingresó los números {} y {}".format(variable, numero))
+finally:
+    print("Se terminó el programa, limpiando...")                    
+                        </code></pre>
+                        <aside class="notes"><small>
+                        </small></aside>
+                    </section>
+                    
+                    <section>
+                        <h2>Lista de Excepciones...</h2>
+                        <ol>
+                            <li><code>BaseException</code></li>
+                            <li><code>Exception(BaseException)</code></li>
+                            <li><code>GeneratorExit(Exception)</code></li>
+                            <li><code>StandardError(Exception)</code></li>
+                            <li><code>ArithmeticError(StandardError)</code></li>
+                            <li><code>FloatingPointError(ArithmeticError)</code></li>
+                            <li><code>OverflowError(ArithmeticError)</code></li>
+                            <li><code>ZeroDivisionError(ArithmeticError)</code></li>
+                            <li><code>AssertionError(StandardError)</code></li>
+                            <li><code>AttributeError(StandardError)</code></li>
+                        </ol>
+                        <aside class="notes"><small>
+                        </small></aside>
+                    </section>
+                    
+                    <section>
+                        <h2>... y excepciones...</h2>
+                        <ol>
+                            <li><code>EOFError(StandardError)</code></li>
+                            <li><code>EnvironmentError(StandardError)</code></li>
+                            <li><code>IOError(EnvironmentError)</code></li>
+                            <li><code>OSError(EnvironmentError)</code></li>
+                            <li><code>WindowsError(OSError)</code></li>
+                            <li><code>ImportError(StandardError)</code></li>
+                            <li><code>LookupError(StandardError)</code></li>
+                            <li><code>IndexError(LookupError)</code></li>
+                            <li><code>KeyError(LookupError)</code></li>
+                            <li><code>MemoryError(StandardError)</code></li>
+                        </ol>
+                        <aside class="notes"><small>
+                        </small></aside>
+                    </section>
+                    
+                    <section>
+                        <h2>... y más excepciones...</h2>
+                        <ol>
+                            <li><code>NameError(StandardError)</code></li>
+                            <li><code>UnboundLocalError(NameError)</code></li>
+                            <li><code>ReferenceError(StandardError)</code></li>
+                            <li><code>RuntimeError(StandardError)</code></li>
+                            <li><code>NotImplementedError(RuntimeError)</code></li>
+                            <li><code>SyntaxError(StandardError)</code></li>
+                            <li><code>IndentationError(SyntaxError)</code></li>
+                            <li><code>TabError(IndentationError)</code></li>
+                            <li><code>SystemError(StandardError)</code></li>
+                            <li><code>TypeError(StandardError)</code></li>
+                        </ol>
+                        <aside class="notes"><small>
+                        </small></aside>
+                    </section>
+                    <section>
+                        <h2>... y todavía aún más...</h2>
+                        <ol>
+                            <li><code>ValueError(StandardError)</code></li>
+                            <li><code>UnicodeError(ValueError)</code></li>
+                            <li><code>UnicodeDecodeError(UnicodeError)</code></li>
+                            <li><code>UnicodeEncodeError(UnicodeError)</code></li>
+                            <li><code>UnicodeTranslateError(UnicodeError)</code></li>
+                            <li><code>StopIteration(Exception)</code></li>
+                            <li><code>Warning(Exception)</code></li>
+                            <li><code>DeprecationWarning(Warning)</code></li>
+                            <li><code>FutureWarning(Warning)</code></li>
+                            <li><code>ImportWarning(Warning)</code></li>
+                        </ol>
+                        <aside class="notes"><small>
+                        </small></aside>
+                    </section>
+                    
+                    <section>
+                        <h2>...</h2>
+                        <ol>
+                            <li><code>PendingDeprecationWarning(Warning)</code></li>
+                            <li><code>RuntimeWarning(Warning)</code></li>
+                            <li><code>SyntaxWarning(Warning)</code></li>
+                            <li><code>UnicodeWarning(Warning)</code></li>
+                            <li><code>UserWarning(Warning)</code></li>
+                            <li><code>KeyboardInterrupt(BaseException)</code></li>
+                            <li><code>SystemExit(BaseException)</code></li>                            
+                        </ol>
+                        <aside class="notes"><small>
+                        </small></aside>
+                    </section>
+                    
+                    <section>
+                        <h2>... y si pensaste que eran pocas</h2>
+                        <p><small>Tenemos un ejemplo en <a href="./archivos/mi_excepcion.py">mi_excepcion.py</a></small></p>
+                        <p><em>Podés definir las tuyas propias...</em></p>
+                        <pre><code class="python">
+#!/usr/bin/python
+# coding: utf-8
+
+class MiError(Exception):
+    def __init__(self, valor):
+        self.valor = valor
+        
+    def __str__(self):
+        return "Error: " + str(self.valor)
+
+try:
+    valor = input("Ingrese un número:")
+    if valor > 0:
+        raise MiError("Ingresó un número positivo!")
+except MiError, e:
+    print e
+
+print("Programa finalizado")                        
+                        </code></pre>
+                        <aside class="notes"><small>
+                        </small></aside>
+                    </section>                
+                </section>                
+
+                <section>
+                    <h2>Más recursos para aprender Python</h2>
+                    <p><a href="https://koding.com/Home">Koding</a>: entorno de desarrollo en línea.</p>
+                    <p><a href="http://www.codecademy.com/tracks/python">Codecademy</a>: academia comunitaria en línea.</p>
+                    <p><a href="http://learnpythonthehardway.org/book/">Learn Python the Hard Way</a>: libro en línea.</p>
+                    <p><a href="http://www.learnpython.org/">Learn Python</a>: libro y ejemplos en línea.</p>
+                    <p><a href="http://zetcode.com/">Zetcode</a>: tutoriales en línea.</p>
+                    <aside class="notes"><small>
+                    </small></aside>
+                </section>
+                
+                <section>
+                    <section>
+                        <h2>Ejercicios</h2>
+                        <a href="./archivos/ejercicios2.pdf">http://www.bitson.com.ar/cursos/python2/archivos/ejercicios2.pdf</a>
+                        <hr>
+                        <h3>URL Presentación</h3>
+                        <a href="http://www.bitson.com.ar/cursos/python2">http://www.bitson.com.ar/cursos/python2</a>
+                        <hr>
+                        <h3>Archivos de Ejemplo</h3>
+                        <a href="./archivos/archivos.tar.gz">http://www.bitson.com.ar/cursos/python2/archivos.tar.gz</a>
+                        <aside class="notes"><small>
+                            Pueden ver la presentación desde.
+                        </small></aside>
+                    </section>
+                </section>
+                
+				<section>
+					<h1>GRACIAS</h1>
+					<h3>Leandro E. Colombo Viña</h3>
+                    <a href="http://www.bitson.com.ar">www.bitson.com.ar</a>
+                    <hr>
+                    <small>
+                    Twitter: <a href="http://twitter.com/lecovi">@lecovi</a> <br> 
+                    Correo electrónico / G+: <a href="http://www.bitson.com.ar"><em>colomboleandro &lt;at&gt; bitson.com.ar</em></a>
+                    </small>
+                    <br>
+                    <br>
+                    <br><small>
+                    <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">
+                        <img alt="Creative Commons License" style="border-width:0" src="http://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png" /></a>
+                    <p>Este trabajo está licenciado bajo <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License</a>.</p></small>
+				</section>
+
+			</div>
+
+		</div>
+        	
+        <script src="lib/js/head.min.js"></script>
+		<script src="js/reveal.min.js"></script>
+        
+		<script>
+
+			// Full list of configuration options available here:
+			// https://github.com/hakimel/reveal.js#configuration
+			Reveal.initialize({
+				controls: true,
+				progress: true,
+				history: true,
+				center: true,
+                slideNumber: true,
+                mouseWheel: true,
+                previewLinks: false,
+
+				theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
+				transition: Reveal.getQueryHash().transition || 'default', // default/cube/page/concave/zoom/linear/fade/none
+
+				// Parallax scrolling
+				// parallaxBackgroundImage: 'https://s3.amazonaws.com/hakim-static/reveal-js/reveal-parallax-1.jpg',
+				// parallaxBackgroundSize: '2100px 900px',
+
+				// Optional libraries used to extend on reveal.js
+				dependencies: [
+					{ src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+					{ src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+					{ src: 'plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+					{ src: 'plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }
+				]
+			});
+
+		</script>
+
+	</body>
+</html>

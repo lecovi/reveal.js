@@ -1,0 +1,682 @@
+<!doctype html>
+<html lang="es">
+
+	<head>
+		<meta charset="utf-8">
+
+		<title>Python - bitson</title>
+
+		<meta name="description" content="Python - Librería Estándar">
+		<meta name="author" content="Leandro E. Colombo Viña">
+
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<link rel="stylesheet" href="css/reveal.css">
+		<link rel="stylesheet" href="css/theme/beige.css" id="theme">
+
+		<!-- For syntax highlighting -->
+		<link rel="stylesheet" href="lib/css/zenburn.css">
+
+		<!-- If the query includes 'print-pdf', use the PDF print sheet -->
+		<script>
+			document.write( '<link rel="stylesheet" href="css/print/' + ( window.location.search.match( /print-pdf/gi ) ? 'pdf' : 'paper' ) + '.css" type="text/css" media="print">' );
+		</script>
+
+		<!--[if lt IE 9]>
+		<script src="lib/js/html5shiv.js"></script>
+		<![endif]-->
+	</head>
+
+	<body>
+
+		<div class="reveal">
+
+			<!-- Any section element inside of this container is displayed as a slide -->
+			<div class="slides">
+                <section>
+                    <section>
+                        <h1>Python</h1>
+                        <h3>Librería Estándar</h3>
+                        <hr>
+                        <p>
+                            <small><a href="http://www.bitson.com.ar">Leandro E. Colombo Viña</a> | <a href="http://twitter.com/lecovi">@lecovi</a> <br> 
+                                <a href="http://www.bitson.com.ar"><em>colomboleandro &lt;at&gt; bitson.com.ar</em></a></small>
+                        </p>
+                    </section>
+
+                    <section>
+                        <h2>URL Presentación</h2>
+                        <a href="http://www.bitson.com.ar/cursos/python3">http://www.bitson.com.ar/cursos/python3</a>
+<!--
+                        <hr>
+                        <h3>Archivos de Ejemplo</h3>
+                        <a href="./archivos/archivos.tar.gz">http://www.bitson.com.ar/cursos/python3/archivos/archivos.tar.gz</a>
+-->
+                        <aside class="notes"><small>
+                            Pueden ver la presentación desde.
+                        </small></aside>
+                    </section>
+                </section>
+                
+                <section>
+                    <section>
+                        <h2>Sistema</h2>
+                        <ul>
+                            <li><code>exit(<em>estado</em>)</code>: sale del intérprete y devuelve <em>estado</em>.</li>
+                            <li><code>path</code>: lista de rutas para ubicar los módulos.</li>
+                            <li><code>stdin, stdout, stderr</code>: entrada, salida y error estándar.</li>
+                            <li><code>argv</code>: lista de argumentos de la línea de comandos.</li>
+                        </ul>
+                        <pre><code class="python">
+#!/usr/bin/python
+# coding: utf-8
+
+import sys
+
+sys.stdout = open("salida.txt","w")
+
+#Ahora graba la salida en salida.txt:
+print("Afiladooooooooooor!")
+                        </code></pre>
+                        <aside class="notes"><small>
+                            <br>
+                        </small></aside>                           
+                    </section>
+                    
+                    <section>
+                        <h2>Parámetros de la línea de comandos</h2>
+                        <ul>
+                            <li><code>sys.argv</code></li>
+                            <li><a href="https://docs.python.org/2/library/argparse.html#module-argparse">argparse</a></li>
+                        </ul>
+                        <pre><code class="bash">
+$ python programa.py archivo.conf
+                        </code></pre>
+                        <pre><code class="python">
+#!/usr/bin/python
+# coding: utf-8
+
+import sys
+
+if (len(sys.argv) > 1):
+    print("Leyendo el archivo: {}".format(sys.argv[1]))
+else:
+    print("Debe pasar un nombre de archivo para leer!")
+                        </code></pre>
+                        <aside class="notes"><small>
+                            &#8226; sys.argv[0] = nombre del script.<br>
+                        </small></aside>
+                    </section>
+                </section>
+
+                <section>
+                    <section>
+                        <h2>Archivos</h2>
+                        <ul>
+                            <li>Objetos de tipo <code>file</code></li>
+                            <ul>
+                                <li><code>r</code>: lectura (read).</li>
+                                <li><code>w</code>: escritura (write).</li>
+                                <li><code>a</code>: agregar (append).</li>
+                                <li><code>b</code>: binario (binary, Win).</li>
+                                <li><code>+</code>: lectura y escritura simultánea.</li>
+                            </ul>
+                            <li><a href="https://docs.python.org/2/tutorial/inputoutput.html#reading-and-writing-files">I/O Files</a></li>
+                        </ul>
+                        <pre><code class="python">
+#!/usr/bin/python
+# coding: utf-8
+
+with open('archivo.txt', 'r+') as f:
+    data = f.read()
+                        </code></pre>
+                        <aside class="notes"><small>
+                            <br>
+                        </small></aside>                    
+                    </section>
+    
+                    <section>
+                        <h2>Lectura de Archivos</h2>
+                        <ul>
+                            <li><code>read()</code>: devuelve una cadena con el contenido del archivo o los <code>n</code> bytes leídos.</li>
+                            <li><code>readline()</code>: lee una línea del archivo y avanza el cursor.</li>
+                            <li><code>readlines()</code>: lee todas las líneas del archivo y devuelve una lista.</li>
+                        </ul>
+                        <aside class="notes"><small>
+                            <br>
+                        </small></aside>                    
+                    </section>
+                    
+                    <section>
+                        <h2>Escritura de Archivos</h2>
+                        <ul>
+                            <li><code>write("string")</code>: escribe una línea en el archivo con <code>string</code>.</li>
+                            <li><code>writelines(["string1", "string2"])</code>: escribe todas las líneas en el archivo.</li>
+                        </ul>
+                        <aside class="notes"><small>
+                            <br>
+                        </small></aside>                    
+                    </section>
+                    
+                    <section>
+                        <h2>Mover el cursor</h2>
+                        <ul>
+                            <li><code>seek(desplazamiento, origen=0)</code>: Para escribir desde una posición determinada.</li>
+                            <ul>
+                                <li><code>0</code>: desde el principio del archivo (default).</li>
+                                <li><code>1</code>: desde la posición actual.</li>
+                                <li><code>2</code>: desde el final.</li>
+                            </ul>
+                            <li><code>tell()</code>: devuelve en bytes la posición del cursor desde el principio del archivo.</li>
+                        </ul>
+                        <aside class="notes"><small>
+                            <code>desplazamiento</code> puede ser positivo o negativo.<br>
+                        </small></aside>                    
+                    </section>                    
+                </section>
+                
+                <section>
+                    <section>
+                        <h2>Tiempo</h2>
+                        <ul>
+                            <li><code>time()</code>: segundos desde <em>epoch</em>.</li>
+                            <li><code>gmtime()</code>: tiempo en UTC (GMT).</li>
+                            <li><code>localtime()</code>: fecha y hora local (tupla).</li>
+                            <li><code>sleep(<em>segundos</em>)</code>: duerme por <em>segundos</em>.</li>
+                            <li><code>clock()</code>: reloj de la CPU.</li>
+                            <li><code>mktime()</code>: convierte una tupla en tiempo <code>time</code>.</li>
+                            <li><code>strftime(<em>format, time=now</em>)</code>: convierte a string.</li>
+                        </ul>
+                        <pre><code class="python">
+from time import strftime
+strftime("%a, %d %b %Y %H:%M:%S")
+                        </code></pre>
+                        <pre><code class="python">
+'Thu, 13 Aug 2013 02:24:32'
+                        </code></pre>
+                        <aside class="notes"><small>
+                            <br>
+                        </small></aside>
+                    </section>
+                    
+                    <section>
+                        <h2>Fechas y Horas</h2>
+                        <p><code>datetime</code></p>
+                        <pre><code class="python">
+>>> import datetime
+>>> hoy = datetime.date.today()
+>>> print(hoy)
+'2013-02-26'
+>>> ahora = datetime.date.now()
+>>> print(ahora)
+'2013-02-26 15:23:26.025000'
+>>> hoy + datetime.timedelta(days=4)
+datetime.date(2013, 3, 2)
+>>> cumple = datetime.date(2013, 07, 23)
+>>> cumple - hoy
+datetime.timedelta(147)
+>>> cumple.strftime("%d de %B de %Y")
+'23 de Julio de 2013'
+                        </code></pre>
+                        <aside class="notes"><small>
+                            <br>
+                        </small></aside>
+                    </section>
+                </section>
+                
+                <section>
+                    <h2>Matemática</h2>
+                    <p><code>math</code></p>
+                    <ul>
+                        <li><strong>Exponenciales y Logarítmicas:</strong> <code>exp, log, pow</code></li>
+                        <li><strong>Trigonométricas:</strong> <code>cos, sin, tan, acos, asin, atan</code></li>
+                        <li><strong>Ángulos:</strong> <code>degree, radians</code></li>
+                        <li><strong>Hiperbólicas:</strong> <code>cosh, sinh, tanh...</code></li>
+                        <li><strong>Constantes:</strong> <code>pi y e</code></li>
+                    </ul>
+                    <pre><code class="python">
+>>> import math
+>>> math.cos(math.pi / 4.0)
+0.70710678118654757
+>>> math.log(1024, 2)
+10.0
+                    </code></pre>
+                    <aside class="notes"><small>
+                        <br>
+                    </small></aside>                    
+                </section>
+                <section>
+                    <h2>Aleatorio</h2>
+                    <pre><code class="python">
+>>> import random
+>>> random.choice(['manzana', 'pera', 'banana'])
+'manzana'
+>>> random.sample(xrange(100), 10) # elección sin reemplazo
+[30, 83, 16, 4, 8, 81, 41, 50, 18, 33]
+>>> random.random() # un float al azar
+0.17970987693706186
+>>> random.randrange(6) # un entero al azar tomado de range(6)
+4
+                    </code></pre>
+                    <aside class="notes"><small>
+                        <br>
+                    </small></aside>                                        
+                </section>
+                
+                <section>
+                    <section>
+                        <h2>Sistema Operativo</h2>
+                        <p><code>os</code></p>
+                        <ul>
+                            <li><code>listdir(<em>ruta</em>)</code>: devuelve la listado de directorio.</li>
+                            <li><code>remove(<em>ruta</em>)</code>: elimina un archivo.</li>
+                            <li><code>rename(<em>ruta</em>)</code>: cambia el nombre de un archivo.</li>
+                            <li><code>chdir(<em>ruta</em>)</code>: cambia a un directorio de trabajo.</li>
+                            <li><code>getcwd()</code>: devuelve el directorio actual.</li>
+                            <li><code>mkdir(<em>ruta</em>)</code>: crea un directorio.</li>
+                            <li><code>rmdir(<em>ruta</em>)</code>: borra un directorio.</li>
+                            <li><code>mkdirs(<em>ruta</em>)</code>: crea una jerarquía de directorios.</li>
+                            <li><code>removedirs(<em>ruta</em>)</code>: elimina recursivamente.</li>
+                            <li><code>renames(<em>ruta</em>)</code>: renombra recursivamente.</li>
+                        </ul>
+                        <aside class="notes"><small>
+                            <br>
+                        </small></aside>                         
+                    </section>
+
+                    <section>
+                        <h2>Sistema Operativo</h2>
+                        <p><code>os.path</code></p>
+                        <ul>
+                            <li><code>basename(<em>ruta</em>)</code>: nombre base (archivo)</li>
+                            <li><code>dirname(<em>ruta</em>)</code>: extrae ruta (directorio)</li>
+                            <li><code>abspath(<em>ruta</em>)</code>: ruta absoluta</li>
+                            <li><code>isfile(<em>ruta</em>), isdir(ruta)</code>: verifica el tipo</li>
+                            <li><code>exists(<em>ruta</em>)</code>: verifica si existe la ruta</li>
+                            <li><code>splitext(<em>ruta</em>)</code>: divide una ruta en (nombre, ext)</li>
+                            <li><code>walk(<em>path, visit, arg</em>)</code>: recorre recursivamente los directorios, llamando a <code>visit(<em>arg, dirname, names</em>)</code></li>
+                        </ul>
+                        <aside class="notes"><small>
+                            <br>
+                        </small></aside>                         
+                    </section>
+                    
+                    <section>
+                        <h2>Procesos del Sistema Operativo</h2>
+                        <p><code>os</code></p>
+                        <ul>
+                            <li><code>execv(<em>ruta, args</em>)</code>: ejecuta un nuevo programa.</li>
+                            <li><code>system(<em>comando</em>)</code>: ejecuta un comando del sistema operativo.</li>
+                            <li><code>fork():</code>: inica un proceso hijo.</li>
+                            <li><code>kill(<em>pid, señal</em>)</code>: envía una señal a un proceso.</li>
+                            <li><code>waitpid(<em>pid, options</em>)</code>: espera un proceso.</li>
+                        </ul>
+                        <aside class="notes"><small>
+                            <br>
+                        </small></aside>                         
+                    </section>
+                </section>
+                
+                <section>
+                    <section>
+                        <h2>Compresión</h2>
+                        <p><code>zlib</code></p>
+                        <pre><code class="python">
+>>> import zlib
+>>> s = 'witch which has which witches wrist watch'
+>>> len(s)
+41
+>>> t = zlib.compress(s)
+>>> len(t)
+37
+>>> zlib.decompress(t)
+'witch which has which witches wrist watch'
+>>> zlib.crc32(s)
+226805979                    
+                        </code></pre>
+                        <aside class="notes"><small>
+                            <br>
+                        </small></aside>                         
+                    </section>
+                    
+                    <section>
+                        <h2>Compresión</h2>
+                        <p><code>zipfile</code></p>
+                        <pre><code class="python">
+import zipfile
+file = zipfile.ZipFile("ejemplo.zip", "r")
+# listar nombres de archivos
+for name in file.namelist():
+print name,
+# listar información de archivos zipeados
+for info in file.infolist():
+print info.filename, info.date_time, info.file_size
+# leo los archivos comprimidos
+for name in file.namelist():
+data = file.read(name)
+print name, len(data), repr(data[:10])                  
+                        </code></pre>
+                        <aside class="notes"><small>
+                            <br>
+                        </small></aside>
+                    </section>
+                </section>
+                
+                <section>
+                    <section>
+                        <h2>Expresiones Regulares</h2>
+                        <small><a href="http://www.regular-expressions.info/tutorial.html">más info</a></small>
+                        <pre><code class="python">
+#!/usr/bin/python
+# coding: utf-8
+
+import re
+
+if re.search("Python", "Que buen lenguaje que es el Python! Está buenísimo!"):
+    print("El patrón buscado ha sido encontrado.")
+else:
+    print("El patrón buscado no está en esa cadena.")
+                        </code></pre>                        
+                        <aside class="notes"><small>
+                            RegEx.<br>
+                        </small></aside>
+                    </section>
+                    
+                    <section>
+                        <h2>Patrones más comunes</h2>
+                        <ul>
+                            <li><code>.</code>: comodín de 1 carácter (menos <code>\n</code>).</li>
+                            <li><code>|</code>: or.</li>
+                            <li><code>()</code>: grupo.</li>
+                            <li><code>[]</code>: clase.</li>
+                            <li><code>[^]</code>: negando.</li>
+                            <li><code>\</code>: escape de caracteres especiales.</li>
+                            <li><code>+</code>: una o más veces.</li>
+                            <li><code>*</code>: cero o más veces.</li>
+                            <li><code>?</code>: cero o una vez.</li>
+                            <li><code>{}</code>: repetición.</li>
+                        </ul>
+                        <aside class="notes"><small>
+                        </small></aside>
+                    </section>
+
+                    <section>
+                        <h2>Patrones más comunes</h2>
+                        <ul>
+                            <li><code>^</code>: anclaje al principio.</li>
+                            <li><code>$</code>: anclaje al final.</li>
+                            <li><code>\d</code>: [0-9]</li>
+                            <li><code>\D</code>: [^0-9]</li>
+                            <li><code>\w</code>: [a-zA-Z0-9_]</li>
+                            <li><code>\W</code>: [^a-zA-Z0-9_]</li>
+                            <li><code>\s</code>: [ \t\n\r\f\v]</li>
+                            <li><code>\S</code>: [^ \t\n\r\f\v]</li>
+                        </ul>                               
+                        <aside class="notes"><small>
+                        </small></aside>
+                    </section>                    
+                    
+                    <section>
+                        <h2>Métodos de <code>re</code></h2>
+                        <ul>
+                            <li><code>match()</code>: busca que sea igual sino, <code>None</code>.</li>
+                            <ul>
+                                <li><code>start</code></li>
+                                <li><code>end</code></li>
+                            </ul>
+                            <li><code>search()</code>: busca el patrón.</li>
+                            <ul>
+                                <li><code>start</code></li>
+                                <li><code>end</code></li>
+                            </ul>                            
+                            <li><code>group()</code>: 0 es la cadena y el resto los grupos definidos.</li>
+                            <li><code>groups()</code>: devuelve una lista de los grupos.</li>
+                            <li><code>findall()</code>: devuelve una lista con las subcadenas que cumplen.</li>
+                            <li><code>finditer()</code>: devuelve un iterable para consultar uno a uno.</li>
+                            <li><code>split()</code>: devuelve una lista de subcadenas.</li>
+                            <li><code>sub()</code>: un patrón a substituir.</li>
+                        </ul>                               
+                        <aside class="notes"><small>
+                        </small></aside>
+                    </section> 
+                </section>
+                
+                <section>
+                    <section>
+                        <h2>Sockets</h2>
+                        <p><em>La comunicación entre entidades de una red.</em></p>
+                        <p><code>IP + Puerto + Protocolo = Socket</code></p>
+                        <hr>
+                        <p><strong>Conexión:</strong></p>
+                        <ul>
+                            <li>TCP: socket de flujo (<code>socket.SOCK_STREAM</code>)</li>
+                            <li>UDP: socket de datagrama (<code>socket.SOCK_DGRAM</code>)</li>
+                        </ul>
+                        <hr>
+                        <p><strong>Familia:</strong></p>
+                        <ul>
+                            <li>Unix: basado en archivos (<code>socket.AF_UNIX</code>)</li>
+                            <li>Red: basado en conexión (<code>socket.AF_INET</code>)</li>
+                        </ul> 
+                        <aside class="notes"><small>
+                        </small></aside>
+                    </section>
+                    
+                    <section>
+                        <h2>Usando Sockets</h2>
+                        <p>Creando un socket para el servidor</p>
+                        <pre><code class="python">
+#Construimos el socket:
+server = socket.socket()
+
+#Definimos IP y Puerto:
+server.bind(("localhost", 8000))
+
+#Escuchamos X conexiones entrantes:
+server.listen(5)
+
+#Aceptamos una conexión:
+client, (client_host, client_port) = server.accept()
+                        </code></pre>
+                        <aside class="notes"><small>
+                        </small></aside>
+                    </section>
+                    
+                    <section>
+                        <h2>Usando Sockets</h2>
+                        <p>Comunicándnos desde el servidor con el cliente</p>
+                        <pre><code class="python">
+#Recibimos X bytes (recv = TCP, recvfrom = UDP):
+mensaje = client.recv(1024)
+
+#Mostramos lo recibido:
+print("Se recibió: {}".format(mensaje))
+
+#Lo enviamos de vuelta:
+client.send(mensaje)
+
+#Cerramos el socket:
+client.close()
+sever.close()
+                        </code></pre>
+                        <aside class="notes"><small>
+                        </small></aside>
+                    </section>
+                    
+                    <section>
+                        <h2>Usando Sockets</h2>
+                        <p>Creando el cliente</p>
+                        <pre><code class="python">
+#Construimos el socket:
+client = socket.socket()
+
+#Nos conectamos:
+client.connect(("localhost", 8000))
+
+#Enviamos un mensaje:
+client.send("Hola Carola!")
+
+#Cerramos el socket:
+client.close()
+                        </code></pre>
+                        <aside class="notes"><small>
+                        </small></aside>
+                    </section>                     
+                </section>
+                
+                <section>
+                    <section>
+                        <h2>Serialización y persistencia</h2>
+                        <p><code>pickle/cPickle</code> convierte un objeto a una secuencia de bytes.</p>
+                        <ul>
+                            <li><code>dumps(<em>objeto, protocolo</em>)</code>: serializa a un string.</li>
+                            <li><code>dumps(<em>objeto, archivo, protocolo</em>)</code>: serializa a un archivo.</li>
+                            <li><code>loads(<em>cadena, protocolo</em>)</code>: des-serializa un string.</li>
+                            <li><code>load(<em>archivo, protocolo</em>)</code>: des-serializa desde un archivo.</li>
+                        </ul>
+                        <aside class="notes"><small>
+                        </small></aside>
+                    </section>
+                    
+                    <section>
+                        <h2>Serialización y persistencia</h2>
+                        <p><code>shelve</code> objeto similar a un diccionario persistente.</p>
+                        <ul>
+                            <li><code>open(<em>filename</em>, flag='c', protocol=None, writeback=False)</code>: crea un diccionario persistente.</li>
+                            <ul>
+                                <li><code>'r'</code>: sólo lectura.</li>
+                                <li><code>'w'</code>: lectura y escritura.</li>
+                                <li><code>'c'</code>: creación, lectura y escritura.</li>
+                                <li><code>'n'</code>: nuevo.</li>
+                            </ul>
+                            <li><code>sync()</code>: sincronizar (<code>writeback=True</code>).</li>
+                            <li><code>close()()</code>: grabar y cerrar.</li>
+                        </ul>
+                        <aside class="notes"><small>
+                            Protocolo:<br>
+                            0 - (default) texto.<br>
+                            1 - binario.<br>
+                            2 - binario más eficiente.<br>
+                        </small></aside>
+                    </section>
+                </section>
+                
+                <section>
+                    <section>
+                    <h2>Librerías</h2>
+                        <ul>
+                            <li><strong>Cadenas:</strong> <code>string, re, StringIO, codecs</code></li>
+                            <li><strong>Tipos de datos:</strong> <code>datetime, array, queue, copy, ...</code></li>
+                            <li><strong>Números y Matemática:</strong> <code>decimal, math, random</code></li>
+                            <li><strong>Archivos:</strong> <code>os.path, glob, stat, tempfile</code></li>
+                            <li><strong>Persistencia:</strong> <code>pickle, shelve, dbm, sqlite3</code></li>
+                            <li><strong>Compresión:</strong> <code>zlib, bz2, zipfile, tarfile</code></li>
+                            <li><strong>Formatos:</strong> <code>csv, ConfigParser</code></li>
+                            <li><strong>Criptografía:</strong> <code>haslib, md5, sha</code></li>
+                            <li><strong>Sistema operativo:</strong> <code>os, time, logging</code></li>
+                            <li><strong>Comunicación:</strong> <code>subprocess, socket, signal, popen2</code></li>
+                        </ul>
+                        <aside class="notes"><small>
+                        </small></aside>                        
+                    </section>
+                    
+                    <section>
+                        <h2>Más Librerías</h2>
+                        <ul>
+                            <li><strong>Internet:</strong> <code>email, json, rfc822, base64, uu</code></li>
+                            <li><strong>Internet:</strong> <code>cgi, urllib, httplib, ftplib, poplib, smtplib</code></li>
+                            <li><strong>Lenguajes de Marcas:</strong> <code>sgmlib, htmllib, xml.*</code></li>
+                            <li><strong>Internacionalización:</strong> <code>locale, gettext</code></li>
+                            <li><strong>Interface gráfica de usuario:</strong> <code>Tkinker, turtle, idle</code></li>
+                            <li><strong>Desarroyo:</strong> <code>pydoc, doctest, unittest, test</code></li>
+                            <li><strong>Depuración:</strong> <code>pdb, profile, timeit, trace</code></li>
+                            <li><strong>Python:</strong> <code>sys, traceback, inspect, site, imputil, tokenize, compileall, cmd, shlex</code></li>
+                            <li><strong>Plataformas:</strong> <code>Win32, Unix, MacOS, SGI, SunOS</code></li>
+                        </ul>
+                        <aside class="notes"><small>
+                        </small></aside>                        
+                    </section>
+                </section>
+                    
+                <section>
+                    <section>
+<!--
+                        <h2>Ejercicios</h2>
+                        <a href="./archivos/ejercicios3.pdf">http://www.bitson.com.ar/cursos/python3/archivos/ejercicios3.pdf</a>
+                        <hr>
+-->
+                        <h3>URL Presentación</h3>
+                        <a href="http://www.bitson.com.ar/cursos/python3">http://www.bitson.com.ar/cursos/python3</a>
+<!--                        
+                        <hr>
+                        <h3>Archivos de Ejemplo</h3>
+                        <a href="./archivos/archivos.tar.gz">http://www.bitson.com.ar/cursos/python3/archivos.tar.gz</a>
+-->
+                        <aside class="notes"><small>
+                            Pueden ver la presentación desde.
+                        </small></aside>
+                    </section>
+                </section>
+                
+				<section>
+					<h1>GRACIAS</h1>
+					<h3>Leandro E. Colombo Viña</h3>
+                    <a href="http://www.bitson.com.ar">www.bitson.com.ar</a>
+                    <hr>
+                    <small>
+                    Twitter: <a href="http://twitter.com/lecovi">@lecovi</a> <br> 
+                    Correo electrónico / G+: <a href="http://www.bitson.com.ar"><em>colomboleandro &lt;at&gt; bitson.com.ar</em></a>
+                    </small>
+                    <br>
+                    <br>
+                    <br><small>
+                    <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">
+                        <img alt="Creative Commons License" style="border-width:0" src="http://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png" /></a>
+                    <p>Este trabajo está licenciado bajo <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License</a>.</p></small>
+				</section>
+
+			</div>
+
+		</div>
+        	
+        <script src="lib/js/head.min.js"></script>
+		<script src="js/reveal.min.js"></script>
+        
+		<script>
+
+			// Full list of configuration options available here:
+			// https://github.com/hakimel/reveal.js#configuration
+			Reveal.initialize({
+				controls: true,
+				progress: true,
+				history: true,
+				center: true,
+                slideNumber: true,
+                mouseWheel: true,
+                previewLinks: true,
+
+				theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
+				transition: Reveal.getQueryHash().transition || 'default', // default/cube/page/concave/zoom/linear/fade/none
+
+				// Parallax scrolling
+				// parallaxBackgroundImage: 'https://s3.amazonaws.com/hakim-static/reveal-js/reveal-parallax-1.jpg',
+				// parallaxBackgroundSize: '2100px 900px',
+
+				// Optional libraries used to extend on reveal.js
+				dependencies: [
+					{ src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+					{ src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+					{ src: 'plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+					{ src: 'plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }
+				]
+			});
+
+		</script>
+
+	</body>
+</html>
