@@ -1,0 +1,303 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<title>Desarrollando aplicaciones web con Python - Udemy</title>
+
+		<meta name="description" content="Desarrollando aplicaciones web con Python - Utilizando Flask como framework.">
+		<meta name="author" content="Leandro E. Colombo Viña">
+
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+		<link rel="stylesheet" href="../css/reveal.css">
+		<link rel="stylesheet" href="../css/theme/solarized.css">
+
+		<!-- Theme used for syntax highlighting of code -->
+		<link rel="stylesheet" href="../lib/css/zenburn.css">
+
+		<!-- Adding Font Awesome to our presentation -->
+		<link rel="stylesheet" href="../font-awesome-4.7.0/css/font-awesome.min.css">
+		
+		<!-- Printing and PDF exports -->
+		<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? '../css/print/pdf.css' : '../css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+		</script>
+	</head>
+	<body>
+		<div class="reveal">
+			<div class="slides">
+				<section>
+					<img src="img/Bitson-LogoNuevoCompleto.png" style="border: 0px; box-shadow: 0 0 0px;">
+				</section>
+				<section style="text-align: left;">
+					<h2>Desarrollando aplicaciones web con Python</h2>
+					<h4>Utilizando Flask como framework</h4>
+					<p><b>Prof. Leandro E. Colombo Viña</b></p>
+					<p>Curso Udemy - junio/2017</p>
+				</section>
+				<section>
+					<section style="text-align: left;">
+						<h1>¿Quién soy?</h1>
+					</section>
+					<section>
+						<h3>Prof. Leandro E. Colombo Viña</h3>
+						<p><ul class="fragments">
+							<li class="fragment fade-up">Educación (2004):<br>
+							<small>Pío IX, IFTS18, CFP34, UDE, UOM, ...</small></li>
+							<li class="fragment fade-up">Profesor de Programación (2010):<br>
+							<small><address>http://www.ifts18.edu.ar</address></small></li>
+							<li class="fragment fade-up">Cooperativa de trabajo BITSON Ltda. (2014):<br>
+							<small><address>http://bitson.com.ar</address></small></li>
+						</ul></p>
+					</section>
+					<section>
+						<h3>Prof. Leandro E. Colombo Viña</h3>
+						<p><ul class="fragments">
+							<li class="fragment fade-up">Miembro de PyAR (2013):<br>
+							<small><address>http://python.org.ar</address></small></li>
+							<li class="fragment fade-up">Asociación Civil Python Argentina (2015)<br>
+							<small><address>http://www.python.org.ar/wiki/AsociacionCivil</address></small></li>
+							<li class="fragment fade-up">PyConAR 2016:<br>
+							<small><address>http://ar.pycon.org</address></small></li>
+						</ul></p>
+					</section>
+					<section data-background="img/flia.jpg" data-background-transition="zoom">
+						<h3 style="color: #eeeeee;">Prof. Leandro E. Colombo Viña</h3>
+						<!--<img src="img/flia.jpg" width="30%" alt="Mi familia y yo en Bariloche, Río Negro, Argentina">-->
+						<p><ul class="fragments">
+							<li class="fragment fade-up" style="color: #eeeeee;">Técnico Superior en Informática Aplicada</li>
+							<li class="fragment fade-up" style="color: #eeeeee;">Profesor de Informática</li>
+							<li class="fragment fade-up" style="color: #eeeeee;">Python Dev &amp; DevOps Engineer @ BITSON</li>
+						</ul></p>
+					</section>
+				</section>
+				<section>
+					<section style="text-align: left;">
+						<h1>¿Para quién es este curso?</h1>
+					</section>
+					<section>
+						<h3>Destinatarios</h3>
+						<ul class="fragments">
+							<li class="fragment fade-up">Programadores Python que quieren desarrollar en Web.</li>
+							<li class="fragment fade-up">Estudiantes intermedios de Carreras de Informática.</li>
+							<li class="fragment fade-up">Desarrolladores web que quieran aprender Python.</li>
+							<li class="fragment fade-up">Todos aquellos con conocimientos básicos de programación y ganas de aprender a programar aplicaciones web en Python.</li>
+						</ul>
+					</section>
+				</section>
+				<section>
+					<section style="text-align: left;">
+						<h1>¿Qué tengo que saber para hacer curso?</h1>
+					</section>
+					<section>
+						<h3>Es necesario</h3>
+							<ul class="fragments">
+								<li class="fragment fade-up">Conocer la sintáxis y los diferentes tipos de datos de Python.</li>
+								<li class="fragment fade-up">Entender qué es un paquete, un módulo, una función de Python.</li>
+								<li class="fragment fade-up">Conocer la Programación Orientada a Objetos.</li>
+								<li class="fragment fade-up">Manejar comandos de consola.</li>
+								<li class="fragment fade-up">Tener muchas ganas de aprender, sin miedo a equivocarse.</li>
+							</ul>
+					</section>
+					<section>
+						<h3>Es recomendable</h3>
+							<ul class="fragments">
+								<li class="fragment fade-up">Saber utilizar Git.</li>
+								<li class="fragment fade-up">Estar familiarizado con HTML, CSS y JavaScript.</li>
+								<li class="fragment fade-up">Entender el funcionamiento de una Base de Datos.</li>
+							</ul>
+					</section>
+				</section>
+				<section>
+					<section style="text-align: left;">
+						<h1>¿Qué vamos a aprender durante el curso?</h1>
+					</section>
+					<section>
+						<h3>Objetivos</h3>
+						<ul class="fragments">
+							<li class="fragment fade-left">Entender la arquitectura de una aplicación web.</li>
+							<li class="fragment fade-left">Desarrollar el código fuente de la aplicación.</li>
+							<li class="fragment fade-left">Escribir la auto-documentación del proyecto.</li>
+							<li class="fragment fade-left">Programar los tests automáticos.</li>
+							<li class="fragment fade-left">Aprender a poner en producción nuestra aplicación!</li>
+						</ul>
+					</section>
+				</section>
+				<section>
+					<section style="text-align: left;">
+						<h1>¿Cómo vamos a hacer todo esto?</h1>
+					</section>
+					<section>
+						<h3>Organización del curso</h3>
+						<table>
+							<tr>
+							<th>Parte <br>I</th><td><b>Introducción</b></td><td><b>Preparando el ambiente de desarrollo.</b></td>
+							</tr>
+							<tr>
+							<th>Parte II</th><td>Flask</td><td>Nuestra primera aplicación con Flask.</td>
+							</tr>
+							<tr>
+							<th>Parte III</th><td>Desarrollo</td><td>Agregando funcionalidades.</td>
+							</tr>
+							<tr>
+							<th>Parte IV</th><td>Deploy</td><td>Publicando en la web nuestra aplicación.</td>
+							</tr>
+							<!-- <tr>
+							<th>Parte V</th><td>Bonus</td><td>Recursos adicionales y recomendaciones</td>
+							</tr> -->
+						</table>
+					</section>
+					<section>
+						<h3>Introducción</h3>
+						<h4>Preparando el ambiente de desarrollo</h4>
+						<ul>
+							<li>Arquitectura Web</li>
+							<li>Python y la consola</li>
+							<li>Editor de Texto</li>
+							<li>PIP y virtualenv</li>
+							<li>HTML y HTTP</li>
+						</ul>
+					</section>
+					<section>
+						<h3>Organización del curso</h3>
+						<table>
+							<tr>
+							<th>Parte <br>I</th><td>Introducción</td><td>Preparando el ambiente de desarrollo.</td>
+							</tr>
+							<tr>
+							<th>Parte II</th><td><b>Flask</b></td><td><b>Nuestra primera aplicación con Flask.</b></td>
+							</tr>
+							<tr>
+							<th>Parte III</th><td>Desarrollo</td><td>Agregando funcionalidades.</td>
+							</tr>
+							<tr>
+							<th>Parte IV</th><td>Deploy</td><td>Publicando en la web nuestra aplicación.</td>
+							</tr>
+							<!-- <tr>
+							<th>Parte V</th><td>Bonus</td><td>Recursos adicionales y recomendaciones</td>
+							</tr> -->
+						</table>
+					</section>
+					<section>
+						<h3>Flask</h3>
+						<h4>Nuestra primera aplicación con Flask</h4>
+						<ul>
+							<li>Hola Mundo!</li>
+							<li>Componentes de Flask</li>
+							<li>Plantillas HTML</li>
+							<li>Formularios Web</li>
+							<li>Base de datos</li>
+							<li>Envío de correos</li>
+						</ul>
+					</section>
+					<section>
+						<h3>Organización del curso</h3>
+						<table>
+							<tr>
+							<th>Parte <br>I</th><td>Introducción</td><td>Preparando el ambiente de desarrollo.</td>
+							</tr>
+							<tr>
+							<th>Parte II</th><td>Flask</td><td>Nuestra primera aplicación con Flask.</td>
+							</tr>
+							<tr>
+							<th>Parte III</th><td><b>Desarrollo</b></td><td><b>Agregando funcionalidades.</b></td>
+							</tr>
+							<tr>
+							<th>Parte IV</th><td>Deploy</td><td>Publicando en la web nuestra aplicación.</td>
+							</tr>
+							<!-- <tr>
+							<th>Parte V</th><td>Bonus</td><td>Recursos adicionales y recomendaciones</td>
+							</tr> -->
+						</table>
+					</section>
+					<section>
+						<h3>Desarrollo</h3>
+						<h4>Agregando funcionalidades</h4>
+						<ul>
+							<li>Estructura del proyecto</li>
+							<li>Autenticación de usuarios</li>
+							<li>Roles</li>
+							<li>Perfil de usuarios</li>
+							<li>Blog</li>
+						</ul>
+					</section>
+					<section>
+						<h3>Organización del curso</h3>
+						<table>
+							<tr>
+							<th>Parte <br>I</th><td>Introducción</td><td>Preparando el ambiente de desarrollo.</td>
+							</tr>
+							<tr>
+							<th>Parte II</th><td>Flask</td><td>Nuestra primera aplicación con Flask.</td>
+							</tr>
+							<tr>
+							<th>Parte III</th><td>Desarrollo</td><td>Agregando funcionalidades.</td>
+							</tr>
+							<tr>
+							<th>Parte IV</th><td><b>Deploy</b></td><td><b>Publicando en la web nuestra aplicación.</b></td>
+							</tr>
+							<!-- <tr>
+							<th>Parte V</th><td>Bonus</td><td>Recursos adicionales y recomendaciones</td>
+							</tr> -->
+						</table>
+					</section>
+					<section>
+						<h3>Deploy</h3>
+						<h4>Publicando nuestra applicación en la web</h4>
+						<ul>
+							<li>Usando Heroku</li>
+							<li>Publicando la aplicación con git</li>
+						</ul>
+					</section>
+				</section>
+				<section>
+					<section style="text-align: left;">
+						<h1>Manos a la obra!</h1>
+						<h3>información de contacto</h3>
+						<p>
+							<i class="fa fa-at"></i> <a href="mailto:colomboleandro@bitson.com.ar">colomboleandro@bitson.com.ar</a><br>
+							<i class="fa fa-twitter"></i> <a href="https://twitter.com/lecovi">@lecovi</a><br> 
+							<i class="fa fa-globe"></i> <a href="http://leo.bitson.com.ar">leo.bitson.com.ar</a><br>
+							<i class="fa fa-github"></i> <a href="https://github.com/lecovi">github.com/lecovi</a><br>
+							<i class="fa fa-telegram"></i> <a href="https://telegram.me/lecovi">telegram.me/lecovi</a><br>
+						</p>
+					</section>
+					<section data-background="#657b83" data-background-transition="zoom">
+						<img src="img/Bitson-LogoNuevoCompleto.png" style="border: 0px; box-shadow: 0 0 0px; background: rgba(255, 255, 255, 0) none repeat scroll 0 0">
+					</section>
+				</section>
+			</div>
+		</div>
+
+		<script src="../lib/js/head.min.js"></script>
+		<script src="../js/reveal.js"></script>
+
+		<script>
+			// More info about config & dependencies:
+			// - https://github.com/hakimel/reveal.js#configuration
+			// - https://github.com/hakimel/reveal.js#dependencies
+			Reveal.initialize({
+				controls: false,
+				progress: false,
+				history: true,
+				center: true,
+
+				transition: 'fade', // none/fade/slide/convex/concave/zoom
+
+				dependencies: [
+					{ src: '../plugin/markdown/marked.js' },
+					{ src: '../plugin/markdown/markdown.js' },
+					{ src: '../plugin/notes/notes.js', async: true },
+					{ src: '../plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }
+				]
+			});
+		</script>
+	</body>
+</html>
