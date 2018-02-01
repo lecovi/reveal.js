@@ -37,7 +37,7 @@
 				</section>
 				<section>
 					<section>
-						<h1>Leandro E. Colombo Viña</h1>
+						<h3>Leandro E. Colombo Viña</h3>
 						<p>
 							<i class="fa fa-at"></i> <a href="mailto:leo@bitson.group">leo@bitson.group</a><br>
 							<i class="fa fa-twitter"></i> <a href="https://twitter.com/lecovi">@lecovi</a><br> 
@@ -47,6 +47,9 @@
 						</p>
 					</section>
 					<section>
+						<img src="img/iStock_manholdingmessagecard2.gif">
+					</section>
+					<section>
 						<h1>Python 101</h1>
 						<ol>
 							<li>Introducción</li>
@@ -54,6 +57,264 @@
 							<li>Flask</li>
 							<li>TODO</li>
 						</ol>
+					</section>
+				</section>
+				<section>
+					<h2>Introducción</h2>
+				</section>
+				<section>
+					<section>
+						<h2>¿Qué es un programa?</h2>
+						<div class="fragment">
+							<p>Es una <b>secuencia de instrucciones</b> compuesta por:</p>
+						</div>
+						<ul>
+							<li class="fragment">Entrada</li>
+							<li class="fragment current-visible">Plato principal</li>
+							<li class="fragment">Proceso</li>
+							<li class="fragment">Salida</li>
+						</ul>
+					</section>
+					<section>
+						<h2>Proceso</h2>
+						<ul>
+							<li class="fragment grow">Operaciones matemáticas</li>
+							<li class="fragment grow">Operaciones de lectura/escritura</li>
+							<li class="fragment grow">Condicionales</li>
+							<li class="fragment grow">Repeticiones</li>
+						</ul>
+					</section>
+				</section>
+				<section>
+					<section>
+						<h2>Nuestro primer programa</h2>
+						<ol>
+							<li>Abrimos un editor de texto</li>
+							<li>Editamos el contenido</li>
+							<li>Guardamos el archivo</li>
+							<li>Ejecutamos el archivo</li>
+						</ol>
+					</section>
+					<section>
+						<h2>Editamos el programa</h2>
+						<pre><code>
+print("Hola mundo!")
+						</code></pre>
+					</section>
+					<section>
+						<h3>Editamos el programa</h3>
+						<img src="img/vimholamundo.png">
+					</section>
+					<section>
+						<h3>Ejecutamos el programa</h3>
+						<img src="img/holamundo.png">
+					</section>
+					<section>
+							<h2>Abrimos el intérprete</h2>
+							<img src="img/interprete.png">
+					</section>
+				</section>
+				<section>
+					<h2>Variables y tipos de datos</h2>
+				</section>
+				<section>
+					<section>
+						<h2>Tipos de datos</h2>
+						<ul>
+							<li>Número enteros</li>
+							<li>Números decimales</li>
+							<li>Cadenas de texto</li>
+						</ul>
+					</section>
+					<section>
+						<h2>Tipos de datos</h2>
+						<img src="img/tipodatos.png">
+					</section>
+					<section>
+						<h2>Operaciones</h2>
+						<img src="img/operaciones.png">
+					</section>
+					<section>
+						<h2>Operadores Aritméticos</h2>
+						<ul>
+							<li>Suma: <code>+</code></li>
+							<li>Resta: <code>-</code></li>
+							<li>Multiplicación: <code>*</code></li>
+							<li>División: <code>/</code></li>
+							<li>Módulo: <code>%</code></li>
+							<li>División Entera: <code>//</code></li>
+							<li>Potenciación: <code>**</code></li>
+						</ul>
+					</section>
+				</section>
+				<section>
+					<section>
+						<h2>Variables</h2>
+						<p>Una instrucción de <b>asignación</b> crea una nueva variable.</p>
+						<pre><code>
+>>> edad = 28
+>>> edad
+28
+>>> nombre = "Leandro"
+>>> nombre
+Leandro
+>>> pi = 3.1415926
+>>> pi
+3.1415926
+						</code></pre>
+					</section>
+					<section>
+						<h2>Nombres</h2>
+						<ul>
+							<li>Tiene que comenzar con letras</li>
+							<li>Longitud que se quiera</li>
+							<li>Significar lo que almacenan</li>
+							<li>Mayúsculas y minúsculas</li>
+							<li>Números y <code>_</code>(guión bajo)</li>
+							<li>No puede ser una palabra reservada</li>
+						</ul>
+					</section>
+					<section>
+						<h2>Reserved Keywords</h2>
+						<pre><code>
+False      await      else       import     pass
+None       break      except     in         raise
+True       class      finally    is         return
+and        continue   for        lambda     try
+as         def        from       nonlocal   while
+assert     del        global     not        with
+async      elif       if         or         yied
+						</code></pre>
+					</section>
+				</section>
+				<section>
+					<h2>Funciones</h2>
+				</section>
+				<section>
+					<section>
+						<h2>Funciones</h2>
+						<p>Es una secuencia de instrucciones que tiene asociado un nombre.</p>
+						<p>Se puede <em>llamar</em> a la función por su nombre.</p>
+						<pre><code>
+def nombre_funcion(par1, par2, ...):
+	""" Esta función hace ...
+		...
+	"""
+	instruccion1
+	instruccion2
+	...
+	instruccionN
+						</code></pre>
+					</section>
+					<section>
+						<h2>Ejercicio</h2>
+						<p>Definir una función que reciba un nombre e imprima un saludo.</p>
+					</section>
+				</section>
+				<section>
+					<h2>Condicionales</h2>
+				</section>
+				<section>
+					<section>
+						<h2>Condicionales</h2>
+						<p>Evalúan el valor de verdad de una expresión</p>
+						<ul>
+							<li><pre>True</pre></li>
+							<li><pre>False</pre></li>
+						</ul>
+					</section>
+					<section>
+						<h2>Operadores Lógicos</h2>
+						<ul>
+							<li>Suma: <code>or</code></li>
+							<li>Producto: <code>and</code></li>
+							<li>Negación: <code>not</code></li>
+						</ul>
+					</section>
+					<section>
+						<h2>Operadores Relacionales</h2>
+						<ul>
+							<li>Igualdad: <code>==</code></li>
+							<li>No igualdad: <code>!=</code></li>
+							<li>Mayor: <code>&gt;</code></li>
+							<li>Menor: <code>&lt;</code></li>
+							<li>Mayor o igual: <code>&gt;=</code></li>
+							<li>Menor o igual: <code>&lt;=</code></li>                            
+						</ul>
+					</section>
+					<section>
+						<h2>Ejecución condicional</h2>
+						<pre><code>
+>>> num = 10
+>>> if num > 5:
+	print('El número es mayor a 5')
+El número es mayor a 5
+>>> if num > 5:
+	print('El número es mayor a 10')
+>>>
+						</code></pre>
+					</section>
+					<section>
+						<h2>Ejecución alternativa</h2>
+						<pre><code>
+>>> num = 10
+>>> if num > 5:
+	print('El número es mayor a 5')
+else:
+	print('El número NO es mayor a 5')
+El número es mayor a 5
+>>>
+						</code></pre>
+					</section>
+					<section>
+						<h2>Ejecución condicional encadenada</h2>
+						<pre><code>
+>>> num = -3
+>>> if num > 0:
+	print('El número es positivo')
+elif num < 0:
+	print('El número es negativo')
+else:
+	print('El número es 0')
+El número negativo
+>>>
+						</code></pre>
+					</section>
+				</section>
+				<section>
+					<h2>Repetición</h2>
+				</section>
+				<section>
+					<section>
+						<h2>Repetición o Iteración</h2>
+						<p>La idea básica de la informática es automatizar tareas repetitivas.</p>
+					</section>
+					<section>
+						<h2>Repetición o Iteración</h2>
+						<img src="img/while_py101.png">
+					</section>	
+				</section>
+				<section>
+					<h2>Recursos adicionales</h2>
+				</section>
+				<section>
+					<section>
+						<h3>Recursos Adicionales</h3>
+						<ul>
+							<li><a href="https://python.org.ar">python.org.ar</a></li>
+							<li><a href="https://t.me/pythonargentina">Telegram PyAR</a></li>
+							<li><a href="https://www.codecademy.com/learn/learn-python">Codecademy</a></li>
+							<li><a href="https://www.learnpython.org/es/">Learn Python</a></li>
+							<li><a href="https://dev.web2py.com.ar/runestone/static/py101/">Programación Python I Interactivo</a></li>
+							<li><a href="http://greenteapress.com/thinkpython2/thinkpython2.pdf">Think Python 2e</a></li>
+							<li><a href="https://github.com/lecovi/thinkcs-py_es/releases/download/v2018013001/thinkpython-spa.pdf">Pensar Python 2e</a></li>
+						</ul>
+					</section>
+					<section>
+						<h2>Hasta la próxima!</h2>
+						<a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">
+							<img alt="Creative Commons License" style="border-width:0" src="http://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png" /></a>
+						<small><p>Este trabajo está licenciado bajo <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License</a>.</p></small>
 					</section>
 				</section>
 			</div>
@@ -70,7 +331,7 @@
 				// Transition style
 				transition: 'convex', // none/fade/slide/convex/concave/zoom
 				// Transition speed
-				transitionSpeed: 'default', // default/fast/slow
+				transitionSpeed: 'fast', // default/fast/slow
 				// Transition style for full page slide backgrounds
 				backgroundTransition: 'fade', // none/fade/slide/convex/concave/zoom
 
