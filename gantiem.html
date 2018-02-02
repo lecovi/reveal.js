@@ -1,0 +1,127 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<title>reveal.js</title>
+
+		<link rel="stylesheet" href="css/reveal.css">
+		<link rel="stylesheet" href="css/theme/black.css"> <!-- black|beige|blood|legue|moon|night|serif|simple|sky|solarized|white -->
+
+		<!-- Theme used for syntax highlighting of code -->
+		<link rel="stylesheet" href="lib/css/zenburn.css">
+
+		<!-- Printing and PDF exports -->
+		<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+		</script>
+	</head>
+	<body>
+		<div class="reveal">
+			<div class="slides">
+				<section data-background="img/gantiem/logo.svg" data-background-size="auto">
+					<!-- simple logo -->
+				</section>
+				<section>
+					<h3>Login</h3>
+					<img src="img/gantiem/login.png">
+				</section>
+				<section>
+					<h3>Administracion</h3>
+					<img src="img/gantiem/administracion.png">
+				</section>
+				<section>
+					<h3>Servicios</h3>
+					<img src="img/gantiem/servicios.png">
+				</section>
+				<section>
+					<section>
+						<h3>Totem</h3>
+						<img src="img/gantiem/totem1.png">
+					</section>
+					<section>
+						<h3>Totem</h3>
+						<img src="img/gantiem/totem2.png">
+					</section>
+					<section>
+						<h3>Totem</h3>
+						<img src="img/gantiem/totem3.png">
+					</section>									
+				</section>
+				<section>
+					<section>
+						<h3>Llamador</h3>
+						<h4>Puesto simple</h4>
+						<img src="img/gantiem/puesto_simple.png">
+					</section>
+					<section>
+						<h3>Llamador</h3>
+						<h4>Puesto Avanzado</h4>
+						<img src="img/gantiem/puesto_avanzado1.png">
+					</section>
+					<section>
+						<h3>Llamador</h3>
+						<h4>Vista turnos</h4>
+						<img src="img/gantiem/llamador1.png">
+					</section>
+					<section>
+						<h3>Llamador</h3>
+						<h4>Puesto Avanzado</h4>
+						<img src="img/gantiem/puesto_avanzado2.png">
+					</section>
+					<section>
+						<h3>Llamador</h3>
+						<h4>Vista turnos</h4>
+						<img src="img/gantiem/llamador2.png">
+					</section>	
+				</section>
+				<section>
+					<h2>Servicio Básico</h2>
+					<ul>
+						<li>Instalación y configuración del software</li>
+						<li>10hs Capacitación del personal</li>
+						<li>1 Tótem</li>
+						<li>1 Pantalla llamador</li>
+					</ul>
+					<br>
+					<h4>Adicionales</h4>
+					<ul>
+						<li>Integración con servicios existentes</li>
+						<li>Personalización</li>
+					</ul>
+				</section>
+				<section data-background="img/gantiem/logo.svg" data-background-size="contain">
+					<!-- simple logo -->
+				</section>
+			</div>
+		</div>
+
+		<script src="lib/js/head.min.js"></script>
+		<script src="js/reveal.js"></script>
+
+		<script>
+			// More info about config & dependencies:
+			// - https://github.com/hakimel/reveal.js#configuration
+			// - https://github.com/hakimel/reveal.js#dependencies
+			Reveal.initialize({
+				// Transition style
+				transition: 'convex', // none/fade/slide/convex/concave/zoom
+				// Transition speed
+				transitionSpeed: 'fast', // default/fast/slow
+				// Transition style for full page slide backgrounds
+				backgroundTransition: 'fade', // none/fade/slide/convex/concave/zoom
+				dependencies: [
+					{ src: 'plugin/markdown/marked.js' },
+					{ src: 'plugin/markdown/markdown.js' },
+					{ src: 'plugin/notes/notes.js', async: true },
+					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }
+				]
+			});
+		</script>
+	</body>
+</html>
