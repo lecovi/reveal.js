@@ -27,8 +27,14 @@
 	<body>
 		<div class="reveal">
 			<div class="slides">
-				<section>Slide 1</section>
-				<section>Slide 2</section>
+				<section data-background="img/udemy/logotipo.svg" data-background-size="auto">
+					<!-- Logo de bitson para tener la presentación lista mientras esperamos que arranque -->
+				</section>
+				<section>
+					<h1>Python 101</h1>
+					<h2>Clase 2 - Python Avanzado</h2>
+					<img src="img/python-logo.png" width="30%"/>
+				</section>
 			</div>
 		</div>
 
@@ -40,6 +46,13 @@
 			// - https://github.com/hakimel/reveal.js#configuration
 			// - https://github.com/hakimel/reveal.js#dependencies
 			Reveal.initialize({
+				// Transition style
+				transition: 'convex', // none/fade/slide/convex/concave/zoom
+				// Transition speed
+				transitionSpeed: 'fast', // default/fast/slow
+				// Transition style for full page slide backgrounds
+				backgroundTransition: 'fade', // none/fade/slide/convex/concave/zoom
+
 				dependencies: [
 					{ src: 'plugin/markdown/marked.js' },
 					{ src: 'plugin/markdown/markdown.js' },
