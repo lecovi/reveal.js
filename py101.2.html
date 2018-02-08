@@ -43,19 +43,377 @@
 						<h2>Tuplas y Listas</h2>
 					</section>
 					<section>
-						<h2>Iterando sobre listas</h2>
+						<h2>Listas</h2>
+						<p>Es un conjunto de "cosas" que se guardan con un mismo nombre y son accesibles por posición.</p>
+						<pre><code>
+>>> cosas = [10, 'lavandina', 3.14, "pan"]
+>>> cosas
+[10, 'lavandina', 3.14, "pan"]
+						</code></pre>
 					</section>
+					<section>
+						<h2>Indexación</h2>
+						<p>La primera posición siempre es <b>cero</b>.</p>
+						<pre><code>
+>>> cosas[0]
+10
+>>> cosas[2]
+3.14
+>>> cosas[1]
+lavandina
+>>> cosas[5]
+Traceback (most recent call last):
+  File "&lt;stdin&gt;", line 1, in &lt;module&gt;
+IndexError: list index out of range
+						</code></pre>
+					</section>
+					<section>
+						<h2>Indexación</h2>
+						<p>La última posición siempre es <b>-1</b>.</p>
+						<pre><code>
+>>> cosas[-1]
+pan
+>>> cosas[-2]
+3.14
+						</code></pre>
+					</section>
+				</section>
+				<section>
+					<h2>Utilidades</h2>
+				</section>
+				<section>
+					<section>
+						<h2>Longitud</h2>
+						<p>Si quiero saber el largo de una lista, puedo usar la función <code>len</code>.</p>
+						<pre><code>
+>>> len(cosas)
+4
+						</code></pre>
+					</section>
+					<section>
+						<h2>Pertenencia</h2>
+						<p>El operador <code>in</code> es un operador relacional y devuelve si el objeto de la izquierda está dentro del de la derecha.</p>
+						<pre><code>
+>>> 'lavandina' in cosas
+True
+>>> 'aceite' in cosas
+False
+						</code></pre>
+					</section>
+					<section>
+						<h2>Recorriendo listas</h2>
+						<p>Se puede recorrer una lista con un ciclo <code>while</code>.</p>
+						<pre><code>
+>>> i = 0
+>>> while i < len(cosas):
+...     item = cosas[i]
+...     print(item)
+...     i = i + 1
+10
+lavandina
+3.14
+pan
+						</code></pre>
+					</section>
+					<section>
+						<h2>Iteración</h2>
+						<p>Pero mucho mejor es iterar con un ciclo <code>for</code>.</p>
+						<pre><code>
+>>> for item in cosas:
+...    print(item)
+10
+lavandina
+3.14
+pan
+						</code></pre>
+					</section>
+					<section>
+						<h2>Trabajando con listas</h2>
+						<pre><code>
+>>> nuevas_cosas = cosas
+>>> nuevas_cosas
+[10, 'lavandina', 3.14, "pan"]
+>>> nuevas_cosas.append('aceite')
+>>> nuevas_cosas
+[10, 'lavandina', 3.14, "pan", 'aceite']
+>>> cosas
+[10, 'lavandina', 3.14, "pan", 'aceite']
+						</code></pre>
+					</section>
+					<section>
+						<img src="img/wtf.jpeg"/>
+					</section>
+					<section>
+						<h2>Mutabilidad</h2>
+						<p>Las listas son objetos <em>mutables</em>. Se pasan por <b>referencia</b>.</p>
+						<pre><code>
+>>> id(cosas)
+140002257094984
+>>> id(nuevas_cosas)
+140002257094984
+						</code></pre>
+					</section>
+					<section>
+						<h2>Mutabilidad</h2>
+						<p>Los números y cadenas de texto son objetos <em>inmutables</em>. Se pasan por <b>valor</b>.</p>
+						<pre><code>
+>>> a = 10
+>>> b = 10
+>>> id(a)
+140002389619968
+>>> id(b)
+140002389619968
+>>> b = 20
+>>> id(b)
+140002389620288
+>>> a, b
+(10, 20)
+						</code></pre>
+					</section>
+					<section>
+						<h2>Copiando listas</h2>
+						<p>Puedo usar <em>slicing</em>.</p>
+						<pre><code>
+>>> cosas[2:]
+[3.14, 'pan', 'aceite']
+>>> cosas[:2]
+[10, 'lavandina']
+>>> cosas[1:4]
+['lavandina', 3.14, 'pan']
+>>> cosas[:]
+[10, 'lavandina', 3.14, 'pan', 'aceite']
+						</code></pre>
+					</section>
+					<section>
+						<h2>Copiando listas</h2>
+						<pre><code>
+>>> nuevas_cosas = cosas[:]
+>>> id(cosas)
+140002257094984
+>>> id(nuevas_cosas)
+140002254606472
+						</code></pre>
+					</section>
+					<section>
+						<h2>Tuplas</h2>
+						<p>Son <em>listas</em>, pero <b>inmutables</b>.</p>
+						<pre><code>
+>>> cosas = (10, 'lavandina', 3.14, 'pan', 'aceite')
+>>> cosas
+(10, 'lavandina', 3.14, 'pan', 'aceite')
+>>> cosas[1]
+'lavandina'
+>>> cosas[1] = 'jabón'
+Traceback (most recent call last):
+  File "&lt;stdin&gt;", line 1, in &lt;module&gt;
+TypeError: 'tuple' object does not support item assignment
+						</code></pre>
+					</section>
+					<section>
+						<h2>Cadenas como tuplas</h2>
+						<p>Las cadenas se comportan como tuplas.</p>
+						<pre><code>
+>>> texto = 'este es un texto que escribí para ustedes'
+>>> len(texto)
+41
+>>> texto[10:35]
+' texto que escribí para u'
+>>> texto[0]
+'e'
+>>> texto[0] = 'E'
+Traceback (most recent call last):
+  File "&lt;stdin&gt;", line 1, in &lt;module&gt;
+TypeError: 'str' object does not support item assignment
+						</code></pre>
+					</section>
+					<section>
+						<h2>Recorriendo cadenas</h2>
+						<pre><code>
+>>> for letra in texto:
+...     print(letra)
+e
+s
+t
+......
+d
+e
+s
+						</code></pre>
+					</section>
+				</section>
+				<section>
+					<h2>Librería Estándar</h2>
+				</section>
+				<section>
+					<section>
+						<h2>Usando la librería estándar</h2>
+						<p>Si queremos ver una lista completa de lo que incluye Python en su librería estándar, podemos ir a ver
+							la <a href="https://docs.python.org/3/library/index.html">Documentación Oficial</a>.</p>
+						<pre><code>
+import nombre_de_lo_que_queremos_usar
+						</code></pre>
+					</section>
+					<section>
+						<h2>Número <em>pseudo-</em>aleatorios</h2>
+						<pre><code>
+>>> import random
+>>> random.random()
+0.9469476119800343
+>>> random.random()
+0.9288352188432353
+>>> random.random()
+0.7254890068980703
+>>> random.random()
+0.5025637051631436
+>>> random.random()
+0.8447418718819076
+						</code></pre>
+					</section>
+					<section>
+						<h2>Matemática</h2>
+						<pre><code>
+>>> import math
+>>> math.pi
+3.141592653589793
+>>> math.sqrt(16)
+4.0
+						</code></pre>
+					</section>
+					<section>
+						<h2>Sistema Operativo</h2>
+						<pre><code>
+>>> import os
+>>> os.getcwd()
+'/home/leo/src/github/reveal.js'
+>>> os.getlogin()
+'leo'
+						</code></pre>
+					</section>
+					<section>
+						<h2>Sistema</h2>
+						<pre><code>
+>>> import sys
+>>> sys.platform
+'linux'
+						</code></pre>
+					</section>
+					<section>
+						<h2>Emails!</h2>
+						<em>Demo time!</em>
+						<p><small>Puede fallar... ;)</small></p>
+					</section>
+					<section>
+						<img src="img/batteries.gif"/>
+					</section>
+				</section>
+				<section>
+					<h2>Diccionarios</h2>
 				</section>
 				<section>
 					<section>
 						<h2>Diccionarios</h2>
+						<p>Son objetos <em>mutables</em> que guardan conjuntos de <code>clave</code> y <code>valor</code>.</p>
+						<p>Son indexables por las <b>claves</b>, no por números.</p>
+						<pre><code>
+>>> eng_a_spa = {}
+>>> eng_a_spa['one'] = 'uno'
+>>> eng_a_spa['cat'] = 'gato'
+>>> eng_a_spa
+{'cat': 'gato', 'one': 'uno'}
+						</code></pre>
+					</section>
+					<section>
+						<h2>Iterando sobre diccionarios</h2>
+						<pre><code>
+>>> for clave, valor in eng_a_spa.items():
+...    print('{}: {}'.format(clave, valor))
+cat: gato
+one: uno
+						</code></pre>
 					</section>
 					<section>
 						<h2>Ejemplos</h2>
+						<pre><code>
+>>> eng_a_spa['dog'] = 'perrito'
+>>> eng_a_spa
+{'cat': 'gato', 'one': 'uno', 'dog': 'perrito'}
+>>> eng_a_spa['dog'] = 'perro'
+{'cat': 'gato', 'one': 'uno', 'dog': 'perro'}
+						</code></pre>
+					</section>
+				</section>
+				<section>
+					<h2>Módulos y paquetes</h2>
+				</section>
+				<section>
+					<section>
+						<h2>Módulos</h2>
+						<p>Un archivo que contiene código Python, es un <b>módulo</b>.</p>
+						<p>Para entender mejor podemos consultar el <a href="http://docs.python.org.ar/tutorial/3/modules.html">Tutorial de Python</a></p>
 					</section>
 					<section>
-						<h2>Más Ejemplos</h2>
+						<h2>saludar.py</h2>
+						<pre><code>
+def saludar_mundo():
+	print('Hola mundo')
+						</code></pre>
+						<pre><code>
+>>> import saludar
+>>> saludar.saludar_mundo()
+Hola Mundo
+						</code></pre>
 					</section>
+					<section>
+						<h2>Ejecutable</h2>
+						<pre><code>
+#!/usr/bin/env python3
+
+def saludar_mundo():
+	print('Hola mundo')
+
+if __name__ == '__main__':
+	saludar_mundo()
+						</code></pre>
+					</section>
+					<section>
+						<h2>Paquetes</h2>
+						<p>Es un directorio con módulos Python.</p>
+						<p>En particular debe existir uno que se llame <code>__init__.py</code></p>
+					</section>
+				</section>
+				<section>
+					<h2>Clases</h2>
+				</section>
+				<section>
+					<h2>Definiendo nuevo tipo de objetos</h2>
+				</section>
+				<section>
+					<section>
+						<h2>Clases</h2>
+						<p>Es un nuevo tipo de dato (objeto).</p>
+						<pre><code>
+>>> class Nuevo:
+...    pass
+>>> uno = Nuevo()
+>>> type(uno)
+&lt;class '__main__.Nuevo'&gt;
+						</code></pre>
+					</section>
+					<section>
+						<h2>Encapsulamiento</h2>
+						<pre><code>
+>>> uno.x = 10
+>>> uno.x
+10
+>>> x
+Traceback (most recent call last):
+  File "&lt;stdin&gt;", line 1, in &lt;module&gt;
+NameError: name 'x' is not defined
+						</code></pre>
+					</section>
+				</section>
+				<section>
+					<img src="img/thatsallfolks.gif"/>
 				</section>
 			</div>
 		</div>
