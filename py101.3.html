@@ -27,8 +27,177 @@
 	<body>
 		<div class="reveal">
 			<div class="slides">
-				<section>Slide 1</section>
-				<section>Slide 2</section>
+				<section>
+					<h1>Python 101</h1>
+					<h2>Clase 3 - Flask</h2>
+					<img src="img/python-logo.png" width="30%"/>
+				</section>
+					<section>
+						<h2>Flask</h2>
+						<img src="img/Flask-text.sh-600x600.png" width="30%"/>
+					</section>
+					<section>
+					<section>
+						<h2>¿Qué es Flask?</h2>
+						<p>
+							<a href="http://flask.pocoo.org/" target="_blank">Flask</a> es un microframework de desarrollo de aplicaciones
+							web en Python.
+						</p>
+					</section>
+					<section>
+						<img src="img/LEGO-classic.png">
+					</section>
+					<section>
+						<h2>Flask no viene con Python</h2>
+						<h3>Tenemos que instalarlo</h3>
+					</section>
+				</section>
+				<section>
+					<section>
+						<h2>¿Cómo instalamos más cosas en Python?</h2>
+						<p>Cuando queremos instalar <em>paquetes de terceros</em> usamos <b>PIP</b>.</p>
+					</section>
+					<section>
+						<h2>Verificando instalación de PIP</h2>
+						<pre><code>
+$ pip --version
+pip 9.0.1 from /usr/lib/python2.7/site-packages (python 2.7)
+$ pip3 --version
+pip 9.0.1 from /usr/lib/python2.7/site-packages (python 2.7)
+						</code></pre>
+					</section>
+					<section>
+						<h2>Comandos de PIP</h2>
+						<ul>
+							<li><code>pip --help</code></li>
+							<li><code>pip install <em>&lt;nombre_paquete&gt;</em></code></li>
+							<li><code>pip uninstall <em>&lt;nombre_paquete&gt;</em></code></li>
+							<li><code>pip freeze > <em>&lt;nombre_archivo&gt;</em></code></li>
+						</ul>
+					</section>
+					<section>
+						<h2>Virtualenvs</h2>
+						<p>Los entornos virtuales son instalaciones "nuevas" de python que se pueden ejecutar localmente sin afectar al <em>binario</em> principal</p>
+					</section>
+					<section>
+						<h2>Perfiles</h2>
+						<img src="img/perfiles-netflix.jpg">
+					</section>
+					<section>
+						<h2>Complicado</h2>
+						<img src="img/baby-confused.gif">
+					</section>
+					<section>
+						<h2>Pipenv</h2>
+						<p><a href="http://pipenv.readthedocs.io/en/latest/" target="_blank">Pipenv</a> es una herramienta que maneja la instalación 
+							de paquetes y la creación de entornos virtuales <em>automágicamente</em></p>
+						<img src="img/starsinhands.jpg">
+					</section>
+					<section>
+						<h2>Instalando <code>pipenv</code></h2>
+						<pre><code>
+$ pip install pipenv --user
+						</code></pre>
+					</section>
+					<section>
+						<h2>Comandos de pipenv</h2>
+						<ul>
+							<li><code>pipenv --help</code></li>
+							<li><code>pipenv install</code></li>
+						</ul>
+					</section>
+					<section>
+						<h2>Instalando Flask con Pipenv</h2>
+						<pre><code>
+$ mkdir hola_mundo
+$ cd hola_mundo
+$ pipenv install Flask
+						</code></pre>
+					</section>
+				</section>
+				<section>
+					<img src="img/40673-Its-Showtime.gif">
+				</section>
+				<section>
+					<section>
+						<h2>Arquitectura Web</h2>
+						<ul>
+							<li>Cliente - Servidor</li>
+							<li>Request - Reply</li>
+							<li>IP</li>
+							<li>Puerto</li>
+							<li>dominio</li>
+						</ul>
+					</section>
+					<section>
+						<h2>Cliente / Servidor</h2>
+						<img src="img/client-server.png">
+					</section>
+					<section>
+						<h2>Dominios</h2>
+						<img src="img/url.jpg">
+					</section>
+					<section>
+						<h2>Dirección de red</h2>
+						<ul>
+							<li>IPv4: ###.###.###.###</li>
+							<li>0 &lt; ### &gt; 255</li>
+							<li>192.168.x.x</li>
+							<li>127.x.x.x == <code>localhost</code></li>
+							<li>Fija / Dinámica</li>
+							<li>Pública / Privada</li>
+						</ul>
+					</section>
+					<section>
+						<h2>Repaso</h2>
+						<ul>
+							<li>Dirección de red</li>
+							<li>Protocolos</li>
+							<li>Puertos</li>
+							<li>Dominios</li>
+							<li>Petición</li>
+							<li>Respuesta</li>
+						</ul>
+					</section>
+				</section>
+				<section>
+					<section>
+						<h2>Hola Flask!</h2>
+						<pre><code>
+from flask import Flask
+
+app = Flask(__name__)
+
+@app.route('/')
+def index():
+	return "Hola Flask!"
+
+if __name__ == "__main__":
+	app.run(debug=True)
+						</code></pre>
+					</section>
+					<section>
+						<h2>Ejecutando</h2>
+						<pre><code>
+$ pipenv run python app.py
+* Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+* Restarting with stat
+* Debugger is active!
+* Debugger PIN: 241-063-797
+						</code></pre>
+					</section>
+					<section>
+						<h2>Funciona!</h2>
+						<img src="img/HolaFlask.png">
+					</section>
+					<section>
+						<h2>YES!</h2>
+						<img src="img/ace_ventura.gif">
+					</section>
+			</section>
+			<section>
+				<img src="img/thatsallfolks2.gif">
+			</section>
 			</div>
 		</div>
 
