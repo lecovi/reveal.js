@@ -1,59 +1,345 @@
 <!doctype html>
 <html>
-	<head>
-		<meta charset="utf-8">
-		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
-		<title>Python 101 - Clase 4</title>
+        <title>Python 101 - Clase 4</title>
 
-		<link rel="stylesheet" href="css/reveal.css">
-		<link rel="stylesheet" href="css/theme/black.css">
+        <link rel="stylesheet" href="css/reveal.css">
+        <link rel="stylesheet" href="css/theme/black.css">
 
-		<!-- Theme used for syntax highlighting of code -->
-		<link rel="stylesheet" href="lib/css/zenburn.css">
+        <!-- Theme used for syntax highlighting of code -->
+        <link rel="stylesheet" href="lib/css/zenburn.css">
 
-		<!-- Adding Font Awesome to our presentation -->
-		<link rel="stylesheet" href="font-awesome-4.7.0/css/font-awesome.min.css">
+        <!-- Adding Font Awesome to our presentation -->
+        <link rel="stylesheet" href="font-awesome-4.7.0/css/font-awesome.min.css">
 
-		<!-- Printing and PDF exports -->
-		<script>
-			var link = document.createElement( 'link' );
-			link.rel = 'stylesheet';
-			link.type = 'text/css';
-			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
-			document.getElementsByTagName( 'head' )[0].appendChild( link );
-		</script>
-	</head>
-	<body>
-		<div class="reveal">
-			<div class="slides">
-				<section>Slide 1</section>
-				<section>Slide 2</section>
-			</div>
-		</div>
+        <!-- Printing and PDF exports -->
+        <script>
+            var link = document.createElement( 'link' );
+            link.rel = 'stylesheet';
+            link.type = 'text/css';
+            link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+            document.getElementsByTagName( 'head' )[0].appendChild( link );
+        </script>
+    </head>
+    <body>
+        <div class="reveal">
+            <div class="slides">
+                <section>
+                    <h1>Python 101</h1>
+                    <h2>Clase 4 - TODO</h2>
+                    <img src="img/python-logo.png" width="30%"/>
+                </section>
+                <section>
+                    <h2>ToDo APP</h2>
+                    <img src="img/todo_list.jpg"/>
+                </section>
+                <section>
+                    <section>
+                        <h2>Pensemos</h2>
+                        <img src="img/Homer-thinking.jpg"/>
+                    </section>
+                    <section>
+                        <h2>¿Qué Características puede tener una tarea?</h2>
+                        <ul>
+                            <li class="fragment">Nombre o descripción</li>
+                            <li class="fragment">Estado</li>
+                            <li class="fragment">Fecha y hora</li>
+                            <li class="fragment">...</li>
+                        </ul>
+                    </section>
+                    <section>
+                        <h2>¿En qué Estados puede estar una tarea?</h2>
+                        <p>Pueden tener diferentes estados por ejemplo:</p>
+                        <ol>
+                            <li class="fragment">Nueva</li>
+                            <li class="fragment">En Proceso</li>
+                            <li class="fragment">Completada</li>
+                        </ol>
+                    </section>
+                    <section>
+                        <h2>¿Qué Cosas puede hacer una tarea?</h2>
+                        <ul>
+                            <li class="fragment">Avanzar estado</li>
+                            <li class="fragment">Cambiar estado</li>
+                            <li class="fragment">Verificar si está completada</li>
+                        </ul>
+                    </section>
+                    <section>
+                        <h2>Definiendo la clase</h2>
+                        <p>Con esto que pensamos recién, podemos definir nuestra clase</p>
+                    </section>
+                </section>
+                <section>
+                    <section>
+                        <h2>Clase <code>TodoItem</code></h2>
+                        <pre><code>
+class TodoItem:
+    """
+        Clase que modela los 'quehaceres' de la lista.
+    """
 
-		<script src="lib/js/head.min.js"></script>
-		<script src="js/reveal.js"></script>
+    def __init__(self, nombre, estado='nueva'):
+        self.nombre = nombre
+        self.estado = estado
+        self.fechahora = datetime.utcnow()
+                        </code></pre>
+                    </section>
+                    <section>
+                        <h2>Clase <code>TodoItem</code></h2>
+                        <pre><code>
+class TodoItem:
+"""
+    Clase que modela los 'quehaceres' de la lista.
+"""
+    ESTADOS = ('nueva', 'en proceso', 'completada')
 
-		<script>
-			// More info about config & dependencies:
-			// - https://github.com/hakimel/reveal.js#configuration
-			// - https://github.com/hakimel/reveal.js#dependencies
-			Reveal.initialize({
-				// Transition style
-				transition: 'convex', // none/fade/slide/convex/concave/zoom
-				// Transition speed
-				transitionSpeed: 'fast', // default/fast/slow
-				// Transition style for full page slide backgrounds
-				backgroundTransition: 'fade', // none/fade/slide/convex/concave/zoom
+    def __init__(self, nombre, estado='nueva'):
+        self.nombre = nombre
+        if estado not in self.ESTADOS:
+            raise ValueError('El estado tiene que ser
+                alguno de ', self.ESTADOS)
+        self.estado = estado
+        self.fechahora = datetime.utcnow()
+                        </code></pre>
+                    </section>
+                    <section>
+                        <h2>Clase <code>TodoItem</code></h2>
+                        <h3>métodos</h3>
+                        <pre><code>
+class TodoItem:
+    ...
+    def avanzar_estado(self):
+        indice_estado = self.ESTADOS.index(self.estado)
+        if indice_estado + 1 < len(self.ESTADOS):
+            self.estado = self.ESTADOS[indice_estado + 1]
+            self.fechahora = datetime.utcnow()
+            return True
+        return False
+                        </code></pre>
+                    </section>
+                    <section>
+                        <h2>Clase <code>TodoItem</code></h2>
+                        <h3>métodos</h3>
+                        <pre><code>
+class TodoItem:
+    ...
+    def cambiar_estado(self, nuevo_estado):
+        if nuevo_estado not in self.ESTADOS:
+            raise ValueError('El estado tiene que ser 
+                alguno de ', self.ESTADOS)
+        self.estado = nuevo_estado
+        self.fechahora = datetime.utcnow()
+                        </code></pre>
+                    </section>
+                    <section>
+                        <h2>Clase <code>TodoItem</code></h2>
+                        <h3>métodos</h3>
+                        <pre><code>
+class TodoItem:
+    ...
+    def esta_completa(self):
+        if self.estado == 'completada':
+            return True
+        return False
+                        </code></pre>
+                    </section>
+                    <section>
+                        <h2>No hace falta escribir</h2>
+                        <img src="img/downloadarrow.png" width="20%"/><br>
+                        <a href="archivos/hola_flask/todo.py">todo.py</a>
+                    </section>
+                    <section>
+                        <h1>Probemos...</h1>
+                    </section>
+                </section>
+                <section>
+                    <h2>Ahora con Flask!</h2>
+                    <img src="img/downloadarrow.png" width="20%"/><br>
+                    <a href="archivos/hola_flask/hola_flask.zip">hola_flask.zip</a>
+                </section>
+                <section>
+                    <section>
+                        <h2>¿Cómo va a ser nuestra APP?</h2>
+                        <ul>
+                            <li>Index: <b>Hola Flask!</b></li>
+                            <li>/saludo: <b>Un saludito</b></li>
+                            <li>Sobre la lista<br>
+                                <ul>
+                                    <li>Crear Lista/Ver lista</li>
+                                    <li>Crear tarea</li>
+                                    <li>Avanzar Estado</li>
+                                    <li>Cambiar Estado</li>
+                                    <li>Borrar</li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </section>
+                    <section>
+                        <h2>Probando APP</h2>
+                        <a href="http://127.0.0.1:5000/lista">http://127.0.0.1:5000/lista</a>
+                        <pre><code>
+$ cd hola_flask
+hola_flask $ pipenv run python app.py
+* Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+* Restarting with stat
+* Debugger is active!
+* Debugger PIN: 303-700-733
+                        </code></pre>
+                    </section>
+                </section>
+                <section>
+                    <section>
+                        <h2>Crear/Ver lista</h2>
+                        <pre><code>
+app = Flask(__name__)
+app.lista = list()
 
-				dependencies: [
-					{ src: 'plugin/markdown/marked.js' },
-					{ src: 'plugin/markdown/markdown.js' },
-					{ src: 'plugin/notes/notes.js', async: true },
-					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }
-				]
-			});
-		</script>
-	</body>
+@app.route('/lista')
+def todo_index():
+    print(app.lista)
+    return render_template('lista_index.html',
+                            lista=app.lista)
+                        </code></pre>                        
+                    </section>
+                    <section>
+                        <h2>Templates</h2>
+                        <h3>jinja2</h3>
+                        <p>MIX entre HTML y Python</p>
+                    </section>
+                    <section>
+                        <h2>Más importante</h2>
+                        <ul>
+                            <li>Secuencias de control <code>{% %}</code></li>
+                            <li>Variables <code>{{ }}</code></li>
+                        </ul>
+                    </section>
+                    <section>
+                        <h2>Secuencias de control</h2>
+                        <h3>Herencia y bloques</h3>
+                        <pre><code>
+{% extends "base.html" %}
+{% block body %}
+    ....
+    ....
+{% endblock %}
+                        </code></pre>
+                    </section>
+                    <section>
+                        <h2>Ciclos</h2>
+                        <pre><code>
+{% for item in lista %}
+&lt;tr&gt;
+    &lt;td&gt;{{ lista.index(item) }}&lt;/td&gt;
+    &lt;td&gt;{{ item.nombre }}&lt;/td&gt;
+    &lt;td&gt;{{ item.estado }}&lt;/td&gt;
+    &lt;td&gt;{{ item.fechahora.strftime('%x - %X') }}&lt;/td&gt;
+&lt;/tr&gt;
+{% endfor %}
+                        </code></pre>
+                    </section>
+                    <section>
+                        <h2>Condicionales</h2>
+                        <pre><code>
+{% if lista|length == 0 %}
+&lt;h2&gt;Cree al menos una tarea!&lt;/h2&gt;
+{% else %}
+....
+....
+{% endif %}
+                        </code></pre>
+                    </section>
+                    <section>
+                        <h2>Crear Tarea</h2>
+                        <h3>Formulario</h3>
+                        <pre><code>
+{% extends "base.html" %}
+{% block body %}
+&lt;form action="/lista/crear" method="post"&gt;
+    &lt;input type="text" name="nombre"&gt;
+    &lt;input type="submit" value="crear"&gt;
+&lt;/form&gt;
+{% endblock %}
+                        </code></pre>
+                    </section>
+                    <section>
+                        <h2>Crear Tarea</h2>
+                        <pre><code>
+@app.route('/lista/crear', methods=('GET', 'POST'))
+def crear_tarea():
+    if request.method == 'POST':
+        nombre_tarea = request.form['nombre']
+        nueva_tarea = TodoItem(nombre_tarea)
+        app.lista.append(nueva_tarea)
+        return redirect(url_for('todo_index'))
+    return render_template('crear_tarea.html')
+                        </code></pre>
+                    </section>
+                    <section>
+                        <h2>Avanzar Estado</h2>
+                        <pre><code>
+@app.route('/lista/<int:tarea_id>/avanzar')
+def avanzar_estado(tarea_id):
+    app.lista[tarea_id].avanzar_estado()
+    return redirect(url_for('todo_index'))
+                        </code></pre>
+                    </section>
+                    <section>
+                        <h2>Cambiar estado</h2>
+                        <pre><code>
+@app.route('/lista/<int:tarea_id>/cambiar', methods=('GET', 'POST'))
+def cambiar_estado(tarea_id):
+    if request.method == 'POST':
+        nuevo_estado = request.form['estado']
+        app.lista[tarea_id].cambiar_estado(nuevo_estado)
+        return redirect(url_for('todo_index'))
+    return render_template('cambiar_estado.html', tarea=app.lista[tarea_id])
+                        </code></pre>
+                    </section>
+                    <section>
+                        <h2>Borrar tarea</h2>
+                        <pre><code>
+@app.route('/lista/<int:tarea_id>')
+def borrar(tarea_id):
+    app.lista.pop(tarea_id)
+    return redirect(url_for('todo_index'))                                    
+                        </code></pre>
+                    </section>
+                </section>
+                <section>
+                    <img src="img/didyoulikeit.png" alt="">
+                </section>
+                <section>
+                    <h2>Gracias</h2>
+                    <img src="img/cerati.jpg" alt="">
+                </section>
+            </div>
+        </div>
+
+        <script src="lib/js/head.min.js"></script>
+        <script src="js/reveal.js"></script>
+
+        <script>
+            // More info about config & dependencies:
+            // - https://github.com/hakimel/reveal.js#configuration
+            // - https://github.com/hakimel/reveal.js#dependencies
+            Reveal.initialize({
+                // Transition style
+                transition: 'convex', // none/fade/slide/convex/concave/zoom
+                // Transition speed
+                transitionSpeed: 'fast', // default/fast/slow
+                // Transition style for full page slide backgrounds
+                backgroundTransition: 'fade', // none/fade/slide/convex/concave/zoom
+
+                dependencies: [
+                    { src: 'plugin/markdown/marked.js' },
+                    { src: 'plugin/markdown/markdown.js' },
+                    { src: 'plugin/notes/notes.js', async: true },
+                    { src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }
+                ]
+            });
+        </script>
+    </body>
 </html>
