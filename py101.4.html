@@ -280,7 +280,7 @@ def crear_tarea():
                     <section>
                         <h2>Avanzar Estado</h2>
                         <pre><code>
-@app.route('/lista/<int:tarea_id>/avanzar')
+@app.route('/lista/&lt;int:tarea_id&gt;/avanzar')
 def avanzar_estado(tarea_id):
     app.lista[tarea_id].avanzar_estado()
     return redirect(url_for('todo_index'))
@@ -289,7 +289,7 @@ def avanzar_estado(tarea_id):
                     <section>
                         <h2>Cambiar estado</h2>
                         <pre><code>
-@app.route('/lista/<int:tarea_id>/cambiar', methods=('GET', 'POST'))
+@app.route('/lista/&lt;int:tarea_id&gt;/cambiar', methods=('GET', 'POST'))
 def cambiar_estado(tarea_id):
     if request.method == 'POST':
         nuevo_estado = request.form['estado']
@@ -301,7 +301,7 @@ def cambiar_estado(tarea_id):
                     <section>
                         <h2>Borrar tarea</h2>
                         <pre><code>
-@app.route('/lista/<int:tarea_id>')
+@app.route('/lista/&lt;int:tarea_id&gt;')
 def borrar(tarea_id):
     app.lista.pop(tarea_id)
     return redirect(url_for('todo_index'))                                    
