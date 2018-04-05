@@ -1,0 +1,120 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<title>reveal.js</title>
+
+		<link rel="stylesheet" href="css/reveal.css">
+		<link rel="stylesheet" href="css/theme/black.css"> <!-- black|beige|blood|legue|moon|night|serif|simple|sky|solarized|white -->
+
+		<!-- Theme used for syntax highlighting of code -->
+		<link rel="stylesheet" href="lib/css/zenburn.css">
+
+        <!-- Adding Font Awesome to our presentation -->
+        <!-- <link rel="stylesheet" href="font-awesome-4.7.0/css/font-awesome.min.css"> -->
+        <script defer src="https://use.fontawesome.com/releases/v5.0.9/js/all.js" integrity="sha384-8iPTk2s/jMVj81dnzb/iFR2sdA7u06vHJyyLlAd4snFpCl/SnyUjRrbdJsw1pGIl" crossorigin="anonymous"></script>
+
+		<!-- Printing and PDF exports -->
+		<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+		</script>
+	</head>
+	<body>
+		<div class="reveal">
+			<div class="slides">
+				<section>
+                    <h1>Diagramación Lógica</h1>
+                    <h2>Introducción a la materia</h2>
+                </section>
+				<section>
+                    <section>
+                        <h2>Leandro E. Colombo Viña</h2>
+                        <ul>
+                            <li>Técnico Superior en Informática Aplicada</li>
+                            <li>Profesor en Disciplinas Industriales</li>
+                            <li>MBA Gestión Estratégica empresas TIC</li>
+                        </ul>
+                    </section>
+                    <section>
+                        <h2>Leandro E. Colombo Viña</h2>
+                        <ul>
+                            <li>2004: Educación media y formación profesional</li>
+                            <li>2010: <a href="http://www.ifts18.edu.ar">IFTS18</a></li>
+                            <li>2013: <a href="http://www.python.org.ar/">Python Argentina</a></li>
+                            <li>2014: <a href="https://bitson.group">bitson</a></li>
+                            <li>2015: <a href="https://ac.python.org.ar/">Asociación Civil Python Argentina</a></li>
+                        </ul>
+                    </section>
+                    <section>
+                        <h2>Contacto</h2>
+                        <p>
+                            <a href="http://leo.bitson.group/ifts/dlo"><icon class="fa fa-globe"></icon></a> http://leo.bitson.group/ifts/dlo<br>
+                            <icon class="fas fa-at"></icon> colomboleandro@ifts18.edu.ar<br>
+                            <a href="https://twitter.com/lecovi"><icon class="fab fa-twitter"></icon></a> <a href="http://t.me/lecovi"><icon class="fas fa-paper-plane"></icon></a> @lecovi<br>
+                        </p>
+                    </section>
+                </section>
+                <section>
+                    <section>
+                        <h2>Lista de Correo</h2>
+                        <h3>Registro</h3>
+                        <ol>
+                            <li>Entrar en el <a href="http://listas.bitson.com.ar/listinfo/diagramacion">link</a></li>
+                            <li>Completar datos: </li>
+                            <ul>
+                                <li>Dirección de correo electrónico</li>
+                                <li>Nombre</li>
+                                <li>Password</li>
+                                <li>Idioma: Español</li>
+                                <li>Digest: No</li>
+                            </ul>
+                        </ol>
+                    </section>
+                    <section>
+                        <h2>Lista de Correo</h2>
+                        <h3>Registro</h3>
+                            <icon class="fa fa-envelope"></icon> Confirmación<br>
+                            <icon class="fa fa-envelope"></icon> Bienvenida <icon class="fragment fas fa-check"></icon>
+                    </section>
+                    <section>
+                        <h2>Lista de Correo</h2>
+                        <h3>Registro</h3>
+                        <icon class="fa fa-envelope"></icon> <a href="http://listas.bitson.com.ar/listinfo/diagramacion">diagramacion@listas.bitson.com.ar</a><br>
+                    </section>
+                    <section>
+                        <h2>¿Qué vamos a aprender?</h2>
+                    </section>
+                </section>
+			</div>
+		</div>
+
+		<script src="lib/js/head.min.js"></script>
+		<script src="js/reveal.js"></script>
+
+		<script>
+			// More info about config & dependencies:
+			// - https://github.com/hakimel/reveal.js#configuration
+			// - https://github.com/hakimel/reveal.js#dependencies
+			Reveal.initialize({
+				// Transition style
+				transition: 'convex', // none/fade/slide/convex/concave/zoom
+				// Transition speed
+				transitionSpeed: 'fast', // default/fast/slow
+				// Transition style for full page slide backgrounds
+				backgroundTransition: 'fade', // none/fade/slide/convex/concave/zoom
+				dependencies: [
+					{ src: 'plugin/markdown/marked.js' },
+					{ src: 'plugin/markdown/markdown.js' },
+					{ src: 'plugin/notes/notes.js', async: true },
+					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }
+				]
+			});
+		</script>
+	</body>
+</html>
