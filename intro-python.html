@@ -13,7 +13,8 @@
 		<link rel="stylesheet" href="lib/css/zenburn.css">
 
         <!-- Adding Font Awesome to our presentation -->
-        <link rel="stylesheet" href="font-awesome-4.7.0/css/font-awesome.min.css">
+		<!-- <link rel="stylesheet" href="font-awesome-4.7.0/css/font-awesome.min.css"> -->
+		<script defer src="https://use.fontawesome.com/releases/v5.0.9/js/all.js" integrity="sha384-8iPTk2s/jMVj81dnzb/iFR2sdA7u06vHJyyLlAd4snFpCl/SnyUjRrbdJsw1pGIl" crossorigin="anonymous"></script>
 
 		<!-- Printing and PDF exports -->
 		<script>
@@ -66,10 +67,328 @@
                             <li>Tipado dinámico y fuerte</li>
                             <li>Multiparadigma (pero no te obliga)</li>
                             <li>Módulos, clases, funciones, generadores...</li>
-                            <li>Manejo de errores (traceback)</li>
+							<li>Manejo de errores (traceback)</li>
+							<li>Tipos de datos de alto nivel</li>
+							<li>Intérprete interactivo</li>
+							<li>Viene con las pilas incluídas!</li>
+                        </ul>
+					</section>
+					<section>
+						<h2>Baterías Incluídas</h2>
+						<ul>
+							<li>Servicios del OS</li>
+							<li>Sockets</li>
+							<li>Fecha y Hora</li>
+							<li>Threads</li>
+							<li>Bases de datos</li>
+							<li>XML-RPC</li>
+							<li>Regex</li>
+							<li>SMTP</li>
+							<li>Interfaz gráfica</li>
+							<li>Unittest</li>
+							<li>Logging</li>
+						</ul>
+					</section>
+					<section>
+						<h2>Y podemos agrandarlo!</h2>
+						<ul>
+							<li>Bases de Datos: MySQL/MariaDB, PostgreSQL, MS-SQL, MongoDB, Redis...</li>
+							<li>Interfaces Gráficas: Qt, Gtk, wxWidgets...</li>
+							<li>Frameworks Web: Django, Flask, web2py, falcon, apistar...</li>
+							<li>Y mucho más</li>
+							<ul>
+								<li>Pillow, para imágenes</li>
+								<li>PyGame/Pilas: juegos</li>
+								<li>Numpy: cálculos de alta performance</li>
+								<li>Pandas: análisis de datos</li>
+								<li>Keras: redes neuronales</li>
+							</ul>
+						</ul>
+					</section>
+				</section>
+				<section>
+					<section>
+						<h2>Python Argentina</h2>
+						<img src="./img/pyarac/logo-pyar-ac-curvas.svg" alt="Logo Python Argentina">
+					</section>
+					<section>
+						<h2>Comunidad</h2>
+					</section>
+					<section>
+                        <h2>¿Quienes somos?</h2>
+                        <ul>
+                            <li>Grupo de <strong>entusiastas</strong> de Python <icon class="fab fa-python"></icon></li>
+                            <li><icon class="fas fa-hands-helping"></icon> Referencia local para la aplicación y <strong>difusión</strong> del lenguaje</li>
                         </ul>
                     </section>
-                </section>
+                    <section>
+                        <h2>¿Puedo participar?</h2>
+                        <p>Si! Ya lo estás haciendo! ;-)</p>
+                        <ul>
+                            <li><icon class="fa fa-globe"></icon> <a href="http://www.python.org.ar/">python.org.ar</a></li>
+                            <li><icon class="fa fa-envelope"></icon> Lista de Correos <em>(+2000)</em></li>
+                            <li><icon class="fa fa-comment"></icon> IRC <strong>#pyar</strong> en Freenode</li>
+                            <li><icon class="fas fa-paper-plane"></icon> <a href="https://t.me/pythonargentina">@pythonargentina</a></li>
+                            <li><icon class="fa fa-calendar-check"> </icon> Asistiendo a reuniones y eventos.</li>
+                        </ul>
+                    </section>
+                    <section>
+                        <h2>PyAR es <strong>Federal</strong></h2>
+                        <ul>
+                            <li>Se organizan <strong>reuniones en otras provincias</strong></li>
+                            <li>No hay que pedir permiso, <strong>sólo coordinarlas</strong></li>
+                        </ul>
+					</section>
+					<section>
+						<h2>PyAR es <strong>amor</strong></h2>
+						<p>
+							<small>(en hindi)</small><br>
+							<img src="./img/intro-python/pyar_esamor.jpg" alt="PyAR es AMOR!" width="40%">
+						</p>
+					</section>
+				</section>
+				<section>
+					<h2>acción</h2>
+					<img src="./img/intro-python/tenor.png" alt="do something meme">
+				</section>
+				<section>
+					<h1>Tipos de datos</h1>
+				</section>
+				<section>
+					<section>
+						<h1>Números</h1>
+					</section>
+					<section>
+						<h2>Enteros</h2>
+						<pre><code>
+>>> 2 + 2
+4
+>>> (50 - 5 * 6) / 4
+5.0
+>>> 7 / 2
+3.5
+>>> 7 % 3
+1
+>>> 23477 ** 13
+658193818783243403439870082773641292484261074235533098117
+						</code></pre>
+					</section>
+					<section>
+						<h2>Flotantes</h2>
+						<pre><code>
+>>> 3 * 3.75 / 1.5
+7.5
+>>> 7 / 2.3
+3.0434782608695654
+						</code></pre>
+					</section>
+					<section>
+						<h2>Complejos, decimales, fracciones</h2>
+						<pre><code>
+>>> (3-4j) ** 2.1
+(-10.797386682316887-27.308377455385106j)
+>>> Decimal(2).sqrt()
+Decimal('1.414213562373095048801688724')
+>>> Fraction(2, 3) ** 3
+Fraction(8, 27)
+						</code></pre>
+					</section>
+					<section>
+						<h2>Otras bases</h2>
+						<pre><code>
+>>> 0xf4
+244
+>>> 0b100010101
+277
+>>> hex(5566), bin(5566)
+('0x15be', '0b1010110111110')
+						</code></pre>
+					</section>
+				</section>
+				<section>
+					<section>
+						<h1>Cadenas</h1>
+					</section>
+					<section>
+						<small>Se definen con <code>"</code> o <code>'</code></small><br>
+						<pre><code>
+>>> 'Una cadena es una secuencia de caracteres'
+'Una cadena es una secuencia de caracteres'
+>>> "Ella dijo: 'sí'"
+"Ella dijo: 'sí'"
+>>> """Una línea
+... y la otra"""
+'Una línea\ny la otra'
+						</code></pre>
+					</section>
+					<section>
+						<h2>Algunas operaciones</h2>
+						<pre><code>
+>>> "Hola" + " mundo"
+'Hola mundo'
+>>> "Eco " * 4
+'Eco Eco Eco Eco '
+>>> len("Hola mundo")
+10
+>>> "moño".encode("utf8")
+b'mo\xc3\xb1o'
+						</code></pre>
+					</section>
+					<section>
+						<h2>Accediendo cadenas</h2>
+						<small>por posición</small><br>
+						<pre><code>
+>>> saludo = 'Hola mundo'
+>>> saludo[0]
+'H'
+>>> saludo[3]
+'a'
+>>> saludo[-2]
+'d'
+						</code></pre>
+					</section>
+					<section>
+						<h2>Accediendo cadenas</h2>
+						<small>rebanando (slicing)</small><br>
+						<pre><code>
+>>> saludo[2:5]
+'la '
+>>> saludo[2:8]
+'la mun'
+>>> saludo[:4]
+'Hola'
+>>> saludo[-2:]
+'do'
+						</code></pre>
+					</section>
+				</section>
+				<section>
+					<section>
+						<h1>Listas</h1>
+					</section>
+					<section>
+						<small>Se usan <em>corchetes</em>, guardan cualquier tipo de <strong>objeto</strong></small><br>
+						<pre><code>
+>>> a = ['harina', 100, 'huevos', 'manteca']
+>>> a
+['harina', 100, 'huevos', 'manteca']
+						</code></pre>
+					</section>
+					<section>
+						<small>Se acceden por <em>índice</em>, como cualquier <strong>secuencia</strong></small><br>
+						<pre><code>
+>>> a[0]
+'harina'
+>>> a[-2:]
+['huevos', 'manteca']
+						</code></pre>
+					</section>
+					<section>
+						<small>Concatenamos, reemplazamos</small><br>
+						<pre><code>
+>>> a + ['oro', 9]
+['harina', 100, 'huevos', 'manteca', 'oro', 9]
+>>> a[0] = "sal"
+>>> a
+['sal', 100, 'huevos', 'manteca']
+						</code></pre>
+					</section>
+					<section>
+						<small>Se pueden tener incluso <strong>listas</strong></small><br>
+						<pre><code>
+>>> a
+['sal', 100, 'huevos', 'manteca']
+>>> a[1] = ["Hola", 7]
+>>> a
+['sal', ['Hola', 7], 'huevos', 'manteca']
+						</code></pre>
+					</section>
+					<section>
+						<small>Se pueden borrar elementos</small><br>
+						<pre><code>
+>>> del a[1]
+>>> a
+['sal', 'huevos', 'manteca']
+						</code></pre>
+					</section>
+					<section>
+						<small>Y hay mucho métodos</small>
+						<pre><code>
+>>> a.index("huevos")
+1
+>>> a.sort()
+>>> a
+['huevos', 'manteca', 'sal']
+						</code></pre>
+					</section>
+				</section>
+				<section>
+					<section>
+						<h1>Conjuntos</h1>
+					</section>
+					<section>
+						<small>Se definen con <em>llaves</em> y escribiendo los <strong>valores</strong></small>
+						<pre><code>
+>>> nros = {1, 2, 1, 3, 1, 4, 1, 5}
+>>> nros
+set([1, 2, 3, 4, 5])
+>>> otros = {4, 5, 6, 7}
+>>> otros.update([6, 7, 8])
+>>> otros
+set([8, 4, 5, 6, 7])
+						</code></pre>
+					</section>
+					<section>
+						<h2>Operaciones con conjuntos</h2>
+						<pre><code>
+>>> nros - otros
+set([1, 2, 3])
+>>> nros &amp; otros
+set([4, 5])
+>>> nros | otros
+set([1, 2, 3, 4, 5, 6, 7, 8])
+						</code></pre>
+					</section>
+				</section>
+				<section>
+					<section>
+						<h1>Diccionarios</h1>
+					</section>
+					<section>
+						<small>Se definen con <em>llaves</em> y escribiendo <strong>pares</strong></small>
+						<pre><code>
+>>> días = {"enero": 31, "junio": 30, "julio": 30}
+>>> días
+{'enero': 31, 'julio': 30, 'junio': 30}
+>>> días["enero"]
+31
+>>> días["agosto"] = 31
+>>> días["julio"] = 31
+>>> días
+{'agosto': 31, 'enero': 31, 'julio': 31, 'junio': 30}
+>>> cualquiercosa = {34: [2, 3], (2, 3): {3: 4}}
+						</code></pre>
+					</section>
+					<section>
+						<small>También se puede borrar<br>
+						<pre><code>
+>>> del días["julio"]
+>>> días
+{'agosto': 31, 'enero': 31, 'junio': 30}
+						</code></pre>
+					</section>
+				</section>
+				<section>
+						<h2>Leyendo Diccionarios</h2>
+						<pre><code>
+	>>> "marzo" in días
+	False
+	>>> días.keys()
+	dict_keys(['enero', 'agosto', 'junio'])
+	>>> dias.values()
+	dict_values([31, 31, 30])
+						</code></pre>
+					</section>
 			</div>
 		</div>
 
