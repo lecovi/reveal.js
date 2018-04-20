@@ -37,15 +37,47 @@
                 <section>
                     <h2>Índice</h2>
                     <ol>
+                        <li class="fragment highlight-current-blue">Presentación</li>
                         <li class="fragment highlight-current-blue">Qué es Python</li>
                         <li class="fragment highlight-current-blue">Comunidad</li>
                         <li class="fragment highlight-current-blue">Corriendo e interpretando</li>
                         <li class="fragment highlight-current-blue">Tipos de datos</li>
                         <li class="fragment highlight-current-blue">Control de flujo</li>
                         <li class="fragment highlight-current-blue">Encapsulando código</li>
-                        <li class="fragment highlight-current-blue">Detalles</li>
+                        <li class="fragment highlight-current-blue">Asociación Civil</li>
                     </ol>
                 </section>
+                <section>
+						<h3>Prof. Leandro E. Colombo Viña</h3>
+						<p><ul class="fragments">
+							<li class="fragment fade-up">Educación (2004):<br>
+							<small>Pío IX, IFTS18, CFP34, UDE, UOM, ...</small></li>
+							<li class="fragment fade-up">Profesor de Programación (2010):<br>
+							<small><address>http://www.ifts18.edu.ar</address></small></li>
+							<li class="fragment fade-up">Cooperativa de trabajo BITSON Ltda. (2014):<br>
+							<small><address>https://bitson.group</address></small></li>
+						</ul></p>
+					</section>
+					<section>
+						<h3>Prof. Leandro E. Colombo Viña</h3>
+						<p><ul class="fragments">
+							<li class="fragment fade-up">Miembro de PyAR (2013):<br>
+							<small><address>https://python.org.ar</address></small></li>
+							<li class="fragment fade-up">Asociación Civil Python Argentina (2015)<br>
+							<small><address>https://www.python.org.ar/wiki/AsociacionCivil</address></small></li>
+							<li class="fragment fade-up">PyConAR 2016:<br>
+							<small><address>https://ar.pycon.org</address></small></li>
+						</ul></p>
+					</section>
+					<section data-background="img/udemy/flia.jpg" data-background-transition="zoom">
+						<h3 style="color: #eeeeee;">Prof. Leandro E. Colombo Viña</h3>
+						<!--<img src="img/flia.jpg" width="30%" alt="Mi familia y yo en Bariloche, Río Negro, Argentina">-->
+						<p><ul class="fragments">
+							<li class="fragment fade-up" style="color: #eeeeee;">Técnico Superior en Informática Aplicada</li>
+							<li class="fragment fade-up" style="color: #eeeeee;">Profesor en Disciplinas Industriales <br> especialidad en Informática</li>
+							<li class="fragment fade-up" style="color: #eeeeee;">Maestría Gestión de Sistemas <em>(en curso)</em></li>
+						</ul></p>
+					</section>
 				<section>
                     <section>
                         <h1>Qué es Python</h1>
@@ -150,7 +182,18 @@
 				<section>
 					<h2>acción</h2>
 					<img src="./img/intro-python/tenor.png" alt="do something meme">
-				</section>
+                </section>
+                <section>
+                    <h2>Arrancando el Intérprete</h2>
+                    <pre><code>
+$ python3
+Python 3.6.5 (default, Apr  4 2018, 15:09:05) 
+[GCC 7.3.1 20180130 (Red Hat 7.3.1-2)] on linux
+Type "help", "copyright", "credits" or "license" for more information.
+>>> 
+                            
+                    </code></pre>
+                </section>
 				<section>
 					<h1>Tipos de datos</h1>
 				</section>
@@ -368,27 +411,349 @@ set([1, 2, 3, 4, 5, 6, 7, 8])
 {'agosto': 31, 'enero': 31, 'julio': 31, 'junio': 30}
 >>> cualquiercosa = {34: [2, 3], (2, 3): {3: 4}}
 						</code></pre>
-					</section>
+                    </section>
 					<section>
-						<small>También se puede borrar<br>
+						<h2>borrando</h2>
 						<pre><code>
 >>> del días["julio"]
 >>> días
 {'agosto': 31, 'enero': 31, 'junio': 30}
 						</code></pre>
-					</section>
-				</section>
-				<section>
-						<h2>Leyendo Diccionarios</h2>
-						<pre><code>
-	>>> "marzo" in días
-	False
-	>>> días.keys()
-	dict_keys(['enero', 'agosto', 'junio'])
-	>>> dias.values()
-	dict_values([31, 31, 30])
-						</code></pre>
-					</section>
+                    </section>
+                    <section>
+                        <h2>Leyendo el diccionario</h2>
+                        <pre><code>
+>>> "marzo" in días
+False
+>>> días.keys()
+dict_keys(['enero', 'agosto', 'junio'])
+>>> dias.values()
+dict_values([31, 31, 30])
+                        </code></pre>
+                    </section>
+                    <section>
+                        <h2>más métodos</h2>
+                        <pre><code>
+>>> días.get("agosto", "No tenemos ese mes")
+31
+>>> días.get("mayo", "No tenemos ese mes")
+'No tenemos ese mes'
+>>> días.pop("agosto")
+31
+>>> días
+{'enero': 31, 'junio': 30}
+                        </code></pre>
+                    </section>
+                </section>
+                <section>
+                    <h1>Control de flujo</h1>
+                </section>
+                <section>
+                    <section>
+                        <h2>Si pasa tal cosa...</h2>
+                        <pre><code>
+a = ...
+if a == 0:
+    print("Ojo con el valor de b")
+    b = 0
+elif a &gt; 100 or a &lt; 0:
+    print("Error en el valor de a")
+    b = 0
+else:
+    b = c / a
+print(b)
+                        </code></pre>
+                    </section>
+                    <section>
+                        <h2>Condicional</h2>
+                        <ul>
+                            <li><code>or</code>, <code>and</code>, <code>not</code></li>
+                            <li><code>==</code>, <code>!=</code>, <code>&gt;</code>, <code>&gt;=</code>, <code>&lt;</code>, <code>&lt;=</code></li>
+                            <li><code>in</code>, <code>is</code></li>
+                            <li>Todo lo que evalúe: <code>True</code> o <code>False</code></li>
+                        </ul>
+                    </section>
+                </section>
+                <section>
+                    <section>
+                        <h2>Para cada uno...</h2>
+                        <pre><code>
+>>> bichos = ["pulgas", "piojos", "cucarachas"]
+>>> for bich in bichos:
+...     print("Mata-" + bich)
+...
+Mata-pulgas
+Mata-piojos
+Mata-cucarachas
+                        </code></pre>
+                    </section>
+                    <section>
+                        <h2>Secuencia de números</h2>
+                        <pre><code>
+>>> list(range(5))
+[0, 1, 2, 3, 4]
+>>> for i in range(2, 10, 3):
+...     print(i ** 2)
+...     
+4
+25
+64
+                        </code></pre>
+                    </section>
+                </section>
+                <section>
+                    <section>
+                        <h2>Mientras pase...</h2>
+                        <pre><code>
+>>> a = 0
+>>> while a &lt; 1000:
+...     print(a ** 5)
+...     a += 3
+0
+243
+7776
+...
+980159361278976
+995009990004999
+                        </code></pre>
+                    </section>
+                    <section>
+                        <h2>Extras</h2>
+                        <p>El <code>while</code> al igual que el <code>for</code>, tiene:</p>
+                        <ul>
+                            <li><code>continue</code>: Vuelve a empezar al principio del loop</li>
+                            <li><code>break</code>: Corta el loop y sale</li>
+                            <li><code>else</code>: Lo ejecuta si no cortamos con el break</li>
+                        </ul>
+                    </section>
+                </section>
+                <section>
+                    <h1>Errores</h1>
+                </section>
+                <section>
+                    <section>
+                        <h2>Excepciones</h2>
+                        <pre><code>
+>>> 14 / 2
+7.0
+>>> 14 / 0
+Traceback (most recent call last):
+    File "&lt;stdin&gt;", line 1, in &lt;module&gt; 
+ZeroDivisionError: division by zero
+                        </code></pre>
+                    </section>
+                    <section>
+                        <h2>Podemos capturarlas</h2>
+                        <pre><code>
+>>> try:
+...     print(14 / 0)
+... except ZeroDivisionError:
+...     print("error!")
+... 
+error!
+                        </code></pre>
+                    </section>
+                    <section>
+                        <h2>Manejando expeciones</h2>
+                        <ul>
+                            <li><code>try</code>: Acá va el bloque de código que queremos supervisar.</li>
+                            <li><code>except</code>: Atrapa todo, o sólo lo que se le especifique.</li>
+                            <li><code>else</code>: Si no hubo una excepción, se ejecuta esto.</li>
+                            <li><code>finally</code>: Lo que esta acá se ejecuta siempre.</li>
+                        </ul>
+                    </section>
+                    <section>
+                        <h2>Generando excepciones</h2>
+                        <pre><code>
+>>> raise ValueError("Acá contamos que pasó")
+Traceback (most recent call last):
+    File "&lt;stdin&gt;", line 1, in &lt;module&gt; 
+ValueError: Acá contamos que pasó
+                        </code></pre>
+                    </section>
+                </section>
+                <section>
+                    <h1>Encapsulando código</h1>
+                </section>
+                <section>
+                    <section>
+                        <h2>Funciones</h2>
+                        <pre><code>
+>>> def alcuadrado(n):
+...     res = n ** 2
+...     return res
+...
+>>> alcuadrado(3)
+9
+                        </code></pre>
+                    </section>
+                    <section>
+                        <h2>Las funciones, son objetos</h2>
+                        <pre><code>
+>>> alcuadrado
+&lt;function alcuadrado at 0xb7c30b54&gt;
+>>> f = alcuadrado
+>>> f(5)
+25
+                        </code></pre>
+                    </section>
+                    <section>
+                        <h2>Argumentos</h2>
+                        <pre><code>
+>>> def func(a, b=0, c=7):
+...     return a, b, c
+...
+
+>>> func(1)
+(1, 0, 7)
+>>> func(1, 3)
+(1, 3, 7)
+>>> func(1, 3, 9)
+(1, 3, 9)
+>>> func(1, c=9)
+(1, 0, 9)
+>>> func(b=2, a=-3)
+(-3, 2, 7)
+                        </code></pre>
+                    </section>
+                </section>
+                <section>
+                    <section>
+                        <h2>Clases</h2>
+                        <pre><code>
+>>> class MiClase:
+...     x = 3
+...     def f(self):
+...         return 'Hola mundo'
+...
+>>> c = MiClase()
+>>> c.x
+3
+>>> c.f()
+'Hola mundo'
+Heredando
+>>> class MiClase(ClasePadre):
+>>> class MiClase(ClasePadre, ClaseTio):
+                        </code></pre>
+                    </section>
+                    <section>
+                        <h2>Con mucha clase</h2>
+                        <pre><code>
+>>> class Posicion:
+...     def __init__(self, x, y):
+...         self.x = x
+...         self.y = y
+...     def distancia(self):
+...         dist = math.sqrt(self.x ** 2 + self.y ** 2)
+...         return dist
+...
+>>>
+>>> pos1 = Posicion(3, 4)
+>>> pos1.x
+3
+>>> pos1.distancia()
+5.0
+>>> pos2 = Posicion(7, 9)
+>>> pos2.y
+9
+>>> pos1.y
+4
+                        </code></pre>
+                    </section>
+                </section>
+                <section>
+                    <h1>Módulos y Paquetes</h1>
+                </section>
+                <section>
+                    <section>
+                        <h2>Módulos</h2>
+                        <ul>
+                            <li>Archivos con código Python</li>
+                            <li>Es un <code>.py</code> sólo que importamos algo para usar</li>
+                            <li>fácil, rápido y funciona!</li>
+                            <li>cuidado con los nombres.</li>
+                        </ul>
+                    </section>
+                    <section>
+                        <h2>Importando</h2>
+                        <p><small>Si la clase anterior la tenemos en un <code>pos.py</code></small></p>
+                        <pre><code>
+>>> import pos
+>>> p = pos.Posicion(2, 3)
+>>> p.x
+2
+                        </code></pre>
+                    </section>
+                    <section>
+                        <h2>Paquetes</h2>
+                        <ul>
+                            <li>Cuando tenés muchos módulos</li>
+                            <li>Usando directorios y subdirectorios</li>
+                            <li><code>__init__.py</code></li>
+                        </ul>
+                    </section>
+                </section>
+                <section>
+                    <h1>Hay mucho más...</h1>
+                </section>
+                <section>
+                    <h1>Asociación Civil</h1>
+                </section>
+                <section>
+                    <h2>Herramienta/Interfaz</h2>
+                    <img src="img/pyarac/pyar-ac-instit.svg" alt="PyAR AC">
+                </section>
+                <section>
+                    <h2>Próximos pasos</h2>
+                    <ul>
+                        <li>Acercar a la gente</li>
+                            <ul><li>Becas, especialmente en eventos chicos</li></ul>
+                        <li>Capacitación en Python</li>
+                            <ul>
+                                <li class="fragment highlight-current-blue">Descuentos en cursos</li>
+                                <li class="fragment highlight-current-blue">Armar/coordinar cursos</li>
+                            </ul>
+                        <li>Infraestructura</li>
+                        <ul>
+                            <li>Virtual (sitio web, cartelera de trabajo, ...)</li>
+                            <li>Real (routers, micrófonos, ...)</li>
+                        </ul>
+                    </ul>
+                </section>
+                <section>
+                        <h2>Te necesitamos</h2>
+                        <img src="img/pyarac/wantyou.gif" alt="I Want you gif">
+                    </section>
+                    <section>
+                        <h2>Categorías</h2>
+                        <ul>
+                            <li class="fragment highlight-current-blue">Activos (Voz, Voto, Elegible para la CD): $200/mes</li>
+                            <li class="fragment highlight-current-blue">Adherente (Voz): $75/mes</li>
+                            <li class="fragment highlight-current-blue">Estudiante: $25/mes c/certificado</li>
+                            <li class="fragment"><b>Completá el formulario!</b></li>
+                        </ul>
+                    </section>
+                    <section>
+                        <h2>Benefactores</h2>
+                        <img src="img/pyarac/pyar-empresa.png" alt="">
+                        <ul>
+                            <li>Empresas, instituciones, etc.</li>
+                            <li>Socia benefactora</li>
+                            <li>Beneficios directos</li>
+                        </ul>
+                    </section>    
+                <section>
+                    <img src="img/pyarac/logo-pyar-ac.svg" alt="Logo PyAR AC" style="border-width:0"><br>
+                    <i class="fa fa-globe"></i> <a href="https://ac.python.org.ar/" target="_blank">https://ac.python.org.ar/</a><br>
+                    <i class="fa fa-envelope"></i> <a href="#">presidencia@ac.python.org.ar</a><br>
+                    <i class="fas fa-pencil-alt"></i> <a href="http://bit.ly/socio-pyar" target="_blank">http://bit.ly/socio-pyar</a>
+                </section>
+                <section>
+                    <img src="img/thatsallfolks.gif"/><br>
+                    <i class="fa fa-envelope"></i> <a href="#">leo@bitson.group</a><br>
+                    <i class="fas fa-paper-plane"></i> <a href="https://t.me/lecovi">@lecovi</a><br>
+                    <i class="fab fa-twitter"></i> <a href="https://t.me/lecovi">@lecovi</a>
+                </section>
 			</div>
 		</div>
 
@@ -400,6 +765,7 @@ set([1, 2, 3, 4, 5, 6, 7, 8])
 			// - https://github.com/hakimel/reveal.js#configuration
 			// - https://github.com/hakimel/reveal.js#dependencies
 			Reveal.initialize({
+                slideNumber: true,
 				// Transition style
 				transition: 'convex', // none/fade/slide/convex/concave/zoom
 				// Transition speed
