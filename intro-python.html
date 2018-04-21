@@ -75,7 +75,7 @@
 						<p><ul class="fragments">
 							<li class="fragment fade-up" style="color: #eeeeee;">Técnico Superior en Informática Aplicada</li>
 							<li class="fragment fade-up" style="color: #eeeeee;">Profesor en Disciplinas Industriales <br> especialidad en Informática</li>
-							<li class="fragment fade-up" style="color: #eeeeee;">Maestría Gestión de Sistemas <em>(en curso)</em></li>
+							<li class="fragment fade-up" style="color: #eeeeee;">Maestría en Gestión de Empresas TIC <em>(en curso)</em></li>
 						</ul></p>
 					</section>
 				<section>
@@ -106,7 +106,7 @@
                         </ul>
 					</section>
 					<section>
-						<h2>Baterías Incluídas</h2>
+						<h2>Batteries <del>not</del> Included</h2>
 						<ul>
 							<li>Servicios del OS</li>
 							<li>Sockets</li>
@@ -253,6 +253,7 @@ Fraction(8, 27)
 						<h1>Cadenas</h1>
 					</section>
 					<section>
+                        <h2>Apóstrofo o Comilla doble</h2>
 						<small>Se definen con <code>"</code> o <code>'</code></small><br>
 						<pre><code>
 >>> 'Una cadena es una secuencia de caracteres'
@@ -278,8 +279,7 @@ b'mo\xc3\xb1o'
 						</code></pre>
 					</section>
 					<section>
-						<h2>Accediendo cadenas</h2>
-						<small>por posición</small><br>
+						<h2>Accediendo cadenas por posición</h2>
 						<pre><code>
 >>> saludo = 'Hola mundo'
 >>> saludo[0]
@@ -291,8 +291,7 @@ b'mo\xc3\xb1o'
 						</code></pre>
 					</section>
 					<section>
-						<h2>Accediendo cadenas</h2>
-						<small>rebanando (slicing)</small><br>
+						<h2>Accediendo con rebanado (slicing)</h2>
 						<pre><code>
 >>> saludo[2:5]
 'la '
@@ -310,6 +309,7 @@ b'mo\xc3\xb1o'
 						<h1>Listas</h1>
 					</section>
 					<section>
+                        <h2>Corchetes</h2>
 						<small>Se usan <em>corchetes</em>, guardan cualquier tipo de <strong>objeto</strong></small><br>
 						<pre><code>
 >>> a = ['harina', 100, 'huevos', 'manteca']
@@ -318,6 +318,7 @@ b'mo\xc3\xb1o'
 						</code></pre>
 					</section>
 					<section>
+                        <h2>Indexables</h2>
 						<small>Se acceden por <em>índice</em>, como cualquier <strong>secuencia</strong></small><br>
 						<pre><code>
 >>> a[0]
@@ -327,6 +328,7 @@ b'mo\xc3\xb1o'
 						</code></pre>
 					</section>
 					<section>
+                        <h2>Operando</h2>
 						<small>Concatenamos, reemplazamos</small><br>
 						<pre><code>
 >>> a + ['oro', 9]
@@ -337,6 +339,7 @@ b'mo\xc3\xb1o'
 						</code></pre>
 					</section>
 					<section>
+                        <h2>Cualquier objeto</h2>
 						<small>Se pueden tener incluso <strong>listas</strong></small><br>
 						<pre><code>
 >>> a
@@ -347,6 +350,7 @@ b'mo\xc3\xb1o'
 						</code></pre>
 					</section>
 					<section>
+                        <h2>Borrando</h2>
 						<small>Se pueden borrar elementos</small><br>
 						<pre><code>
 >>> del a[1]
@@ -355,6 +359,7 @@ b'mo\xc3\xb1o'
 						</code></pre>
 					</section>
 					<section>
+                        <h2>Extra!</h2>
 						<small>Y hay mucho métodos</small>
 						<pre><code>
 >>> a.index("huevos")
@@ -370,6 +375,7 @@ b'mo\xc3\xb1o'
 						<h1>Conjuntos</h1>
 					</section>
 					<section>
+                        <h2>llaves</h2>
 						<small>Se definen con <em>llaves</em> y escribiendo los <strong>valores</strong></small>
 						<pre><code>
 >>> nros = {1, 2, 1, 3, 1, 4, 1, 5}
@@ -398,6 +404,7 @@ set([1, 2, 3, 4, 5, 6, 7, 8])
 						<h1>Diccionarios</h1>
 					</section>
 					<section>
+                        <h2>llaves, claves y valores</h2>
 						<small>Se definen con <em>llaves</em> y escribiendo <strong>pares</strong></small>
 						<pre><code>
 >>> días = {"enero": 31, "junio": 30, "julio": 30}
@@ -554,7 +561,7 @@ error!
                         </code></pre>
                     </section>
                     <section>
-                        <h2>Manejando expeciones</h2>
+                        <h2>Manejando excepciones</h2>
                         <ul>
                             <li><code>try</code>: Acá va el bloque de código que queremos supervisar.</li>
                             <li><code>except</code>: Atrapa todo, o sólo lo que se le especifique.</li>
@@ -668,10 +675,10 @@ Heredando
                     <section>
                         <h2>Módulos</h2>
                         <ul>
-                            <li>Archivos con código Python</li>
-                            <li>Es un <code>.py</code> sólo que importamos algo para usar</li>
+                            <li>archivos con código Python</li>
+                            <li>es un <code>.py</code> sólo que importamos algo para usar</li>
                             <li>fácil, rápido y funciona!</li>
-                            <li>cuidado con los nombres.</li>
+                            <li>cuidado con los nombres</li>
                         </ul>
                     </section>
                     <section>
@@ -730,7 +737,7 @@ Heredando
                             <li class="fragment highlight-current-blue">Activos (Voz, Voto, Elegible para la CD): $200/mes</li>
                             <li class="fragment highlight-current-blue">Adherente (Voz): $75/mes</li>
                             <li class="fragment highlight-current-blue">Estudiante: $25/mes c/certificado</li>
-                            <li class="fragment"><b>Completá el formulario!</b></li>
+                            <li class="fragment"><b>Completá el formulario! <i class="fas fa-pencil-alt"></i> <a href="http://bit.ly/socio-pyar" target="_blank">http://bit.ly/socio-pyar</a></b></li>
                         </ul>
                     </section>
                     <section>
