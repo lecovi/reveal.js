@@ -42,8 +42,8 @@
                         <h3>Programación Orientada a Objetos</h3>
                         <hr>
                         <p>
-                            <small><a href="https://bitson.group">Leandro E. Colombo Viña</a> | <a href="https://twitter.com/lecovi">@lecovi</a> <br> 
-                                <a href="https://bitson.group"><em>leo &lt;at&gt; bitson.group</em></small>
+                            <small><a href="https://bitson.group" target="_blank">Leandro E. Colombo Viña</a> | <a href="https://twitter.com/lecovi" target="_blank">@lecovi</a> <br> 
+                                <a href="https://bitson.group" target="_blank"><em>leo &lt;at&gt; bitson.group</em></small>
                         </p>
                     </section>
 
@@ -60,9 +60,9 @@
                 </section>
                 
                 <section>
-                    <h2>El Zen de Python</h2>
-                    <p><a href="http://docs.python-guide.org/en/latest/">The Hitchhiker’s Guide to Python!</a></p>
-                    <img width="70%" height="70%" src="img/zen-of-python-poster-a3.png" alt="El Zen de Python">
+                    <h3>El Zen de Python</h3>
+                    <p><a href="http://docs.python-guide.org/en/latest/" target="_blank">The Hitchhiker’s Guide to Python!</a></p>
+                    <img width="60%" height="60%" src="img/zen-of-python-poster-a3.png" alt="El Zen de Python">
                     <aside class="notes"><small>
                     </small></aside>
                 </section>
@@ -85,8 +85,8 @@
                         <p><br></p>
                         <div class="fragment">
                                 <small>
-                                    <p><a href="http://objectstart.com/">http://objectstart.com/</a><br>
-                                        <a href="http://librosweb.es/libro/python/capitulo_5.html">http://librosweb.es/libro/python/</a>
+                                    <p><a href="http://objectstart.com/" target="_blank">http://objectstart.com/</a><br>
+                                        <a href="http://librosweb.es/libro/python/capitulo_5.html" target="_blank">http://librosweb.es/libro/python/</a>
                                     </p>
                                 </small>
                             </div>
@@ -137,17 +137,15 @@
                         <h2>Creando clases</h2>
                         <p><small>Tenemos un ejemplo en <a href="archivos/persona.py">persona.py</a></small></p>
                         <pre><code class="python">
-#!/usr/bin/python
-# coding: utf-8
-
 class Persona:
     """Abstracción de los objetos Persona"""
     def __init__(self, nombre):
         self.nombre = nombre
-        print("Acabo de ser creado y me llamo {nombre}").format(nombre=nombre)
+        print(f"Acabo de ser creado y me llamo {self.nombre}")
 
     def avanzar(self):
-        print("Soy {nombre} y estoy caminando hacia adelante!").format(nombre=self.nombre)
+        print(f"Soy {self.nombre} y estoy caminando hacia adelante!")
+
                         </code></pre>
                         <aside class="notes"><small>
                             Hacer el ejemplo con el IDE: Eclipse.<br>
@@ -160,10 +158,9 @@ class Persona:
                         <h2>Probando la clase</h2>
                         <p><small>Tenemos un ejemplo en <a href="archivos/prueba_persona.py">prueba_persona.py</a></small></p>
                         <pre><code class="python">
-#!/usr/bin/python
-# coding: utf-8
-
+#!/usr/bin/env python
 import persona
+
 
 sujeto1 = persona.Persona("Juan")
 sujeto2 = persona.Persona("Pedro")
@@ -172,7 +169,7 @@ sujeto1.avanzar()
 sujeto2.avanzar()
                         </code></pre>
                         <aside class="notes"><small>
-                            Hacer el ejemplo con el IDE: Eclipse.<br>
+                            Hacer el ejemplo con el IDE.<br>
                             Identificar los objetos llamando a <code>id</code><br>
                         </small></aside>
                     </section>                    
@@ -185,10 +182,9 @@ sujeto2.avanzar()
                         <a href="archivos/reptil.py">reptil.py</a></small></p>
                         <pre><code class="python">
 #!/usr/bin/python
-# coding: utf-8
-
 import persona
 import reptil
+
 
 sujeto = persona.Persona("Jorge")
 animal = reptil.Reptil("Pitón")
@@ -198,7 +194,7 @@ animal.avanzar()
                         </code></pre>
                     <em>¡No existe la sobrecarga de métodos!</em>
                     <aside class="notes"><small>
-                        Hacer el ejemplo con el IDE: Eclipse.<br>
+                        Hacer el ejemplo con el IDE.<br>
                         Notar como el método avanzar responde a cada objeto de manera diferente.<br>
                     </small></aside>
                 </section>
@@ -206,14 +202,13 @@ animal.avanzar()
                 <section>
                     <section>
                         <h2>Encapsulamiento</h2>
-                        <p><small>Tenemos un ejemplo en <a href="archivos/encapsulamiento.py">encapsulamiento.py</a></small></p>
                         <ul>
                             <div class="fragment roll-in">
                                 <li>No hay modificadores de acceso.</li>
                                 <ul><li><em>"We are all consenting adults"</em></li></ul>
                             </div>
                             <div class="fragment roll-in">
-                                <li><strong>Name Mangling: <a href="http://legacy.python.org/dev/peps/pep-0008/#method-names-and-instance-variables">PEP 8</a></strong></li>
+                                <li><strong>Name Mangling: <a href="http://legacy.python.org/dev/peps/pep-0008/#method-names-and-instance-variables" target="_blank">PEP 8</a></strong></li>
                                 <ul>
                                     <li><code>público</code></li>
                                     <li><code>_semi_privado</code></li>
@@ -233,12 +228,14 @@ animal.avanzar()
                     
                     <section>
                         <h2>Encapsulando</h2>
+                        <p><small>Tenemos un ejemplo en <a href="archivos/encapsulamiento.py">encapsulamiento.py</a>. 
+                        Y otro ejemplo usando Propiedades en <a href="archivos/encapsulamiento.py">encapsulamiento_property.py</a></small></p>
                         <pre><code class="python">
 class Encapsulamiento:
     def __init__(self):
-        self.__atributo_privado = "este atributo es privado."
-        self._atributo_semi_privado = "este atributo es \"casi\" privado."
-        self.atributo_publico = "este atributo es público."
+        self.__atributo_privado = "atributo privado."
+        self._atributo_semi_privado = "atributo 'casi' privado."
+        self.atributo_publico = "atributo público."
 
     def publico(self):
         return "Este es un método Público"
@@ -247,16 +244,7 @@ class Encapsulamiento:
         return "Este es un método Semi Privado"
 
     def __privado(self):
-        return "Este es un método Privado"
-
-    def get_atributo_privado(self):
-        return self.__atributo_privado
-
-    def set_atributo_privado(self, valor):
-        self.__atributo_privado = valor
-
-    secreto = property(get_atributo_privado, set_atributo_privado)
-                        </code></pre>
+        return "Este es un método Privado"</code></pre>
                         <aside class="notes"><small>
                         </small></aside>
                     </section>                
@@ -265,24 +253,27 @@ class Encapsulamiento:
                 <section>
                     <section>
                         <h2>Herencia</h2>
-                        <p><small>Tenemos un ejemplo en <a href="archivos/trabajador.py">trabajador.py </a></small></p>
+                        <p><small>Tenemos un ejemplo en <a href="archivos/trabajador.py">trabajador.py </a>.
+                        Y para probarlo <a href="archivos/prueba_trabajador.py">prueba_trabajador.py </a></small></p>
                         <pre><code class="python">
 class Trabajador:
     def __init__(self, nombre):
         self.nombre = nombre
         
     def trabajar(self):
-        print("-{name}: Trabajo muy duro! Como un esclavo!").format(name=self.nombre)
+        print(f"-{self.nombre}: Trabajo muy duro!" + \
+              " Como un esclavo!")
 
 
 class Jubilado(Trabajador):
+    """Hereda de trabajador y sobreescribe trabajar()"""
     def trabajar(self):
-        print("-{name}: Ya no trabajo! Soy JUBILADO!!").format(name=self.nombre)
+        print(f"-{self.nombre}: Ya no trabajo! Soy JUBILADO!!")
 
 
 class Menor(Trabajador):
     def trabajar(self):
-        print("-{name}: EXPLOTADOR!!!!").format(name=self.nombre)
+        print(f"-{self.nombre}: EXPLOTADOR!!!!")
                         </code></pre>
                         <aside class="notes"><small>
                             Sobreescribe métodos.<br>
@@ -292,25 +283,21 @@ class Menor(Trabajador):
                     
                     <section>
                         <h2>Herencia Múltiple</h2>
-                        <p><small>Tenemos un ejemplo en <a href="archivos/multiple.py">multiple.py</a></small></p>
+                        <p><small>Tenemos un ejemplo en <a href="archivos/multiple.py">multiple.py</a>
+                        Y para probar con <a href="archivos/prueba_multiple.py">prueba_multiple.py</a></small></p>
                         <pre><code class="python">
-import trabajador
-
 class Persona:
     def __init__(self, edad):
-        self.edad =  edad
-        
-    def trabajar(self):
-        print("-Persona: tengo {age} años.").format(age=self.edad)
-        
+        self.edad = edad
+
 
 class Empleado(Persona, trabajador.Trabajador):
     def __init__(self, nombre, edad):
+        super().__init__(edad)
         self.nombre = nombre
-        self.edad = edad
-        
+
     def identidad(self):
-        print("Soy {name} y tengo {age} años").format(name=self.nombre, age=self.edad)
+        print(f"Soy {self.nombre} y tengo {self.edad} años")
                         </code></pre>
                         <aside class="notes"><small>
                         </small></aside>
@@ -318,7 +305,7 @@ class Empleado(Persona, trabajador.Trabajador):
                 </section>
 
                 <section>
-                    <h2>Métodos Especiales</h2>
+                    <h2>Métodos Mágicos</h2>
                     <ul>
                         <li><strong><code>__init__</code>:</strong> tareas de inicialización.</li>
                         <li><strong><code>__new__</code>:</strong> constructor (clase).</li>
@@ -337,18 +324,17 @@ class Empleado(Persona, trabajador.Trabajador):
                         <p><small>Tenemos un ejemplo en <a href="archivos/excepciones.py">excepciones.py</a></small></p>
                         <pre><code class="python">
 #!/usr/bin/python
-# coding: utf-8
 
 variable = input("1° Caso) Ingrese un número: ")
 
 try:
-    numero = input("2° Caso) Ingrese otro número: ")
-except Exception as e:
-    print("Ha ocurrido un error: {excepcion}".format(excepcion=e))
+    numero = int(input("2° Caso) Ingrese otro número: "))
+except Exception as err:
+    print(f"Ha ocurrido un error: {err}")
 else:
-    print("Usted ingresó los números {} y {}".format(variable, numero))
+    print(f"Usted ingresó {variable} y {numero}")
 finally:
-    print("Se terminó el programa, limpiando...")                    
+    print("Se terminó el programa, limpiando...")
                         </code></pre>
                         <aside class="notes"><small>
                         </small></aside>
@@ -441,55 +427,70 @@ finally:
                     </section>
                     
                     <section>
-                        <h2>... y si pensaste que eran pocas</h2>
-                        <p><small>Tenemos un ejemplo en <a href="archivos/mi_excepcion.py">mi_excepcion.py</a></small></p>
+                        <h3>... y si pensaste que eran pocas</h3>
                         <p><em>Podés definir las tuyas propias...</em></p>
                         <pre><code class="python">
-#!/usr/bin/python
-# coding: utf-8
-
 class MiError(Exception):
     def __init__(self, valor):
         self.valor = valor
         
     def __str__(self):
-        return "Error: " + str(self.valor)
+        return f"Error: {self.valor}"
+                        </code></pre>
+                        <aside class="notes"><small>
+                        </small></aside>
+                    </section>
+                    <section>
+                        <h3>... y las usás como las otras</h3>
+                        <p><small>Tenemos un ejemplo en <a href="archivos/mi_excepcion.py">mi_excepcion.py</a></small></p>
+                        <pre><code class="python">
+#!/usr/bin/python
 
 try:
     valor = input("Ingrese un número:")
     if valor > 0:
         raise MiError("Ingresó un número positivo!")
-except MiError, e:
-    print e
+except MiError as e:
+    print(e)
 
-print("Programa finalizado")                        
+print("Programa finalizado")
                         </code></pre>
                         <aside class="notes"><small>
                         </small></aside>
                     </section>                
+
                 </section>                
 
                 <section>
-                    <h2>Más reslides para aprender Python</h2>
-                    <p><a href="https://koding.com/Home">Koding</a>: entorno de desarrollo en línea.</p>
-                    <p><a href="http://www.codecademy.com/tracks/python">Codecademy</a>: academia comunitaria en línea.</p>
-                    <p><a href="http://learnpythonthehardway.org/book/">Learn Python the Hard Way</a>: libro en línea.</p>
-                    <p><a href="http://www.learnpython.org/">Learn Python</a>: libro y ejemplos en línea.</p>
-                    <p><a href="http://zetcode.com/">Zetcode</a>: tutoriales en línea.</p>
+                    <h3>Más recursos para aprender Python</h3>
+                    <small>
+                    <ul>
+                    <li><a href="https://es.coursera.org/learn/python" target="_blank">Getting Started with Python</a>: Coursera.</li>
+                    <li><a href="https://www.edx.org/course/introduction-to-python-absolute-beginner-0" target="_blank">Introduction to Python: Absolute Beginner</a>: EdX.</li>
+                    <li><a href="https://www.udemy.com/python-3-al-completo-desde-cero/" target="_blank">Curso Maestro de Python 3: Aprende Desde Cero</a>: Udemy.</li>
+                    <li><a href="https://guide.freecodecamp.org/python/" target="_blank">freeCodeCamp Python</a>: comunidad de aprendizaje.</li>
+                    <li><a href="http://www.codecademy.com/tracks/python" target="_blank">Codecademy</a>: academia comunitaria en línea.</li>
+                    <li><a href="https://exercism.io/tracks/python" target="_blank">Exercism</a>: otra comunidad comunitaria de aprendizaje.</li>
+                    <li><a href="https://koding.com/Home" target="_blank">Koding</a>: entorno de desarrollo en línea.</li>
+                    <li><a href="https://learnpythonthehardway.org/book/" target="_blank">Learn Python the Hard Way</a>: libro en línea.</li>
+                    <li><a href="http://www.learnpython.org/" target="_blank">Learn Python</a>: libro y ejemplos en línea.</li>
+                    <li><a href="http://zetcode.com/" target="_blank">Zetcode</a>: tutoriales en línea.</li>
+                    <li><a href="https://www.pythonanywhere.com/" target="_blank">Python Anywhere</a>: deployá en línea.</li>
+                    <li><a href="https://tutorial.djangogirls.org/es/" target="_blank">Tutorial Django Girls</a>: aprendé Django.</li>
+                    <li><a href="http://leo.bitson.group/resources" target="_blank">Mi Blog</a>: recursos útiles.</li>
+                    </ul>
+                    </small>
                     <aside class="notes"><small>
                     </small></aside>
                 </section>
                 
                 <section>
                     <section>
-                        <h2>Ejercicios</h2>
-                        <a href="archivos/ejercicios2.pdf">https://bitson.group/slides/python2/archivos/ejercicios2.pdf</a>
-                        <hr>
                         <h3>URL Presentación</h3>
                         <a href="https://bitson.group/slides/python2">https://bitson.group/slides/python2</a>
                         <hr>
                         <h3>Archivos de Ejemplo</h3>
-                        <a href="archivos/archivos.tar.gz">https://bitson.group/slides/python2/archivos.tar.gz</a>
+                        <a href="archivos/archivos2.tar.gz">https://bitson.group/slides/python2/archivos2.tar.gz</a>
                         <aside class="notes"><small>
                             Pueden ver la presentación desde.
                         </small></aside>
@@ -502,13 +503,11 @@ print("Programa finalizado")
                     <a href="https://bitson.group">bitson.group</a>
                     <hr>
                     <small>
-                    Twitter: <a href="https://twitter.com/lecovi">@lecovi</a> <br> 
-                    Correo electrónico / G+: <a href="https://bitson.group"><em>leo &lt;at&gt; bitson.group</em></a>
+                    Twitter: <a href="https://twitter.com/lecovi" target="_blank">@lecovi</a> <br> 
+                    Correo electrónico: <a href="https://bitson.group" target="_blank"><em>leo &lt;at&gt; bitson.group</em></a>
                     </small>
-                    <br>
-                    <br>
                     <br><small>
-                    <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">
+                    <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">
                         <img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png" /></a>
                     <p>Este trabajo está licenciado bajo <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License</a>.</p></small>
 				</section>
