@@ -8,13 +8,13 @@ print("CONDICIONALES")
 print("="*50)
 
 print("Probemos con un IF solo...(!root)")
-user = raw_input("Ingrese su nombre de usuario: " )
+user = input("Ingrese su nombre de usuario: " )
 if user != "root":
         print("\tUsted no es root, no puede ingresar aquí!")
 print("-"*30+"\n")
 
 print("Ahora con una secuencia IF-ELSE... (Leo)")
-nombre = raw_input("Ingrese su nombre: ")
+nombre = input("Ingrese su nombre: ")
 if nombre == "Leo":
         print("\tBienvenido LEO!")
 else:
@@ -37,7 +37,7 @@ paridad = "par" if (num % 2 == 0) else "impar"
 print("\tEl número ingresado es {}".format(paridad))
 print("-"*30+"\n")
 
-raw_input("Presione <enter> para continuar con los ejemplos cíclicos...")
+input("Presione <enter> para continuar con los ejemplos cíclicos...")
 
 ## CÍCLICOS
 print("CONDICIONALES")
@@ -55,7 +55,7 @@ print("-"*30+"\n")
 print("BREAK")
 print("-"*20)
 while True:
-        salir = raw_input("Ingrese q para salir o cualquier otra cosa para continuar: ")
+        salir = input("Ingrese q para salir o cualquier otra cosa para continuar: ")
         if salir == 'q':
                 break
         else:

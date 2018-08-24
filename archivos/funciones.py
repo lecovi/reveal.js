@@ -1,5 +1,4 @@
-#!/umesr/bin/python
-# coding: utf-8
+#!/usr/bin/python
 
 def imprimir_mensaje():
         """Esta función sólo imprime un mensaje en pantalla.

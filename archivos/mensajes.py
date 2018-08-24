@@ -1,5 +1,4 @@
 #!/usr/bin/python
-# coding: utf-8
 
 def mensaje1():
         print("Imprimiendo primer mensaje")
