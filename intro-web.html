@@ -1,0 +1,259 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<title>reveal.js</title>
+
+		<link rel="stylesheet" href="css/reveal.css">
+		<link rel="stylesheet" href="css/theme/black.css">
+
+		<!-- Theme used for syntax highlighting of code -->
+		<link rel="stylesheet" href="lib/css/zenburn.css">
+
+		<!-- Printing and PDF exports -->
+		<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+		</script>
+	</head>
+	<body>
+    <div class="reveal">
+
+			<!-- Any section element inside of this container is displayed as a slide -->
+			<div class="slides">
+        <section>
+          <section>
+              <h2>Paradigmas de Programación</h2>
+              <h3>Programación Web</h3>
+              <small>
+                  <a href="https://bitson.group" target="_blank">Eliana Rodriguez</a> | <a href="https://twitter.com/EliTnk" target="_blank">@EliTnk</a> <br> 
+                  <a href="https://bitson.group" target="_blank">Leandro E. Colombo Viña</a> | <a href="https://twitter.com/lecovi" target="_blank">@lecovi</a> <br> 
+                </small>
+          </section>
+          <section>
+              <h2>¿Qué es Internet?</h2>
+              <aside class="notes"><small>
+                  Conjunto descentralizado de redes interconectadas que usan TCP/IP.
+                  <ol>
+                    <li>HTTP (WWW)</li>
+                    <li>FTP</li>
+                    <li>SMTP</li>
+                    <li>IRC</li>
+                    <li>SSH</li>
+                    <li>muchos más</li>
+                  </ol>
+              </small></aside>
+          </section>
+          <section>
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/iDbyYGrswtg?start=4" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+            <aside class="notes"><small>
+              Para que no seamos como Jen...
+            </small></aside>
+          </section>
+          <section>
+            <h1>WWW</h1>
+            <p class="main-description">
+              <em>World Wide Web</em>, es una colección global de documentos de textos y otros recursos (URIs) unidos por hyperlinks.
+            </p>
+            <aside class="notes"><small>
+                <ul>
+                  <li>¿Qué es el Hipertexto?</li>
+                  <li>¿Qué son los Hipervínculos?</li>
+                  <li>Uniform Resource Identifier = Esquema + Autoridad + Ruta + Consulta + Fragmento</li>
+                </ul>
+            </small></aside>  
+          </section>
+          <section class="protocol">
+            <h1>Funciones</h1>
+            <p>
+              Los recursos son obtenidos a través de llamadas HTTP, un protocolo de comunicación de Internet.
+            </p>
+            <ul>
+              <li>
+                Para acceder se necesita un browser y una URL.
+              </li>
+            </ul>
+          </section>
+          <section class="protocol">
+            <ul>
+              <li>
+                El browser pasa la URL a una IP provista por el DNS, y pide los recursos a través de internet mandando una request HTTP a la computadora que tenga esa IP.
+              </li>
+              <li>
+                El contenido se muestra en pantalla.
+              </li>
+            </ul>
+          </section>
+          <section>
+            <img src="../img/http-protocolo-peticion.png" alt="http request" />
+            <aside class="notes"><small>
+                <b>Capas Modelo TCP/IP:</b>
+                <ol>
+                  <li>Físca: cables, fichas, etc...</li>
+                  <li>Enlace: MAC Address, dirección física. 48bits. 6 bloques Hexa. Quién somos.</li>
+                  <li>Red: IP, dónde estamos en la red.</li>
+                  <li>Transporte: Puertos. Well Known ports &lt;1024</li>
+                </ol>
+                <ul>
+                  <li>Sockets: IP+Puerto</li>
+                  <li>DNS: Recordamos nombres, pero las computadoras se llevan mejor con los números...</li>
+                </ul>
+            </small></aside>
+          </section>
+        </section>
+				<section>
+          <section>
+            <h2>¿Cómo se arman las páginas web?</h2>
+          </section>
+          <section>
+            <h3>
+              HTML y CSS
+            </h3>
+            <p>HTML es un lenguaje de marcado descriptivo que se escribe en forma de etiquetas para definir la estructura de una página web y su contenido como texto, imágenes, entre otros.</p>
+            <p>CSS, es un lenguaje para especificar cómo los documentos se presentan a los usuarios.</p>
+          </section>
+          <section>
+            <h2>FrontEnd vs BackEnd</h2>
+            <div class="col">
+              <h3>Frontend</h3>
+                <p>
+                  Todo lo que ocurre en el browser del lado del <b>cliente</b>: CSS, HTML, Javascript.
+                </p>
+            </div>
+            <div class="col">
+              <h3>Backend</h3>
+                <p>
+                  Todo lo que ocurre en el lado del <b>servidor</b>: Autenticación, validación, llamadas a base de datos, emails, conexión con otros servicios.
+                  PHP, Python, C, Java, C#, Ruby, etc..
+                </p>
+            </div>
+          </section>
+          <section>
+            <h1>WWW no es Internet</h1>
+            <p>
+              Internet es un sistema global de redes de computadoras conectadas.
+            </p>
+          </section>
+        </section>
+        <section>
+          <h2>Usemos Python para hacer algo web</h2>
+        </section>
+        <section>
+          <section>
+            <h1>Flask</h1>
+            <img src="../img/flask.png" alt="logo" />
+          </section>
+          <section>
+              <p>Es un microentorno de desarollo web</p>
+              <p>Fácil de usar</p>
+              <p>Extensible</p>
+          </section>
+          <section>
+            <h1>PyPI y Pip</h1>
+          </section>
+          <section>
+            <p>PyPI es el repositorio oficial de paquetes de Python, se usa para compartir/distribuir software</p>
+            <p>PIP herramienta de instalación de paquetes para Python</p>
+            <pre><code data-trim data-noescape>$ pip install package-name</code></pre>
+          </section>
+        </section>
+        <section>
+          <section>
+            <h1>Entornos virtuales</h1>
+            <p>Un entorno virtual de Python es un ambiente creado con el objetivo de aislar recursos como librerías y entorno de ejecución, del sistema principal o de otros entornos virtuales.</p>
+            <aside class="notes">
+              Cuando se está desarrollando software con Python, es común utilizar diferentes versiones de un mismo paquete. Por ejemplo, imaginemos que se está desarrollando un videojuego con la versión 1.2 de Pygame y mientras eso pasa, se comienza el desarrollo de otro videojuego que necesita las nuevas características presentes en la versión 1.3.
+              En este escenario, no es posible para los desarrolladores eliminar la version 1.2 e instalar la 1.3 en sus computadoras. Así que el problema a solucionar radica en cómo instalar las dos versiones de la misma librería con el fin de poder desarrollar ambos proyectos de forma simultánea.
+              La solución consiste en crear entornos virtuales. De esta manera, es posible instalar la versión 1.2 de Pygame en un entorno virtual y la versión 1.3 en otro diferente o en el sistema principal sin problema alguno.
+            <aside>
+          </section>
+          <section>
+            <h2>pipenv</h2>
+            <p>Hay varias herramientas para manejar entornos virtuales, nosotros elegimos <em>pipenv</em>.</p>
+          </section>
+          <section>
+            <h2>Instalación</h2>
+            <pre><code>$ pip install pipenv --user</code></pre>
+          </section>
+          <section>
+            <h2>Configurar para ejecutar</h2>
+            <p>Hay que agregar el ejecutable de <code>pipenv</code> a la variable de entorno <code>PATH</code>.</p>
+            <pre><code>
+$ echo $PATH
+/usr/local/bin:/usr/bin:/bin
+            </code></pre>
+            <aside class="notes">
+              <ol>
+                <li>https://pipenv.readthedocs.io/en/latest/install/#pragmatic-installation-of-pipenv</li>
+                <li>https://www.java.com/es/download/help/path.xml</li>
+              </ol>
+            </aside>
+          </section>
+          <section>
+            <h2>Agregando al PATH</h2>
+            <pre><code>
+$ echo "export PATH=$PATH:$HOME/.local/bin/" >> .bashrc
+            </code></pre>
+            <aside class="notes">con esto agregamos al PATH el directorio donde está Pipenv</aside>
+          </section>
+          <section>
+            <h2>Instalando Flask</h2>
+            <h3>en un virtualenv</h3>
+            <h4>con pipenv</h4>
+            <pre><code>
+$ mkdir holaflask
+$ cd holaflask
+$ pipenv install flask
+            </code></pre>
+          </section>
+        </section>
+        <section>
+          <section>
+            <h2>Hola Flask!</h2>
+            <pre><code>
+#!/usr/bin/env python
+from flask import Flask
+
+app = Flask(__name__)
+
+@app.route('/')
+def index():
+     return 'Hola Flask!'
+
+if __name__ == '__main__':
+    app.run()
+            </code></pre>
+          </section>
+          <section>
+            <h2>Probemos!</h2>
+            <pre><code>
+$ pipenv run python app.py
+            </code></pre>
+          </section>
+        </section>
+      </div>
+    </div>
+
+		<script src="lib/js/head.min.js"></script>
+		<script src="js/reveal.js"></script>
+
+		<script>
+			// More info about config & dependencies:
+			// - https://github.com/hakimel/reveal.js#configuration
+			// - https://github.com/hakimel/reveal.js#dependencies
+			Reveal.initialize({
+				dependencies: [
+					{ src: 'plugin/markdown/marked.js' },
+					{ src: 'plugin/markdown/markdown.js' },
+					{ src: 'plugin/notes/notes.js', async: true },
+					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }
+				]
+			});
+		</script>
+	</body>
+</html>
