@@ -20,7 +20,10 @@
 		<!-- For syntax highlighting -->
 		<link rel="stylesheet" href="lib/css/zenburn.css">
 
-		<!-- If the query includes 'print-pdf', use the PDF print sheet -->
+        <!-- Adding Font Awesome to our presentation -->
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+        
+        <!-- If the query includes 'print-pdf', use the PDF print sheet -->
 		<script>
 			document.write( '<link rel="stylesheet" href="css/print/' + ( window.location.search.match( /print-pdf/gi ) ? 'pdf' : 'paper' ) + '.css" type="text/css" media="print">' );
 		</script>
@@ -38,21 +41,29 @@
 			<div class="slides">
                 <section>
                     <section>
-                        <h1>Python</h1>
-                        <h3>Programación Orientada a Objetos</h3>
+                        <h2>Programación Orientada a Objetos</h2>
                         <hr>
-                        <p>
-                            <small><a href="https://bitson.group" target="_blank">Leandro E. Colombo Viña</a> | <a href="https://twitter.com/lecovi" target="_blank">@lecovi</a> <br> 
-                                <a href="https://bitson.group" target="_blank"><em>leo &lt;at&gt; bitson.group</em></small>
-                        </p>
+                        <p><small>
+                            <icon class="fab fa-linkedin"></icon> <a href="https://www.linkedin.com/in/leandrocolombo/" target="_blank">Leandro E. Colombo Viña</a> | <icon class="fas fa-paper-plane"></icon> <icon class="fab fa-twitter"></icon> <icon class="fab fa-instagram"></icon> <icon class="fab fa-github"></icon> <icon class="fab fa-gitlab"></icon> <a href="https://t.me/lecovi" target="_blank">@lecovi</a> <br> <br>
+                            <icon class="fa fa-globe"></icon> <a href="https://bitson.group" target="_blank">https://bitson.group</a> | <icon class="fa fa-envelope"></icon> <a href="https://bitson.group" target="_blank"><em>leo &lt;at&gt; bitson.group</em></a>
+                        </small></p>
+                    </section>
+
+                    <section>
+                        <h2>Quién soy</h2>
+                        <ul>
+                            <li><icon class="fa fa-university"></icon> <a href="http://www.ifts18.edu.ar" target="_blank">2010 - IFTS18</a></li>
+                            <li><icon class="fas fa-users-cog"></icon> <a href="https://bitson.group" target="_blank">2014 - Cooperativa de Trabajo Bitson Ltda.</a></li>
+                            <li><icon class="fab fa-python"></icon> <a href="https://ac.python.org.ar" target="_blank">2015 - Asociación Civil Python Argentina</a></li>
+                        </ul>
                     </section>
 
                     <section>
                         <h2>URL Presentación</h2>
-                        <a href="https://bitson.group/slides/python2">https://bitson.group/slides/python2</a>
+                        <icon class="fa fa-globe"></icon> <a href="https://bitson.group/slides/oop-fce">https://bitson.group/slides/oop-fce</a>
                         <hr>
                         <h3>Archivos de Ejemplo</h3>
-                        <a href="archivos/archivos.tar.gz">https://bitson.group/slides/python2/archivos/archivos.tar.gz</a>
+                        <icon class="fas fa-download"></icon> <a href="archivos/oop.zip">https://bitson.group/slides/archivos/oop.zip</a>
                         <aside class="notes"><small>
                             Pueden ver la presentación desde.
                         </small></aside>
@@ -68,6 +79,14 @@
                 </section>
 
                 <section>
+                    <section>
+                        <h2>¿OOP? <em>#$&amp;!</em> WTF!?</h2>
+                        <img src="img/oop/cats-303163_960_720.png">
+                    </section>
+                    <section>
+                        <h2>¿OOP? <em>#$&amp;!</em> WTF!?</h2>
+                        <img src="img/oop/cat-cartoon-animated-gif.gif">
+                    </section>
                     <section>
                         <h2>¿OOP? <em>#$&amp;!</em> WTF!?</h2>
                         <ul>
@@ -104,10 +123,10 @@
                     <section>
                         <h2>Características</h2>
                         <ul>
-                            <li class="fragment grow">Abstracción</li><br>
-                            <li class="fragment grow">Encapsulamiento</li><br>
-                            <li class="fragment grow">Polimorfismo</li><br>
-                            <li class="fragment grow">Herencia</li>
+                            <li class="fragment grow"><icon class="fas fa-brain"></icon> Abstracción</li><br>
+                            <li class="fragment grow"><icon class="fas fa-box"></icon> Encapsulamiento</li><br>
+                            <li class="fragment grow"><icon class="fas fa-hamsa"></icon> Polimorfismo</li><br>
+                            <li class="fragment grow"><icon class="fas fa-bezier-curve"></icon> Herencia</li>
                         </ul>
                         <aside class="notes"><small>
                             FRAGMENTS: grow<br>
@@ -119,6 +138,24 @@
                     </section>
 
                     <section>
+                         <h2>Procedural vs. OOP</h2>
+                         <hr>
+                         <p><strong>Procedural</strong>
+                         <ul>
+                             <li>Datos desacoplados de las funciones</li>
+                             <li>Pensamiento Top-Down</li>
+                         </ul></p>
+                         <strong>OOP</strong>
+                        <p><ul>
+                             <li>Datos vienen con funciones</li>
+                             <li>Herencia y Encapsulamiento</li>
+                         </ul></p>
+                         <aside class="notes"><small>
+                                Si esto => esto<br>
+                        </small></aside>    
+                        </section>
+
+                    <section>
                         <h2>Glosario</h2>
                         <ul>
                             <li class="fragment highlight-current-blue"><strong>Clase:</strong> tipos de objetos.</li>
@@ -128,9 +165,15 @@
                         </ul>
                         <aside class="notes"><small>
                             FRAGMENTS: blue<br>
+                            <ul>
+                                <li>Clase: Molde, Plano, Prototipo</li>
+                                <li>Objeto: lo que "existe" en nuestro programa</li>
+                                <li>Atributos: variables</li>
+                                <li>Métodos: funciones</li>
+                            </ul>
                         </small></aside>
                     </section>
-                </section>     
+                </section>
  
                 <section>
                     <section>
@@ -144,7 +187,7 @@ class Persona:
         print(f"Acabo de ser creado y me llamo {self.nombre}")
 
     def avanzar(self):
-        print(f"Soy {self.nombre} y estoy caminando hacia adelante!")
+        print(f"Soy {self.nombre} y voy hacia adelante!")
 
                         </code></pre>
                         <aside class="notes"><small>
@@ -304,7 +347,7 @@ class Empleado(Persona, trabajador.Trabajador):
                     </section>
                 </section>
 
-                <section>
+                <!-- <section>
                     <h2>Métodos Mágicos</h2>
                     <ul>
                         <li><strong><code>__init__</code>:</strong> tareas de inicialización.</li>
@@ -457,7 +500,7 @@ print("Programa finalizado")
                         </code></pre>
                         <aside class="notes"><small>
                         </small></aside>
-                    </section>                
+                    </section>                 -->
 
                 </section>                
 
@@ -487,10 +530,10 @@ print("Programa finalizado")
                 <section>
                     <section>
                         <h3>URL Presentación</h3>
-                        <a href="https://bitson.group/slides/python2">https://bitson.group/slides/python2</a>
+                        <icon class="fa fa-globe"></icon> <a href="https://bitson.group/slides/oop-fce">https://bitson.group/slides/oop-fce</a>
                         <hr>
                         <h3>Archivos de Ejemplo</h3>
-                        <a href="archivos/archivos2.tar.gz">https://bitson.group/slides/python2/archivos2.tar.gz</a>
+                        <icon class="fas fa-download"></icon> <a href="archivos/oop.zip">https://bitson.group/slides/archivos/oop.zip</a>
                         <aside class="notes"><small>
                             Pueden ver la presentación desde.
                         </small></aside>
@@ -500,11 +543,11 @@ print("Programa finalizado")
 				<section>
 					<h1>GRACIAS</h1>
 					<h3>Leandro E. Colombo Viña</h3>
-                    <a href="https://bitson.group">bitson.group</a>
+                    <icon class="fa fa-globe"></icon> <a href="https://bitson.group" target="_blank">https://bitson.group</a>
                     <hr>
                     <small>
-                    Twitter: <a href="https://twitter.com/lecovi" target="_blank">@lecovi</a> <br> 
-                    Correo electrónico: <a href="https://bitson.group" target="_blank"><em>leo &lt;at&gt; bitson.group</em></a>
+                    <icon class="fas fa-paper-plane"></icon> <icon class="fab fa-twitter"></icon> <icon class="fab fa-instagram"></icon> <icon class="fab fa-github"></icon> <icon class="fab fa-gitlab"></icon> <a href="https://t.me/lecovi" target="_blank">@lecovi</a><br> 
+                    <icon class="fa fa-envelope"></icon> <a href="https://bitson.group" target="_blank"><em>leo &lt;at&gt; bitson.group</em>
                     </small>
                     <br><small>
                     <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">
