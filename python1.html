@@ -55,7 +55,7 @@
                         <a href="https://bitson.group/slides/python1"><i class="fas fa-link"></i> https://bitson.group/slides/python1</a>
                         <hr>
                         <h3>Archivos de Ejemplo</h3>
-                        <a href="https://github.com/lecovi/short-intro-python"><i class="fab fa-github"></i> https://github.com/lecovi/short-intro-python</a><br>
+                        <a href="https://github.com/lecovi/short-intro-python" target="_blank"><i class="fab fa-github"></i> https://github.com/lecovi/short-intro-python</a><br>
                         <a href="https://github.com/lecovi/short-intro-python/archive/master.zip"><i class="fas fa-download"></i> Descargar ZIP</a>
                         <aside class="notes"><small>
                             Pueden ver la presentación desde.
@@ -183,13 +183,16 @@
                     <section>
                         <h2>Herramientas</h2>
                         <ul>
-                            <li>Editor de Texto: para <b>escribir</b> el código</li>
-                            <li>Terminal: para <b>probar</b> el código</li>
-                            <li>Intérprete: para <b>jugar</b> con cosas del código</li>
+                            <li>Editor de Texto: para <b class="fragment highlight-current-blue">escribir</b> el código</li>
+                            <li>Terminal: para <b class="fragment highlight-current-blue">probar</b> el código</li>
+                            <li>Intérprete: para <b class="fragment highlight-current-blue">jugar</b> con cosas del código</li>
                         </ul>
-                        <ul>
+                        <ul class="fragment fade-in">
                             <li>Entornos de Desarrollo Integrados: IDEs</li>
                         </ul>
+                        <aside class="notes"><small>
+                            Lo próximo se puede omitir...
+                        </small></aside>
                     </section>
 
                     <section>
@@ -289,14 +292,14 @@
 
                     <section>
                         <h3>y ahora como Script</h3>
-                        Creamos un archivo de texto <a href="https://raw.githubusercontent.com/lecovi/short-intro-python/master/hola.py"><code>hola.py</code></a>
+                        Creamos un archivo de texto <a href="https://raw.githubusercontent.com/lecovi/short-intro-python/master/hola.py" target="_blank"><code>hola.py</code></a>
                         <img src="img/python1/hola.py-text.png" alt="Hola Mundo!">
                     </section>
                     <section>
                         <h3>Texto plano</h3>
-                        Escribimos la función <code>print()</code> y le escribimos el mensaje <code>"Hola Mundo!"</code>
+                        Escribimos la función <code class="fragment highlight-blue">print()</code> y le escribimos el mensaje <code class="fragment highlight-green">"Hola Mundo!"</code>
                         <pre><code class="python">
-                            print("Hola Mundo!")
+print("Hola Mundo!")
                         </code></pre>
                         <aside class="notes"><small>
                             texto plano
@@ -316,7 +319,7 @@
                 <section>
                     <section>
                         <h3>Funciones</h3>
-                        Una función es un <em>conjunto de instrucciones</em> que se llaman con un <b>nombre</b>, acepta <b>argumentos</b> y devuelve un <b>valor</b>.
+                        Una función es un <em>conjunto de instrucciones</em> que se llaman con un <b class="fragment highlight-blue">nombre</b>, acepta <b class="fragment highlight-blue">argumentos</b> y devuelve un <b class="fragment highlight-blue">valor</b>.
                         <pre><code data-trim contenteditable>
                             print("Hola Mundo!")
                         </code></pre>
@@ -332,7 +335,7 @@
                     </section>
                     <section>
                         <h3>Variables</h3>
-                        Para definirlas hay que elegir un <b>nombre</b> y darle un <b>valor</b> con el signo <code>=</code>
+                        Para definirlas hay que elegir un <b class="fragment highlight-blue">nombre</b> y darle un <b class="fragment highlight-blue">valor</b> con el signo <code class="fragment highlight-blue">=</code>
                         <pre><code class="python">
 >>> a = 12
 >>> a
@@ -355,7 +358,7 @@
                 <section>
                     <section>
                         <h3>Palabras reservadas</h3>
-                        <p>Python tiene 35 palabras reservadas: <a href="https://raw.githubusercontent.com/lecovi/short-intro-python/master/keywords.py"><code>keywords.py</code></a></p>
+                        <p>Python tiene 35 palabras reservadas: <a href="https://raw.githubusercontent.com/lecovi/short-intro-python/master/keywords.py" target="_blank"><code>keywords.py</code></a></p>
                         <pre><code>
 False       await       else        import      pass
 None        break       except      in          raise
@@ -380,7 +383,7 @@ async       elif        if          or          yield
                 <section>
                     <section>
                         <h3>Tipos de Datos Básicos</h3>
-                        <p><small>Se puede ver un ejemplo en <a href="https://raw.githubusercontent.com/lecovi/short-intro-python/master/datos_basicos.py">datos_basicos.py</a></small></p>
+                        <p><small>Se puede ver un ejemplo en <a href="https://raw.githubusercontent.com/lecovi/short-intro-python/master/datos_basicos.py" target="_blank">datos_basicos.py</a></small></p>
                         <ol>
                             <li>Númericos:</li>
                             <ol>
@@ -402,7 +405,7 @@ async       elif        if          or          yield
 
                     <section>
                         <h3>Operadores Aritméticos</h3>
-                        <p><small>Se puede ver un ejemplo en <a href="https://raw.githubusercontent.com/lecovi/short-intro-python/master/operadores_aritmeticos.py">operadores_aritmeticos.py</a></small></p>
+                        <p><small>Se puede ver un ejemplo en <a href="https://raw.githubusercontent.com/lecovi/short-intro-python/master/operadores_aritmeticos.py" target="_blank">operadores_aritmeticos.py</a></small></p>
                         <ol>
                             <li>Suma: <code>+</code></li>
                             <li>Resta: <code>-</code></li>
@@ -506,7 +509,7 @@ Leo
                     <section>
                         <h3>Operadores Lógicos</h3>
                         <p><small>Evalúan expresiones de <code>True/False</code> y devuelven <code>True/False</code> según corresponda.<br>
-                        Se puede ver un ejemplo en <a href="https://raw.githubusercontent.com/lecovi/short-intro-python/master/operadores_logicos.py">operadores_logicos.py</a></small></p>
+                        Se puede ver un ejemplo en <a href="https://raw.githubusercontent.com/lecovi/short-intro-python/master/operadores_logicos.py" target="_blank">operadores_logicos.py</a></small></p>
                         <ul>
                             <li>Suma: <code>or</code></li>
                             <li>Producto: <code>and</code></li>
@@ -519,7 +522,7 @@ Leo
                     <section>
                         <h3>Operadores Relacionales</h3>
                         <p><small>Evalúan expresiones y devuelven <code>True/False</code> según corresponda.<br>
-                        Se puede ver un ejemplo en <a href="https://raw.githubusercontent.com/lecovi/short-intro-python/master/operadores_relacionales.py">operadores_relacionales.py</a></small></p>
+                        Se puede ver un ejemplo en <a href="https://raw.githubusercontent.com/lecovi/short-intro-python/master/operadores_relacionales.py" target="_blank">operadores_relacionales.py</a></small></p>
                         <ol>
                             <li>Igualdad: <code>==</code></li>
                             <li>No igualdad: <code>!=</code></li>
@@ -548,7 +551,7 @@ Leo
                 <section>
                     <section>
                         <h3>Colecciones</h3>
-                        <p><small>Se puede ver un ejemplo en <a href="https://raw.githubusercontent.com/lecovi/short-intro-python/master/colecciones.py">colecciones.py</a></small></p>
+                        <p><small>Se puede ver un ejemplo en <a href="https://raw.githubusercontent.com/lecovi/short-intro-python/master/colecciones.py" target="_blank">colecciones.py</a></small></p>
                         <ol>
                             <li>Listas.</li>
                             <li>Tuplas.</li>
@@ -704,7 +707,7 @@ True
                 <section>
                     <section>
                         <h3>Control de Flujo</h3>
-                        <p><small>Se puede ver un ejemplo en <a href="https://raw.githubusercontent.com/lecovi/short-intro-python/master/control_flujo.py">control_flujo.py</a></small></p>
+                        <p><small>Se puede ver un ejemplo en <a href="https://raw.githubusercontent.com/lecovi/short-intro-python/master/control_flujo.py" target="_blank">control_flujo.py</a></small></p>
                         <ul>
                             <li>Condicionales: </li>
                             <ol>
@@ -756,7 +759,7 @@ True
                 <section>
                     <section>
                         <h2>Funciones</h2>
-                        <p><small>Se puede ver un ejemplo en <a href="https://raw.githubusercontent.com/lecovi/short-intro-python/master/funciones.py">funciones.py</a></small></p>
+                        <p><small>Se puede ver un ejemplo en <a href="https://raw.githubusercontent.com/lecovi/short-intro-python/master/funciones.py" target="_blank">funciones.py</a></small></p>
                         <ul>
                             <li>Son fragmentos reutilizables de código.</li>
                             <li>Pueden recibir argumentos.</li>
@@ -812,7 +815,7 @@ def nombre_funcion(par1, par2=100, *args, **kwargs):
                 <section>
                     <section>
                         <h2>Módulos</h2>
-                        <p><small>Se puede ver un ejemplo en <a href="https://raw.githubusercontent.com/lecovi/short-intro-python/master/modulos.py">modulos.py</a></small></p>
+                        <p><small>Se puede ver un ejemplo en <a href="https://raw.githubusercontent.com/lecovi/short-intro-python/master/modulos.py" target="_blank">modulos.py</a></small></p>
                         <ul>
                             <li>Archivos individuales con código.</li>
                             <li>Se accede a ellos a través de <code>import</code>.</li>
@@ -832,7 +835,7 @@ funciones.imprimir_mensaje()
 
                     <section>
                         <h3>Importando selectivamente</h3>
-                        <p><small>Ejemplo de <a href="https://raw.githubusercontent.com/lecovi/short-intro-python/master/mensajes.py">mensajes.py</a></small></p>
+                        <p><small>Ejemplo de <a href="https://raw.githubusercontent.com/lecovi/short-intro-python/master/mensajes.py" target="_blank">mensajes.py</a></small></p>
                         <pre><code class="python">
 def mensaje1():
         print("Imprimiendo primer mensaje")
@@ -852,7 +855,7 @@ if __name__ == "__main__":
 
                     <section>
                         <h3>Importando selectivamente</h3>
-                        <p><small>Usándolo en <a href="https://raw.githubusercontent.com/lecovi/short-intro-python/master/modulos2.py">modulos2.py</a></small></p>
+                        <p><small>Usándolo en <a href="https://raw.githubusercontent.com/lecovi/short-intro-python/master/modulos2.py" target="_blank">modulos2.py</a></small></p>
                         <pre><code class="python">
 import mensajes
 
