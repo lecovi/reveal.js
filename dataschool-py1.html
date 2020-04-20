@@ -1,0 +1,517 @@
+<!doctype html>
+<html lang="es">
+
+    <head>
+        <meta charset="utf-8">
+
+        <title>#DataSchool - Introducción a Python</title>
+
+        <meta name="description" content="Introducción a Python">
+        <meta name="author" content="Leandro E. Colombo Viña">
+
+        <meta name="apple-mobile-web-app-capable" content="yes" />
+        <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+        <link rel="stylesheet" href="css/reveal.css">
+        <link rel="stylesheet" href="css/theme/night.css" id="theme">
+
+        <!-- For syntax highlighting -->
+        <link rel="stylesheet" href="lib/css/zenburn.css">
+
+        <!-- If the query includes 'print-pdf', use the PDF print sheet -->
+        <script>
+            document.write( '<link rel="stylesheet" href="css/print/' + ( window.location.search.match( /print-pdf/gi ) ? 'pdf' : 'paper' ) + '.css" type="text/css" media="print">' );
+        </script>
+
+        <!--[if lt IE 9]>
+        <script src="lib/js/html5shiv.js"></script>
+        <![endif]-->
+
+        <!-- Adding Font Awesome to our presentation -->
+        <script src="https://kit.fontawesome.com/e2fa45a4da.js" crossorigin="anonymous"></script>
+    </head>
+
+    <body>
+        <div class="reveal">
+            <div class="slides">
+                <!-- Presentación -->
+                <section data-background-image="img/dataschool/py1/data-bg-down-left.png" data-background-opacity="0.4">
+                    <section>
+                        <h2>#DataSchool</h2>
+                        <h3>Python</h3>
+                        <h4>Primeros Pasos</h4>
+                        <p> <small><i class="fas fa-calendar-alt"></i> Martes 28 de abril de 2020<br>
+                            <i class="fas fa-clock"></i> 10 a 12 (UTC-3) | 8 a 10 (UTC-5)</small></p>
+                        <hr>
+                        <p>
+                            <small><a href="https://www.linkedin.com/in/leandrocolombo/" target="_blank"><i class="fab fa-linkedin"></i> Leandro E. Colombo Viña</a> | <a href="https://twitter.com/lecovi" target="_blank"><i class="fab fa-twitter"></i> @lecovi</a> <br> 
+                                <a href="https://bitson.group" target="_blank"><i class="fas fa-envelope"></i> leo &lt;at&gt; bitson.group</a></small>
+                        </p>
+                    </section>
+
+                    <section>
+                        <h2>URL Presentación</h2>
+                        <a href="https://bit.ly/dataschool-python1"><i class="fas fa-link"></i> https://bit.ly/dataschool-python1</a>
+                        <hr>
+                        <h3>Archivos de Ejemplo</h3>
+                        <a href="https://github.com/lecovi/dataschool-py1" target="_blank"><i class="fab fa-github"></i> https://github.com/lecovi/dataschool-py1</a><br>
+                        <a href="https://bit.ly/dataschool-python1-files"><i class="fas fa-download"></i> Descargar ZIP</a>
+                        <aside class="notes"><small>
+                            Pueden ver la presentación desde.
+                        </small></aside>
+                    </section>
+                </section>
+
+                <!-- Características de Python -->
+                <section data-background-image="img/dataschool/py1/data-bg-down-left.png" data-background-opacity="0.4">
+                    <section>
+                        <h2>¿Python?</h2>
+                        <p>Creado por <a href="http://es.wikipedia.org/wiki/Guido_van_Rossum" target="_blank">Guido van Rossum</a> a principios de los '90.</p>
+                        <ul>
+                            <li>Interpretado (Scripting).</li>
+                            <li>Tipado dinámico.</li>
+                            <li>Fuertemente tipado.</li>
+                            <li>Multiplataforma.</li>
+                            <li>Multiparadigma.</li>
+                        </ul>
+                        <aside class="notes"><small>
+                            Guido trabajó en Dropbox hasta 2019 y ahora está retirado.<br>
+                            Hasta 2018 fue el BDFL.<br>
+                            Monty Python.<br>
+                            <hr>
+                            Interpretado -> "Semi-interpretado" (bytecode)<br>
+                            Sin declaración de variables.<br>
+                            Explicitar los cambios de tipos.<br>
+                            UNIX, Linux, Windows, MacOS, etc...<br>
+                            Programación: Imperativa, Estructurada, Funcional, OOP, Aspectos<br>
+                       </small></aside>
+                    </section>
+
+                    <section>
+                        <h2>Características</h2>
+                        <ul>
+                            <li>Sintáxis simple, clara y sencilla.</li>
+                            <li>Fácil de aprender.</li>
+                            <li>Dinámico.</li>
+                            <li>Gestión automática de memoria.</li>
+                            <li>Gran cantidad de <a href="https://pypi.python.org/pypi" target="_blank">librerías</a>.</li>
+                        </ul>
+                        <p></p><br>
+                        <div class="fragment">
+                            <h3>No recomendable</h3>
+                            <ul>
+                                <li>Bajo nivel.</li>
+                                <li>Rendimiento crítico</li>
+                            </ul>
+                        </div>
+                        <aside class="notes"><small>
+                            Google, Reddit, YouTube, Yahoo, NASA.<br>
+                            Dropbox, OpenStack, OpenERP.<br>
+                            BitTorrent, Pilas Engine.<br>
+                            Mercurial, Calibre.<br>
+                            Ethical Hacking.<br>
+                            FRAGMENT: No Recomendable.<br>
+                        </small></aside>
+                    </section>
+
+                    <section>
+                        <h2>Python Zen</h2>
+                        <p><a href="http://legacy.python.org/dev/peps/pep-0020/" target="_blank">PEP 20 -- The Zen of Python </a></p>
+                        <img width="60%" height="60%" src="img/zen-of-python-poster-a3.png" alt="Python Zen">
+                        <aside class="notes"><small>
+                            import this<br>
+                        </small></aside>
+                    </section>
+
+                    <section>
+                        <h3>Zen de Python</h3>
+                        <ul><small>
+                            <li>Bello es mejor que feo.</li>
+                            <li>Explícito es mejor que implícito.</li>
+                            <li>Simple es mejor que complejo.</li>
+                            <li>Complejo es mejor que complicado.</li>
+                            <li>Plano es mejor que anidado.</li>
+                            <li>Disperso es mejor que denso.</li>
+                            <li>La legibilidad cuenta.</li>
+                            <li>Los casos especiales no son tan especiales como para quebrantar las reglas.</li>
+                            <li>Aunque lo práctico gana a la pureza.</li>
+                        </small></ul>
+                    </section>
+
+                    <section>
+                        <h3>Zen de Python</h3>
+                        <ul><small>
+                            <li>Los errores nunca deberían dejarse pasar silenciosamente.</li>
+                            <li>A menos que hayan sido silenciados explícitamente.</li>
+                            <li>Frente a la ambigüedad, rechaza la tentación de adivinar.</li>
+                            <li>Debería haber una -y preferiblemente sólo una- manera obvia de hacerlo.</li>
+                            <li>Aunque esa manera puede no ser obvia al principio a menos que usted sea holandés.</li>
+                            <li>Ahora es mejor que nunca.</li>
+                            <li>Aunque nunca es a menudo mejor que ya mismo.</li>
+                            <li>Si la implementación es difícil de explicar, es una mala idea.</li>
+                            <li>Si la implementación es fácil de explicar, puede que sea una buena idea.</li>
+                            <li>Los espacios de nombres (namespaces) son una gran idea ¡Hagamos más de esas cosas!</li>
+                            </small>
+                        </ul>
+                    </section>
+
+                    <section>
+                        <h2>Links de Interés</h2>
+                        <ul>
+                            <li>Sitio Oficial: <a href="https://www.python.org/" target="_blank">https://www.python.org/</a></li>
+                            <li>Comunidad PyAR: <a href="http://python.org.ar/" target="_blank">http://python.org.ar/</a></li>
+                            <li>Tutorial: <a href="http://docs.python.org.ar/tutorial/" target="_blank">http://docs.python.org.ar/tutorial/</a></li>
+                            <li>Asociación Civil: <a href="https://ac.python.org.ar/" target="_blank">https://ac.python.org.ar/</a></li>
+                            <li>The Hitchhiker’s Guide: <a href="https://docs.python-guide.org/" target="_blank">https://docs.python-guide.org/</a></li>
+                        </ul>
+                        <aside class="notes"><small>
+                        </small></aside>
+                    </section>
+                </section>
+
+                <!-- Herramientas -->
+                <section data-background-image="img/dataschool/py1/data-bg-down-left.png" data-background-opacity="0.4">
+                    <section>
+                        <h2>Instalación</h2>
+                        <p>Implementaciones:</p>
+                        <ul>
+                            <li>CPython</li>
+                            <li>Jython</li>
+                            <li>IronPython</li>
+                            <li>PyPy</li>
+                            <li>Brython</li>
+                            <li>RubyPython</li>
+                        </ul>
+                        <aside class="notes"><small>
+                            Sitio oficial descargas: <a href="https://www.python.org/downloads/" target="_blank">https://www.python.org/downloads/</a><br>
+                            <strong>3.8.2</strong><br>
+                            Python 2.x EOL 2020
+                        </small></aside>
+                    </section>
+
+                    <section>
+                        <h2>Herramientas</h2>
+                        <p>A través del intérprete o ejecutando scripts.</p>
+                        <img src="img/python1/python-shell.png" alt="Intérprete Python">
+                    </section>
+
+                    <section>
+                        <h2>Herramientas</h2>
+                        <ul>
+                            <li>Editor de Texto: para <b class="fragment highlight-current-blue">escribir</b> el código</li>
+                            <li>Terminal: para <b class="fragment highlight-current-blue">probar</b> el código</li>
+                            <li>Intérprete: para <b class="fragment highlight-current-blue">jugar</b> con cosas del código</li>
+                        </ul>
+                        <ul class="fragment fade-in">
+                            <li>Entornos de Desarrollo Integrados: IDEs</li>
+                            <li class="fragment highlight-green">Notebooks</li>
+                        </ul>
+                        <aside class="notes"><small>
+                            Google Colab
+                        </small></aside>
+                    </section>
+
+                    <section>
+                        <h1>Google Colab</h1>
+                        <p><a href="https://colab.research.google.com/"><i class="fas fa-infinity"></i> https://colab.research.google.com/</a></p>
+                    </section>
+
+                    <section>
+                        <img src="img/dataschool/py1/colab-login.png" alt="Google Colab Login">
+                    </section>
+
+                    <section>
+                        <img src="img/dataschool/py1/colab-upload.png" alt="Google Colab Upload Files">
+                    </section>
+                </section>
+
+                <!-- Separador! -->
+                <section data-background-image="img/dataschool/py1/data-bg-down-left.png" data-background-opacity="0.4">
+                    <p><em>entonces...</em></p>
+                    <h3>Manos a la obra</h3>
+                    <img width="40%" height="40%" src="img/ManosALaObra.gif" alt="Manos a la Obra">
+                    <aside class="notes"><small>
+                    </small></aside>
+                </section>
+
+                <section data-background-image="img/dataschool/py1/data-bg-down-left.png" data-background-opacity="0.4">
+                    <section>
+                        <h2>El Famoso...</h2>
+                        <small><a href="https://raw.githubusercontent.com/lecovi/dataschool-py1/master/hola_mundo.ipynb" target="_blank"><i class="fas fa-download"></i> hola_mundo.ipynb</a></small>
+                        <img src="img/dataschool/py1/colab-hola_mundo.png" alt="Hola Mundo!">
+                        <aside class="notes"><small>
+                        </small></aside>
+                    </section>
+
+                    <section>
+                        <h2>Hola Mundo!</h2>
+                        <img src="img/dataschool/py1/colab-hola_mundo-zoom.png" alt="Hola Mundo!">
+                        <aside class="notes"><small>
+                        </small></aside>
+                    </section>
+
+                    <section>
+                        <h3>Texto plano</h3>
+                        Escribimos la función <code class="fragment highlight-blue">print()</code> y le escribimos el mensaje <code class="fragment highlight-green">"Hola Mundo!"</code>
+                        <pre><code class="python">
+print("Hola Mundo!")
+                        </code></pre>
+                        <aside class="notes"><small>
+                            texto plano
+                        </small></aside>
+                    </section>
+
+                </section>
+
+                <!-- Primeros pasos programación -->
+                <section data-background-image="img/dataschool/py1/data-bg-down-left.png" data-background-opacity="0.4">
+                    <section>
+                        <h3>Funciones</h3>
+                        <small><a href="https://raw.githubusercontent.com/lecovi/dataschool-py1/master/primeros_pasos.ipynb" target="_blank"><i class="fas fa-download"></i> primeros_pasos.ipynb</a></small><br>
+                        Una función es un <em>conjunto de instrucciones</em> que se llaman con un <b class="fragment highlight-blue">nombre</b>, acepta <b class="fragment highlight-blue">argumentos</b> y devuelve un <b class="fragment highlight-blue">valor</b>.
+                        <pre><code data-trim contenteditable>
+                            print("Hola Mundo!")
+                        </code></pre>
+                        <ul>
+                            <li>Nombre: <code>print</code></li>
+                            <li>Argumento: <code>'Hola Mundo!'</code></li>
+                            <li>TIP: <code>()</code></li>
+                        </ul>
+                        <aside class="notes"><small>
+                            Se puede editar en el cuadro.<br>
+                            Strings: Cadenas de texto, se escriben entre "" y en ''
+                        </small></aside>
+                    </section>
+                    <section>
+                        <h3>Variables</h3>
+                        Para definirlas hay que elegir un <b class="fragment highlight-blue">nombre</b> y darle un <b class="fragment highlight-blue">valor</b> con el signo <code class="fragment highlight-blue">=</code>
+                        <pre><code class="python">
+>>> a = 12
+>>> a
+12
+>>>
+                        </code></pre>
+                    </section>
+                    <section>
+                        <h3>Expresiones</h3>
+                        Las variables pueden contener cualquier <b>expresión</b> válida.
+                        <pre><code class="python">
+>>> a = (10 + 2) * 3
+>>> a
+36
+>>>
+                        </code></pre>
+                    </section>
+                </section>
+
+                <!-- Sintáxis básica -->
+                <section data-background-image="img/dataschool/py1/data-bg-down-left.png" data-background-opacity="0.4">
+                    <section>
+                        <h3>Palabras reservadas</h3>
+                        <small><a href="https://raw.githubusercontent.com/lecovi/dataschool-py1/master/sintaxis_basica.ipynb" target="_blank"><i class="fas fa-download"></i> sintaxis_basica.ipynb</a></small>
+                        <p>Python tiene 35 palabras reservadas: <a href="https://raw.githubusercontent.com/lecovi/short-intro-python/master/keywords.py" target="_blank"><code>keywords.py</code></a></p>
+                        <pre><code>
+False       await       else        import      pass
+None        break       except      in          raise
+True        class       finally     is          return
+and         continue    for         lambda      try
+as          def         from        nonlocal    while
+assert      del         global      not         with
+async       elif        if          or          yield
+                        </code></pre>
+                    </section>
+
+                    <section>
+                        <h3>Sintáxis Básica</h3>
+                        <p>Comentarios <em>inline</em> se indican comenzando con <code>#</code>.</p>
+                        <p>La separación de bloques se realiza por medio de identación (por lo general, 4 espacios).</p>
+                        <p>También viene con <a href="https://docs.python.org/3/library/functions.html" target="_blank">+60 funciones incorporadas.</a></p>
+                        <aside class="notes"><small>
+                            <code>max, min, len, print, sum...</code>
+                        </small></aside>
+                    </section>
+                </section>
+
+                <!-- Tipos de datos -->
+                <section data-background-image="img/dataschool/py1/data-bg-down-left.png" data-background-opacity="0.4">
+                    <section>
+                        <h3>Tipos de Datos Básicos</h3>
+                        <p><small><a href="https://raw.githubusercontent.com/lecovi/dataschool-py1/master/tipos_de_datos.ipynb" target="_blank"><i class="fas fa-download"></i> tipos_de_datos.ipynb</a></small></p>
+                        <ol>
+                            <li>Númericos:</li>
+                            <ol>
+                                <li>Enteros.</li>
+                                <li>De Coma Flotante.</li>
+                                <li>Complejos.</li>
+                            </ol>
+                            <li>Cadenas de Texto:</li>
+                            <ol>
+                                <li>Strings.</li>
+                                <li>Bytes.</li>
+                                <li>Raw.</li>
+                            </ol>
+                            <li>Lógicos</li>
+                        </ol>
+                        <aside class="notes"><small>
+                        </small></aside>
+                    </section>
+
+                    <section>
+                        <h3>Operadores Aritméticos</h3>
+                        <ol>
+                            <li>Suma: <code>+</code></li>
+                            <li>Resta: <code>-</code></li>
+                            <li>Multiplicación: <code>*</code></li>
+                            <li>División: <code>/</code></li>
+                            <li>Módulo: <code>%</code></li>
+                            <li>División Entera: <code>//</code></li>
+                            <li>Potenciación: <code>**</code></li>
+                        </ol>
+                        <aside class="notes"><small>
+                        </small></aside>
+                    </section>
+                    <section>
+                        <h3>Operando con números</h3>
+                        <pre><code class="python">>>> a = 5
+>>> a + 2
+7
+>>> a * 2
+10
+>>> a ** 2
+25
+>>> 4.5 * 8
+36.0
+>>> 10 / 3
+3.3333333333333335
+>>> 10 // 3
+3
+>>> 10 % 3
+1 </code></pre>
+                    </section>
+
+                    <section>
+                        <h3>Cadena de Texto</h3>
+                        Se definen entre <code>""</code> o <code>''</code><br>
+                        <img src="img/python1/strings.png" alt="Strings"><br>
+                        Y se les puede dar formato<br>
+                        <img src="img/python1/string-format.png" alt="Formato de Strings">
+                    </section>
+                    <section>
+                        <h3>Métodos de cadenas</h3>
+                        <ul>
+                            <li><code><strong>strip()</strong></code>: "limpia" espacios al principio o al final.</li>
+                            <li><code><strong>split()</strong></code>: divide la cadena.</li>
+                            <li><code><strong>find()</strong></code>: busca en la cadena.</li>
+                            <li><code><strong>startswith()</strong></code>: busca si comienza con.</li>
+                            <li><code><strong>endswidth()</strong></code>: busca si termina con.</li>
+                            <li><code><strong>find()</strong></code>: busca en la cadena.</li>
+                        </ul>
+                    </section>
+                    <section>
+                        <h3>Métodos de cadenas</h3>
+                        <ul>
+                            <li><code><strong>lower()</strong></code>: convierte en minúsculas.</li>
+                            <li><code><strong>upper()</strong></code>: convierte en mayúsculas.</li>
+                            <li><code><strong>isdigit()</strong></code>: ¿es numérica?.</li>
+                            <li><code><strong>isalpha()</strong></code>: ¿es alfanumérica?.</li>
+                            <li><code><strong>islower()</strong></code>: ¿está en minúsculas?.</li>
+                            <li><code><strong>isupper()</strong></code>: ¿está en mayúsculas?.</li>
+                        </ul>
+                        <aside class="notes"><small>
+                        </small></aside>
+                    </section> 
+                    <section>
+                        <h3>Usando los métodos</h3>
+                        <pre><code class="python">
+>>> cadena = 'En un lugar de la Mancha, de cuyo nombre...'
+>>> cadena.upper()
+'EN UN LUGAR DE LA MANCHA, DE CUYO NOMBRE...'
+>>> cadena.isdigit()
+False
+>>> cadena.split(',')
+['En un lugar de la Mancha', ' de cuyo nombre...']
+>>> parrafo = """En un lugar de la Mancha, de cuyo nombre...
+Es, pues, de saber que este sobredicho hidalgo, los ratos...
+Con estas razones perdía el pobre caballero el juicio, y...
+"""
+>>>
+                        </code></pre>
+                    </section>
+                    <section>
+                        <h2>Ingreso de datos</h2>
+                        <ul>
+                            <li>Texto: <code>input("<em>Mensaje</em>")</code>.</li>
+                        </ul>
+                        <pre><code class="python">
+>>> input("Ingrese su nombre: ")
+Ingrese su nombre: Leandro
+Leandro
+>>> x = input("Ingrese su nombre: ")
+Ingrese su nombre: Leo
+>>> x
+Leo
+                        </code></pre>
+                        <small>Con <code>input()</code> siempre se ingresa un <code>str</code>, si se quiere tener un valor numérico hay que convertirlo explícitamente <code>int()</code>, <code>float()</code></small>
+                        <aside class="notes"><small>
+                        </small></aside>
+                    </section>
+                </section>
+
+                <section data-background-image="img/dataschool/py1/data-bg-down-left.png" data-background-opacity="0.4">
+                    <h2>#DataSchool</h2>
+                    <h3>Introducción a Python</h3>
+                    <a href="https://bit.ly/lecovi-site"><i class="fas fa-globe-americas"></i> https://bit.ly/lecovi-site</a>
+                    <hr>
+                    <small><a href="https://www.linkedin.com/in/leandrocolombo/" target="_blank"><i class="fab fa-linkedin"></i> Leandro E. Colombo Viña</a> | <a href="https://twitter.com/lecovi" target="_blank"><i class="fas fa-paper-plane"></i> <i class="fab fa-twitter"></i> @lecovi</a> <br> 
+                    <a href="https://bitson.group" target="_blank"><i class="fas fa-envelope"></i> leo &lt;at&gt; bitson.group</a></small>
+                    <br>
+                    <small>
+                    <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">
+                        <img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png" /></a>
+                    <p>Este trabajo está licenciado bajo <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License</a>.</p></small>
+                </section>
+
+            </div>
+
+        </div>
+            
+        <script src="lib/js/head.min.js"></script>
+        <script src="js/reveal.js"></script>
+        
+        <script>
+
+            // Full list of configuration options available here:
+            // https://github.com/hakimel/reveal.js#configuration
+            Reveal.initialize({
+                controls: true,
+                progress: true,
+                history: true,
+                center: true,
+                slideNumber: true,
+                mouseWheel: true,
+                previewLinks: false,
+
+                theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
+                transition: Reveal.getQueryHash().transition || 'default', // default/cube/page/concave/zoom/linear/fade/none
+
+                // Parallax scrolling
+                // parallaxBackgroundImage: 'https://s3.amazonaws.com/hakim-static/reveal-js/reveal-parallax-1.jpg',
+                // parallaxBackgroundSize: '2100px 900px',
+
+                // Optional libraries used to extend on reveal.js
+                dependencies: [
+                    { src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+                    { src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+                    { src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+                    { src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+                    { src: 'plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+                    { src: 'plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }
+                ]
+            });
+
+        </script>
+
+    </body>
+</html>
