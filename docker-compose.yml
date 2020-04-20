@@ -1,0 +1,11 @@
+version: '3.7'
+
+services:
+    slides:
+        build: .
+        image: lecovi/slides:1.0.0
+        volumes:
+            - .:/home/node/reveal.js/slides
+        ports:
+            - "8000:8000"
+        command: npm start -- --root=./slides
