@@ -1,0 +1,595 @@
+<!doctype html>
+<html lang="es">
+
+    <head>
+        <meta charset="utf-8">
+
+        <title>#DataSchool - Introducción a Python</title>
+
+        <meta name="description" content="Introducción a Python">
+        <meta name="author" content="Leandro E. Colombo Viña">
+
+        <meta name="apple-mobile-web-app-capable" content="yes" />
+        <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+        <link rel="stylesheet" href="css/reveal.css">
+        <link rel="stylesheet" href="css/theme/night.css" id="theme">
+
+        <!-- For syntax highlighting -->
+        <link rel="stylesheet" href="lib/css/zenburn.css">
+
+        <!-- If the query includes 'print-pdf', use the PDF print sheet -->
+        <script>
+            document.write( '<link rel="stylesheet" href="css/print/' + ( window.location.search.match( /print-pdf/gi ) ? 'pdf' : 'paper' ) + '.css" type="text/css" media="print">' );
+        </script>
+
+        <!--[if lt IE 9]>
+        <script src="lib/js/html5shiv.js"></script>
+        <![endif]-->
+
+        <!-- Adding Font Awesome to our presentation -->
+        <script src="https://kit.fontawesome.com/e2fa45a4da.js" crossorigin="anonymous"></script>
+    </head>
+
+    <body>
+        <div class="reveal">
+            <div class="slides">
+                <!-- Presentación -->
+                <section data-background-image="img/dataschool/py1/data-bg-down-left.png" data-background-opacity="0.4">
+                    <section>
+                        <h2>#DataSchool</h2>
+                        <h3>Python</h3>
+                        <h4>Buceando en la superficie</h4>
+                        <p> <small><i class="fas fa-calendar-alt"></i> Miércoles 29 de abril de 2020<br>
+                            <i class="fas fa-clock"></i> 10 a 12 (UTC-3) | 8 a 10 (UTC-5)</small></p>
+                        <hr>
+                        <p>
+                            <small>
+                                <a href="https://www.linkedin.com/in/leandrocolombo/" target="_blank"><i class="fab fa-linkedin"></i> Leandro E. Colombo Viña</a> | <a href="https://twitter.com/lecovi" target="_blank"><i class="fab fa-twitter"></i> @lecovi</a> <br> 
+                                <a href="https://bitson.group" target="_blank"><i class="fas fa-envelope"></i> leo &lt;at&gt; bitson.group</a>
+                            </small>
+                        </p>
+                    </section>
+
+                    <section>
+                        <h2>URL Presentación</h2>
+                        <a href="https://bit.ly/dataschool-python2"><i class="fas fa-link"></i> https://bit.ly/dataschool-python2</a>
+                        <hr>
+                        <h3>Archivos de Ejemplo</h3>
+                        <a href="https://github.com/lecovi/dataschool-py2" target="_blank"><i class="fab fa-github"></i> https://github.com/lecovi/dataschool-py2</a><br>
+                        <a href="https://bit.ly/dataschool-python2-files"><i class="fas fa-download"></i> Descargar ZIP</a>
+                        <aside class="notes"><small>
+                            Pueden ver la presentación desde.
+                        </small></aside>
+                    </section>
+                </section>
+
+                <!-- Características de Python -->
+                <section data-background-image="img/dataschool/py1/data-bg-down-left.png" data-background-opacity="0.4">
+                    <section>
+                        <h2>Repaso de Ayer</h2>
+                        <h3>Python</h3>
+                        <ul>
+                            <li>Interpretado (Scripting).</li>
+                            <li>Multiplataforma.</li>
+                            <li>Multiparadigma.</li>
+                            <li>Sintáxis simple, clara y sencilla.</li>
+                            <li>Fácil de aprender.</li>
+                        </ul>
+                        <aside class="notes"><small>
+                       </small></aside>
+                    </section>
+
+                    <section>
+                        <h2>Python Zen</h2>
+                        <p><a href="http://legacy.python.org/dev/peps/pep-0020/" target="_blank">PEP 20 -- The Zen of Python </a></p>
+                        <img width="60%" height="60%" src="img/zen-of-python-poster-a3.png" alt="Python Zen">
+                        <aside class="notes"><small>
+                            import this<br>
+                        </small></aside>
+                    </section>
+
+                    <section>
+                        <h2>Hola Mundo!</h2>
+                        <img src="img/dataschool/py1/colab-hola_mundo-zoom.png" alt="Hola Mundo!">
+                        <aside class="notes"><small>
+                        </small></aside>
+                    </section>
+
+                    <section>
+                        <h1>Google Colab</h1>
+                        <p><a href="https://colab.research.google.com/"><i class="fas fa-infinity"></i> https://colab.research.google.com/</a></p>
+                    </section>
+
+                    <section>
+                        <h3>Funciones</h3>
+                        <small><a href="https://raw.githubusercontent.com/lecovi/dataschool-py1/master/primeros_pasos.ipynb" target="_blank"><i class="fas fa-download"></i> primeros_pasos.ipynb</a></small><br>
+                        Una función es un <em>conjunto de instrucciones</em> que se llaman con un <b class="fragment highlight-blue">nombre</b>, acepta <b class="fragment highlight-blue">argumentos</b> y devuelve un <b class="fragment highlight-blue">valor</b>.
+                        <pre><code data-trim contenteditable>
+                            print("Hola Mundo!")
+                        </code></pre>
+                        <ul>
+                            <li>Nombre: <code>print</code></li>
+                            <li>Argumento: <code>'Hola Mundo!'</code></li>
+                            <li>TIP: <code>()</code></li>
+                        </ul>
+                        <aside class="notes"><small>
+                            Se puede editar en el cuadro.<br>
+                            Strings: Cadenas de texto, se escriben entre "" y en ''
+                        </small></aside>
+                    </section>
+
+                    <section>
+                        <h3>Variables</h3>
+                        Para definirlas hay que elegir un <b class="fragment highlight-blue">nombre</b> y darle un <b class="fragment highlight-blue">valor</b> con el signo <code class="fragment highlight-blue">=</code>
+                        <pre><code class="python">
+>>> a = 12
+>>> a
+12
+>>>
+                        </code></pre>
+                    </section>
+
+                    <section>
+                        <h3>Expresiones</h3>
+                        Las variables pueden contener cualquier <b>expresión</b> válida.
+                        <pre><code class="python">
+>>> a = (10 + 2) * 3
+>>> a
+36
+>>>
+                        </code></pre>
+                    </section>
+                </section>
+
+                <!-- Separador! -->
+                <section data-background-image="img/dataschool/py1/data-bg-down-left.png" data-background-opacity="0.4">
+                    <p><em>entonces...</em></p>
+                    <h3>Manos a la obra</h3>
+                    <img width="40%" height="40%" src="img/ManosALaObra.gif" alt="Manos a la Obra">
+                    <aside class="notes"><small>
+                    </small></aside>
+                </section>
+
+                <!-- Funciones -->
+                <section data-background-image="img/dataschool/py1/data-bg-down-left.png" data-background-opacity="0.4">
+                    <section>
+                        <h2>Funciones</h2>
+                        <p><small>Se puede ver un ejemplo en <a href="https://raw.githubusercontent.com/lecovi/short-intro-python/master/funciones.py" target="_blank">funciones.py</a></small></p>
+                        <ul>
+                            <li>Son fragmentos reutilizables de código.</li>
+                            <li>Pueden recibir argumentos.</li>
+                            <li>Devuelven un valor.</li>
+                        </ul>
+                        <pre><code class="python">
+def nombre_funcion(par1, par2, ...):
+    instruccion1
+    instruccion2
+    ...
+    instruccionN
+                        </code></pre>
+                        <aside class="notes"><small>
+                        </small></aside>
+                    </section>
+                    
+                    <section>
+                        <h2>Definiendo funciones</h2>
+                        <img width="80%" src="img/dataschool/py2/funciones1.png" alt="Funciones">
+                        <img width="80%" src="img/dataschool/py2/funciones2.png" alt="Funciones">
+                        <aside class="notes"><small>
+                        </small></aside>
+                    </section>
+
+                    <section>
+                        <h2>Definiendo funciones</h2>
+                        <img width="80%" src="img/dataschool/py2/funciones3.png" alt="Funciones">
+                        <aside class="notes"><small>
+                        </small></aside>
+                    </section>
+
+                    <section>
+                        <h3>Argumentos</h3>
+                        <ul>
+                            <li>Argumentos con identificadores [y con valor por defecto.].</li>
+                            <li>Tupla de Argumentos por posición (<code><strong>*</strong></code>).</li>
+                            <li>Diccionario de Argumentos (<code><strong>**</strong></code>).</li>
+                        </ul>
+                        <pre><code class="python">
+def nombre_funcion(par1, par2=100, *args, **kwargs):
+    """ docstring
+        ...
+    """
+    instruccion1
+    instruccion2
+    ...
+    instruccionN
+                        </code></pre>
+                        <aside class="notes"><small>
+                        </small></aside>
+                    </section>
+
+                    <section>
+                        <h2>Usando argumentos</h2>
+                        <img src="img/dataschool/py2/argumentos1.png" alt="Funciones y argumentos">
+                        <img src="img/dataschool/py2/argumentos2.png" alt="Funciones y argumentos">
+                        <aside class="notes"><small>
+                        </small></aside>
+                    </section>
+                </section>
+
+                <!-- Valores Booleanos -->
+                <section data-background-image="img/dataschool/py1/data-bg-down-left.png" data-background-opacity="0.4">
+                    <section>
+                        <h3>Operadores Lógicos</h3>
+                        <p><small>Evalúan expresiones de <code>True/False</code> y devuelven <code>True/False</code> según corresponda.<br>
+                        Se puede ver un ejemplo en <a href="https://raw.githubusercontent.com/lecovi/short-intro-python/master/operadores_logicos.py" target="_blank">operadores_logicos.py</a></small></p>
+                        <ul>
+                            <li>Suma: <code>or</code></li>
+                            <li>Producto: <code>and</code></li>
+                            <li>Negación: <code>not</code></li>
+                        </ul>
+                        <aside class="notes"><small>
+                        </small></aside>
+                    </section>
+
+                    <section>
+                        <h3>Operadores Relacionales</h3>
+                        <p><small>Evalúan expresiones y devuelven <code>True/False</code> según corresponda.<br>
+                        Se puede ver un ejemplo en <a href="https://raw.githubusercontent.com/lecovi/short-intro-python/master/operadores_relacionales.py" target="_blank">operadores_relacionales.py</a></small></p>
+                        <ol>
+                            <li>Igualdad: <code>==</code></li>
+                            <li>No igualdad: <code>!=</code></li>
+                            <li>Mayor: <code>&gt;</code></li>
+                            <li>Menor: <code>&lt;</code></li>
+                            <li>Mayor o igual: <code>&gt;=</code></li>
+                            <li>Menor o igual: <code>&lt;=</code></li>
+                        </ol>
+                        <aside class="notes"><small>
+                        </small></aside>
+                    </section>
+
+                    <section>
+                        <h3>Valores booleanos</h3>
+                        <p><small>Sólo los siguientes valores son evaluados como falsos:</small></p>
+                        <ul>
+                            <li><code>False</code></li>
+                            <li><code>0</code></li>
+                            <li><code>None</code></li>
+                            <li><code>''</code></li>
+                        </ul>
+                        <p><small>cualquier otro valor en una expresión relacional se considera verdadero.</small></p>
+                    </section>
+                </section>
+
+                <section>
+                    <section>
+                        <h3>Colecciones</h3>
+                        <p><small>Se puede ver un ejemplo en <a href="https://raw.githubusercontent.com/lecovi/short-intro-python/master/colecciones.py" target="_blank">colecciones.py</a></small></p>
+                        <ol>
+                            <li>Listas.</li>
+                            <li>Tuplas.</li>
+                            <li>Diccionarios.</li>
+                            <li>Sets.</li>
+                        </ol>
+                        <aside class="notes"><small>
+                        </small></aside>
+                    </section>
+
+                    <section>
+                        <h2>Listas</h2>
+                        <ul>
+                            <li>Colección ordenada y modificable.</li>
+                            <li>Pueden contener cualquier tipo de dato.</li>
+                            <li>Se utilizan corchetes <strong>[ ]</strong>.</li>
+                            <li>Accesible como <code>lista[<em>posición</em>]</code></li>
+                            <li><em>Slicing</em>: <code>lista[<em>inicio</em>:<em>fin</em>:<em>salto</em>]</code></li>
+                        </ul>
+                        <aside class="notes"><small>
+                        </small></aside>
+                    </section>
+                    <section>
+                        <h2>Probando Listas</h2>
+                        <pre><code class="python">>>> lista = ['pan', "huevos", 10, "azúcar", 3.67]
+>>> lista
+['pan', 'huevos', 10, 'azúcar', 3.67]
+>>> lista[1]
+'huevos'
+>>> lista[1] = 'huevos blancos'
+>>> lista
+['pan', 'huevos blancos', 10, 'azúcar', 3.67]
+>>> 'azúcar' in lista
+True
+>>> lista[-1]
+3.67
+>>> lista[1:3]
+['huevos blancos', 10]
+                        </code></pre>
+                        <aside class="notes"><small>
+                        </small></aside>
+                    </section>
+
+                    <section>
+                        <h3>Métodos en Listas</h3>
+                        <ul>
+                            <li><code><strong>sort()</strong></code>: ordena la lista.</li>
+                            <li><code><strong>reverse()</strong></code>: invierte el orden.</li>
+                            <li><code><strong>pop(<em>posición</em>)</strong></code>: extrae un elemento.</li>
+                            <li><code><strong>append(<em>item</em>)</strong></code>: agrega un elemento.</li>
+                            <li><code><strong>insert(<em>posición, item</em>)</strong></code>: inserta un elemento.</li>
+                            <li><code><strong>remove(<em>item</em>)</strong></code>: elimina la primer ocurrencia de <em>item</em>.</li>
+                            <li><code><strong>count(<em>item</em>)</strong></code>: cuenta las ocurrencias de <em>item</em>.</li>
+                            <li><code><strong>index(<em>item</em>)</strong></code>: devuelve la posición de <em>item</em>.</li>
+                            <li><code><strong>extend(<em>lista</em>)</strong></code>: extiende la lista con <em>lista</em>.</li>
+                        </ul>
+                        <aside class="notes"><small>
+                        </small></aside>
+                    </section>
+
+                    <section>
+                        <h2>Tuplas</h2>
+                        <ul>
+                            <li>Colección ordenada e Inmutable.</li>
+                            <li>Pueden contener cualquier tipo de dato.</li>
+                            <li>Se utilizan paréntesis <strong>( )</strong>.</li>
+                            <li>Accesible como <code>tupla[<em>posición</em>]</code></li>
+                            <li><em>Slicing</em>: <code>tupla[<em>inicio</em>:<em>fin</em>:<em>salto</em>]</code></li>
+                            <li>Más ligeras que las listas.</li>
+                            <li>No tienen métodos.</li>
+                        </ul>
+                        <aside class="notes"><small>
+                        </small></aside>
+                    </section>
+
+                    <section>
+                        <h2>Diccionario</h2>
+                        <ul>
+                            <li>Colección NO ordenada.</li>
+                            <li>Modificable.</li>
+                            <li>Conjunto <em>clave - valor</em>.</li>
+                            <ul>
+                                <li>clave: cualquier tipo de dato inmutable.</li>
+                                <li>valor: cualquier tipo de dato.</li>
+                            </ul>
+                            <li>Se utilizan llaves <strong>{ }</strong>.</li>
+                            <li>Accesible como <code>diccionario[<em>clave</em>]</code></li>
+                            <li>No hay <em>Slicing</em>.</li>
+                        </ul>
+                        <aside class="notes"><small>
+                        </small></aside>
+                    </section>
+
+                    <section>
+                        <h2>Probando Diccionarios</h2>
+                        <img src="img/python1/dicts.png" alt="Diccionarios"><br>
+                        <aside class="notes"><small>
+                        </small></aside>
+                    </section>
+
+                    <section>
+                        <h3>Métodos en Diccionarios</h3>
+                        <ul>
+                            <li><code><strong>keys()</strong></code>: devuelve una lista de las claves.</li>
+                            <li><code><strong>values()</strong></code>: devuelve una lista de los valores.</li>
+                            <li><code><strong>items()</strong></code>: devuelve una lista de tuplas (<em>clave</em>, <em>valor</em>).</li>
+                            <li><code><strong>get(<em>clave</em>, <em>valor x defecto</em>)</strong></code>: devuelve el valor para clave o el valor por defecto si no existe.</li>
+                            <li><code><strong>pop(<em>clave</em>, <em>valor x defecto</em>)</strong></code>: remueve el valor para clave o el valor por defecto si no existe.</li>
+                        </ul>
+                    </section>
+
+                    <section>
+                        <h3>Métodos en Diccionarios</h3>
+                        <ul>
+                            <li><code><strong>setdefault(<em>clave</em>, <em>valor x defecto</em>)</strong></code>: setea la clave y el valor por defecto.</li>
+                            <li><code><strong>clear()</strong></code>: elimina el contenido del diccionario.</li>
+                            <li><code><strong>update(<em>dict</em>)</strong></code>: actualiza el contenido del diccionario con los valores deL diccionario <em>dict</em>.</li>
+                        </ul>
+                        <aside class="notes"><small>
+                        </small></aside>
+                    </section>
+
+                    <section>
+                        <h2>Extras</h2>
+                        <ul>
+                            <li>Con <code><strong>in</strong></code> podemos verificar la pertenencia de un elemento:</li>
+                            <ul>
+                                <li>Listas y Tuplas.</li>
+                                <li>Claves de un Diccionario.</li>
+                            </ul>
+                        </ul>
+                    </section>
+
+                    <section>
+                        <h2>Extras</h2>
+                        <ul>
+                            <li>Con <code><strong>del</strong></code> podemos borrar:</li>
+                            <ul>
+                                <li>Listas y Tuplas con posición o <em>slicing</em>.</li>
+                                <li>Claves de un Diccionario.</li>
+                            </ul>
+                        </ul>
+                    </section>
+
+                    <section>
+                        <h2>Extras</h2>
+                        <ul>
+                            <li>Con <code><strong>len</strong></code> nos devuelve la cantidad de elementos:</li>
+                            <ul>
+                                <li>Listas y Tuplas.</li>
+                                <li>Tuplas (claves, valor) de un Diccionario.</li>
+                            </ul>
+                        </ul>
+                        <aside class="notes"><small>
+                        </small></aside>
+                    </section>
+                </section>
+
+                <section>
+                    <section>
+                        <h3>Control de Flujo</h3>
+                        <p><small>Se puede ver un ejemplo en <a href="https://raw.githubusercontent.com/lecovi/short-intro-python/master/control_flujo.py" target="_blank">control_flujo.py</a></small></p>
+                        <ul>
+                            <li>Condicionales: </li>
+                            <ol>
+                                <li><code>if</code></li>
+                                <li><code>if ... else</code></li>
+                                <li><code>if ... elif ... elif ... else</code></li>
+                            </ol>
+                            <li>Ciclos:</li>
+                            <ol>
+                                <li><code>while</code></li>
+                                <li><code>for ... in</code></li>
+                            </ol>
+                                <hr>
+                            <small>
+                            <ol>
+                                <li><code>continue</code></li>
+                                <li><code>break</code></li>
+                            </ol>
+                            </small>
+                        </ul>
+                        <aside class="notes"><small>
+                        </small></aside> 
+                    </section>
+
+                    <section>
+                        <h2>If...elif...else</h2>
+                        <img width="60%" src="img/python1/if-elif-else.png" alt="IF ELIF ELSE">
+                        <p class="frament">¿Por qué me dice que no es una opción válida?</p>
+                        <aside class="notes"><small>
+                            Se ingresó el valor con input => es texto no número.
+                        </small></aside>
+                    </section>
+
+                    <section>
+                        <h2>While</h2>
+                        <img width="60%" src="img/python1/while.png" alt="WHILE">
+                        <aside class="notes"><small>
+                        </small></aside>
+                    </section>
+
+                    <section>
+                        <h2>For ... in</h2>
+                        <img width="80%" src="img/python1/for.png" alt="FOR IN">
+                        <aside class="notes"><small>
+                        </small></aside>
+                    </section>
+                </section>
+
+                <section>
+                    <section>
+                        <h2>Módulos</h2>
+                        <p><small>Se puede ver un ejemplo en <a href="https://raw.githubusercontent.com/lecovi/short-intro-python/master/modulos.py" target="_blank">modulos.py</a></small></p>
+                        <ul>
+                            <li>Archivos individuales con código.</li>
+                            <li>Se accede a ellos a través de <code>import</code>.</li>
+                        </ul>
+                        <pre><code class="python">
+import funciones
+
+## Ahora podemos utilizar las funciones que hicimos antes.
+## Notemos que cuando realizamos el import, se ejecuta todo
+## el código anterior!
+funciones.imprimir_mensaje()
+                        </code></pre>
+                        <aside class="notes"><small>
+                        Nótese que ejecuta TODO lo que hay en el módulo.
+                        </small></aside>
+                    </section>
+
+                    <section>
+                        <h3>Importando selectivamente</h3>
+                        <p><small>Ejemplo de <a href="https://raw.githubusercontent.com/lecovi/short-intro-python/master/mensajes.py" target="_blank">mensajes.py</a></small></p>
+                        <pre><code class="python">
+def mensaje1():
+        print("Imprimiendo primer mensaje")
+
+def mensaje2():
+        print("Imprimiendo el segundo mensaje")
+
+print("Esto se ejecuta siempre")
+
+if __name__ == "__main__":
+        print("Esto se imprime si no es una importación")
+                        </code></pre>
+                        <aside class="notes"><small>
+                            Con ese IF se evita que se ejecute código cuando se importa el módulo.
+                        </small></aside>
+                    </section>
+
+                    <section>
+                        <h3>Importando selectivamente</h3>
+                        <p><small>Usándolo en <a href="https://raw.githubusercontent.com/lecovi/short-intro-python/master/modulos2.py" target="_blank">modulos2.py</a></small></p>
+                        <pre><code class="python">
+import mensajes
+
+## Si queremos omitir el tener que escribir el nombre del
+## módulo cuando tenemos que llamar a la función podemos
+## utilizar las cláusulas from ... import ...
+from mensajes import mensaje1
+
+mensaje1()
+print("Esto no es de mensaje, es de módulos2")
+                        </code></pre>
+                        <aside class="notes"><small>
+                        </small></aside>
+                    </section>
+                </section>
+
+                <section data-background-image="img/dataschool/py1/data-bg-down-left.png" data-background-opacity="0.4">
+                    <h2>#DataSchool</h2>
+                    <h3>Introducción a Python</h3>
+                    <a href="https://bit.ly/lecovi-site"><i class="fas fa-globe-americas"></i> https://bit.ly/lecovi-site</a>
+                    <hr>
+                    <small><a href="https://www.linkedin.com/in/leandrocolombo/" target="_blank"><i class="fab fa-linkedin"></i> Leandro E. Colombo Viña</a> | <a href="https://twitter.com/lecovi" target="_blank"><i class="fas fa-paper-plane"></i> <i class="fab fa-twitter"></i> @lecovi</a> <br> 
+                    <a href="https://bitson.group" target="_blank"><i class="fas fa-envelope"></i> leo &lt;at&gt; bitson.group</a></small>
+                    <br>
+                    <small>
+                    <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">
+                        <img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png" /></a>
+                    <p>Este trabajo está licenciado bajo <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License</a>.</p></small>
+                </section>
+
+            </div>
+
+        </div>
+            
+        <script src="lib/js/head.min.js"></script>
+        <script src="js/reveal.js"></script>
+        
+        <script>
+
+            // Full list of configuration options available here:
+            // https://github.com/hakimel/reveal.js#configuration
+            Reveal.initialize({
+                controls: true,
+                progress: true,
+                history: true,
+                center: true,
+                slideNumber: true,
+                mouseWheel: true,
+                previewLinks: false,
+
+                theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
+                transition: Reveal.getQueryHash().transition || 'default', // default/cube/page/concave/zoom/linear/fade/none
+
+                // Parallax scrolling
+                // parallaxBackgroundImage: 'https://s3.amazonaws.com/hakim-static/reveal-js/reveal-parallax-1.jpg',
+                // parallaxBackgroundSize: '2100px 900px',
+
+                // Optional libraries used to extend on reveal.js
+                dependencies: [
+                    { src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+                    { src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+                    { src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+                    { src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+                    { src: 'plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+                    { src: 'plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }
+                ]
+            });
+
+        </script>
+
+    </body>
+</html>
