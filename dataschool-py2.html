@@ -123,24 +123,14 @@
 
                     <section>
                         <h3>Variables</h3>
-                        Para definirlas hay que elegir un <b class="fragment highlight-blue">nombre</b> y darle un <b class="fragment highlight-blue">valor</b> con el signo <code class="fragment highlight-blue">=</code>
-                        <pre><code class="python">
->>> a = 12
->>> a
-12
->>>
-                        </code></pre>
+                        Para definirlas hay que elegir un <b class="fragment highlight-blue">nombre</b> y darle un <b class="fragment highlight-blue">valor</b> con el signo <code class="fragment highlight-blue">=</code><br>
+                        <img width="100%" src="img/dataschool/py1/variables1.png" alt="Variables">
                     </section>
 
                     <section>
                         <h3>Expresiones</h3>
-                        Las variables pueden contener cualquier <b>expresión</b> válida.
-                        <pre><code class="python">
->>> a = (10 + 2) * 3
->>> a
-36
->>>
-                        </code></pre>
+                        Las variables pueden contener cualquier <b>expresión</b> válida.<br>
+                        <img width="60%" src="img/dataschool/py1/expresiones1.png" alt="Expresiones">
                     </section>
                 </section>
 
@@ -157,7 +147,7 @@
                 <section data-background-image="img/dataschool/py1/data-bg-down-left.png" data-background-opacity="0.4">
                     <section>
                         <h2>Funciones</h2>
-                        <p><small>Se puede ver un ejemplo en <a href="https://raw.githubusercontent.com/lecovi/short-intro-python/master/funciones.py" target="_blank">funciones.py</a></small></p>
+                        <small><a href="https://raw.githubusercontent.com/lecovi/dataschool-py2/master/funciones.ipynb" target="_blank"><i class="fas fa-download"></i> funciones.ipynb</a></small><br>
                         <ul>
                             <li>Son fragmentos reutilizables de código.</li>
                             <li>Pueden recibir argumentos.</li>
@@ -173,7 +163,7 @@ def nombre_funcion(par1, par2, ...):
                         <aside class="notes"><small>
                         </small></aside>
                     </section>
-                    
+
                     <section>
                         <h2>Definiendo funciones</h2>
                         <img width="80%" src="img/dataschool/py2/funciones1.png" alt="Funciones">
@@ -219,12 +209,21 @@ def nombre_funcion(par1, par2=100, *args, **kwargs):
                     </section>
                 </section>
 
-                <!-- Valores Booleanos -->
+                <!-- Lógica Booleana -->
                 <section data-background-image="img/dataschool/py1/data-bg-down-left.png" data-background-opacity="0.4">
                     <section>
+                        <h3>Lógica booleana</h3>
+                        <small><a href="https://raw.githubusercontent.com/lecovi/dataschool-py2/master/booleanos.ipynb" target="_blank"><i class="fas fa-download"></i> booleanos.ipynb</a></small><br>
+                        <img src="img/dataschool/py2/booleanos1.png" alt="Valores Booleanos">
+                    </section>
+
+                    <section>
                         <h3>Operadores Lógicos</h3>
-                        <p><small>Evalúan expresiones de <code>True/False</code> y devuelven <code>True/False</code> según corresponda.<br>
-                        Se puede ver un ejemplo en <a href="https://raw.githubusercontent.com/lecovi/short-intro-python/master/operadores_logicos.py" target="_blank">operadores_logicos.py</a></small></p>
+                        <p>
+                            <small>
+                                Evalúan expresiones de <code>True/False</code> y devuelven <code>True/False</code> según corresponda.<br>
+                            </small>
+                        </p>
                         <ul>
                             <li>Suma: <code>or</code></li>
                             <li>Producto: <code>and</code></li>
@@ -236,8 +235,7 @@ def nombre_funcion(par1, par2=100, *args, **kwargs):
 
                     <section>
                         <h3>Operadores Relacionales</h3>
-                        <p><small>Evalúan expresiones y devuelven <code>True/False</code> según corresponda.<br>
-                        Se puede ver un ejemplo en <a href="https://raw.githubusercontent.com/lecovi/short-intro-python/master/operadores_relacionales.py" target="_blank">operadores_relacionales.py</a></small></p>
+                        <p><small>Evalúan expresiones y devuelven <code>True/False</code> según corresponda.</small></p>
                         <ol>
                             <li>Igualdad: <code>==</code></li>
                             <li>No igualdad: <code>!=</code></li>
@@ -249,21 +247,10 @@ def nombre_funcion(par1, par2=100, *args, **kwargs):
                         <aside class="notes"><small>
                         </small></aside>
                     </section>
-
-                    <section>
-                        <h3>Valores booleanos</h3>
-                        <p><small>Sólo los siguientes valores son evaluados como falsos:</small></p>
-                        <ul>
-                            <li><code>False</code></li>
-                            <li><code>0</code></li>
-                            <li><code>None</code></li>
-                            <li><code>''</code></li>
-                        </ul>
-                        <p><small>cualquier otro valor en una expresión relacional se considera verdadero.</small></p>
-                    </section>
                 </section>
 
-                <section>
+                <!-- Colecciones -->
+                <section data-background-image="img/dataschool/py1/data-bg-down-left.png" data-background-opacity="0.4">
                     <section>
                         <h3>Colecciones</h3>
                         <p><small>Se puede ver un ejemplo en <a href="https://raw.githubusercontent.com/lecovi/short-intro-python/master/colecciones.py" target="_blank">colecciones.py</a></small></p>
@@ -289,6 +276,7 @@ def nombre_funcion(par1, par2=100, *args, **kwargs):
                         <aside class="notes"><small>
                         </small></aside>
                     </section>
+
                     <section>
                         <h2>Probando Listas</h2>
                         <pre><code class="python">>>> lista = ['pan', "huevos", 10, "azúcar", 3.67]
@@ -425,7 +413,8 @@ True
                     </section>
                 </section>
 
-                <section>
+                <!-- Control de Flujo -->
+                <section data-background-image="img/dataschool/py1/data-bg-down-left.png" data-background-opacity="0.4">
                     <section>
                         <h3>Control de Flujo</h3>
                         <p><small>Se puede ver un ejemplo en <a href="https://raw.githubusercontent.com/lecovi/short-intro-python/master/control_flujo.py" target="_blank">control_flujo.py</a></small></p>
@@ -451,6 +440,18 @@ True
                         </ul>
                         <aside class="notes"><small>
                         </small></aside> 
+                    </section>
+
+                    <section>
+                        <h3>Valores booleanos</h3>
+                        <p><small>Sólo los siguientes valores son evaluados como falsos:</small></p>
+                        <ul>
+                            <li><code>False</code></li>
+                            <li><code>0</code></li>
+                            <li><code>None</code></li>
+                            <li><code>''</code></li>
+                        </ul>
+                        <p><small>cualquier otro valor en una expresión relacional se considera verdadero.</small></p>
                     </section>
 
                     <section>

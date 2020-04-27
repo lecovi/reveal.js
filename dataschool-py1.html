@@ -49,6 +49,17 @@
                             <small><a href="https://www.linkedin.com/in/leandrocolombo/" target="_blank"><i class="fab fa-linkedin"></i> Leandro E. Colombo Viña</a> | <a href="https://twitter.com/lecovi" target="_blank"><i class="fab fa-twitter"></i> @lecovi</a> <br> 
                                 <a href="https://bitson.group" target="_blank"><i class="fas fa-envelope"></i> leo &lt;at&gt; bitson.group</a></small>
                         </p>
+                        <aside class="notes"><small>
+                            <ul>
+                                <li>Gracias GW x la presentación</li>
+                                <li>Gracias Datalytics x oportunidad #DataSchool</li>
+                                <li>Programación Python</li>
+                                <ul>
+                                    <li>Desarrollo de aplicaciones</li>
+                                    <li>Analytics!</li>
+                                </ul>
+                            </ul>
+                        </small></aside>
                     </section>
 
                     <section>
@@ -59,7 +70,9 @@
                         <a href="https://github.com/lecovi/dataschool-py1" target="_blank"><i class="fab fa-github"></i> https://github.com/lecovi/dataschool-py1</a><br>
                         <a href="https://bit.ly/dataschool-python1-files"><i class="fas fa-download"></i> Descargar ZIP</a>
                         <aside class="notes"><small>
-                            Pueden ver la presentación desde.
+                            <ul>
+                                <li>Si no conocen Github, pueden descargar el ZIP y los archivos son autocontenidos</li>
+                            </ul>
                         </small></aside>
                     </section>
                 </section>
@@ -70,13 +83,22 @@
                         <h2>¿Python?</h2>
                         <p>Creado por <a href="http://es.wikipedia.org/wiki/Guido_van_Rossum" target="_blank">Guido van Rossum</a> a principios de los '90.</p>
                         <ul>
-                            <li>Interpretado (Scripting).</li>
-                            <li>Tipado dinámico.</li>
-                            <li>Fuertemente tipado.</li>
-                            <li>Multiplataforma.</li>
-                            <li>Multiparadigma.</li>
+                            <li class="fragment fade-down">Interpretado (Scripting).</li>
+                            <li class="fragment fade-down">Tipado dinámico.</li>
+                            <li class="fragment fade-down">Fuertemente tipado.</li>
+                            <li class="fragment fade-down">Multiplataforma.</li>
+                            <li class="fragment fade-down">Multiparadigma.</li>
+                            <li class="fragment fade-down">Open Source.</li>
+                            <li class="fragment fade-down">Community Driven.</li>
                         </ul>
+                        <br>
+                        <br>
+                        <small><a href="https://www.youtube.com/watch?v=J0Aq44Pze-w" target="_blank"><i class="fab fa-youtube"></i> The History of Python by GvR</a></small>
                         <aside class="notes"><small>
+                            GvR trabajaba en el CWI en el lenguaje ABC<br>
+                            Quería algo intermedio entre el Shell y C<br>
+                            Lenguaje de programación fácil de usar, expresivo e interpretado<br>
+                            Para aumentar la productividad de Amoeba<br>
                             Guido trabajó en Dropbox hasta 2019 y ahora está retirado.<br>
                             Hasta 2018 fue el BDFL.<br>
                             Monty Python.<br>
@@ -92,15 +114,14 @@
                     <section>
                         <h2>Características</h2>
                         <ul>
-                            <li>Sintáxis simple, clara y sencilla.</li>
-                            <li>Fácil de aprender.</li>
-                            <li>Dinámico.</li>
-                            <li>Gestión automática de memoria.</li>
-                            <li>Gran cantidad de <a href="https://pypi.python.org/pypi" target="_blank">librerías</a>.</li>
+                            <li class="fragment fade-down">Sintáxis simple, clara y sencilla.</li>
+                            <li class="fragment fade-down">Fácil de aprender.</li>
+                            <li class="fragment fade-down">Dinámico.</li>
+                            <li class="fragment fade-down">Gestión automática de memoria.</li>
+                            <li class="fragment fade-down">Gran cantidad de <a href="https://pypi.python.org/pypi" target="_blank">librerías</a>.</li>
                         </ul>
-                        <p></p><br>
                         <div class="fragment">
-                            <h3>No recomendable</h3>
+                            <h4>No recomendable</h4>
                             <ul>
                                 <li>Bajo nivel.</li>
                                 <li>Rendimiento crítico</li>
@@ -122,6 +143,9 @@
                         <img width="60%" height="60%" src="img/zen-of-python-poster-a3.png" alt="Python Zen">
                         <aside class="notes"><small>
                             import this<br>
+                            Es la FILOSOFÍA Python
+                            Naomi Ceder, Directora de la PSF: "Vine x el lenguaje, me quedé por la comunidad"
+                            Son 19 aforismos que definen el diseño de Python.
                         </small></aside>
                     </section>
 
@@ -129,12 +153,12 @@
                         <h3>Zen de Python</h3>
                         <ul><small>
                             <li>Bello es mejor que feo.</li>
-                            <li>Explícito es mejor que implícito.</li>
+                            <li class="fragment highlight-current-blue">Explícito es mejor que implícito.</li>
                             <li>Simple es mejor que complejo.</li>
                             <li>Complejo es mejor que complicado.</li>
                             <li>Plano es mejor que anidado.</li>
                             <li>Disperso es mejor que denso.</li>
-                            <li>La legibilidad cuenta.</li>
+                            <li class="fragment highlight-current-blue">La legibilidad cuenta.</li>
                             <li>Los casos especiales no son tan especiales como para quebrantar las reglas.</li>
                             <li>Aunque lo práctico gana a la pureza.</li>
                         </small></ul>
@@ -150,8 +174,8 @@
                             <li>Aunque esa manera puede no ser obvia al principio a menos que usted sea holandés.</li>
                             <li>Ahora es mejor que nunca.</li>
                             <li>Aunque nunca es a menudo mejor que ya mismo.</li>
-                            <li>Si la implementación es difícil de explicar, es una mala idea.</li>
-                            <li>Si la implementación es fácil de explicar, puede que sea una buena idea.</li>
+                            <li class="fragment highlight-current-blue">Si la implementación es difícil de explicar, es una mala idea.</li>
+                            <li class="fragment highlight-current-blue">Si la implementación es fácil de explicar, puede que sea una buena idea.</li>
                             <li>Los espacios de nombres (namespaces) son una gran idea ¡Hagamos más de esas cosas!</li>
                             </small>
                         </ul>
@@ -167,6 +191,18 @@
                             <li>The Hitchhiker’s Guide: <a href="https://docs.python-guide.org/" target="_blank">https://docs.python-guide.org/</a></li>
                         </ul>
                         <aside class="notes"><small>
+                            <ul>
+                                <li>Descargar Python y novedades de la PSF</li>
+                                <li>Comunidad hispanoparlante + grande de Lationameríca</li>
+                                <ul>
+                                    <li>+ de 1300 miembros</li>
+                                    <li>Página Web, Telegram, Discourse</li>
+                                    <li>Tutorial en Español</li>
+                                </ul>
+                                <li>250 miembros</li> 
+                                <li>Difundir y promover el lenguaje</li>
+                                <li>Guía de buenas prácticas y recursos</li>
+                            </ul>
                         </small></aside>
                     </section>
                 </section>
@@ -177,7 +213,7 @@
                         <h2>Instalación</h2>
                         <p>Implementaciones:</p>
                         <ul>
-                            <li>CPython</li>
+                            <li class="fragment highlight-blue">CPython</li>
                             <li>Jython</li>
                             <li>IronPython</li>
                             <li>PyPy</li>
@@ -195,6 +231,13 @@
                         <h2>Herramientas</h2>
                         <p>A través del intérprete o ejecutando scripts.</p>
                         <img src="img/python1/python-shell.png" alt="Intérprete Python">
+                        <aside class="notes"><small>
+                            <ul>
+                                <li>1800 Joseph Jacquard lo escribió en un tapiz</li>
+                                <li>telar programable - tarjetas perforadas</li>
+                                <li>Kernighan y Ritchie, 1978</li>
+                            </ul>
+                        </small></aside>
                     </section>
 
                     <section>
@@ -216,6 +259,9 @@
                     <section>
                         <h1>Google Colab</h1>
                         <p><a href="https://colab.research.google.com/"><i class="fas fa-infinity"></i> https://colab.research.google.com/</a></p>
+                        <h3>Archivos de Ejemplo</h3>
+                        <a href="https://github.com/lecovi/dataschool-py1" target="_blank"><i class="fab fa-github"></i> https://github.com/lecovi/dataschool-py1</a><br>
+                        <a href="https://bit.ly/dataschool-python1-files"><i class="fas fa-download"></i> Descargar ZIP</a>
                     </section>
 
                     <section>
@@ -241,6 +287,7 @@
                         <h2>El Famoso...</h2>
                         <small><a href="https://raw.githubusercontent.com/lecovi/dataschool-py1/master/hola_mundo.ipynb" target="_blank"><i class="fas fa-download"></i> hola_mundo.ipynb</a></small>
                         <img src="img/dataschool/py1/colab-hola_mundo.png" alt="Hola Mundo!">
+                        <small><a href="http://helloworldcollection.de/" target="_blank"><i class="fas fa-globe-americas"></i> The Hello World Collection</a></small>
                         <aside class="notes"><small>
                         </small></aside>
                     </section>
@@ -259,7 +306,8 @@
 print("Hola Mundo!")
                         </code></pre>
                         <aside class="notes"><small>
-                            texto plano
+                            texto plano<br>
+                            ¿A qué llamamos <b>Funciones</b>?
                         </small></aside>
                     </section>
 
@@ -289,6 +337,13 @@ print("Hola Mundo!")
                         <h3>Variables</h3>
                         Para definirlas hay que elegir un <b class="fragment highlight-blue">nombre</b> y darle un <b class="fragment highlight-blue">valor</b> con el signo <code class="fragment highlight-blue">=</code><br>
                         <img width="100%" src="img/dataschool/py1/variables1.png" alt="Variables">
+                        <aside class="notes"><small>
+                            <ul>
+                                <li>[a-z][A-Z][0-9] y también "_"</li>
+                                <li>no puede empezar con un número</li>
+                                <li>y no puede usarse ninguna palabra reservada</li>
+                            </ul>
+                        </small></aside>
                     </section>
 
                     <section>
@@ -377,6 +432,13 @@ async       elif        if          or          yield
                         Y se les puede dar formato<br>
                         <img src="img/dataschool/py1/strings2.png" alt="f-Strings"><br>
                     </section>
+
+                    <section>
+                        <h3>Función <code class="python">len</code></h3>
+                        Nos devuelve la longitud del objeto que le pasamos como argumento.<br>
+                        <img src="img/dataschool/py1/len1.png" alt="Función len">
+                    </section>
+
                     <section>
                         <h3>Métodos de cadenas</h3>
                         <ul>
@@ -388,6 +450,7 @@ async       elif        if          or          yield
                             <li><code><strong>find()</strong></code>: busca en la cadena.</li>
                         </ul>
                     </section>
+
                     <section>
                         <h3>Métodos de cadenas</h3>
                         <ul>
@@ -401,6 +464,13 @@ async       elif        if          or          yield
                         <aside class="notes"><small>
                         </small></aside>
                     </section> 
+
+                    <section>
+                        <h3>Función <code class="python">dir</code></h3>
+                        Nos devuelve los métodos que podemos usar en cada objeto.<br>
+                        <img height="50%" src="img/dataschool/py1/dir1.png" alt="Función dir">
+                    </section>
+
                     <section>
                         <h3>Usando los métodos</h3>
                         <img src="img/dataschool/py1/strings3.png" alt="Strings Split"><br>
@@ -411,6 +481,13 @@ async       elif        if          or          yield
                         <h3>Usando los métodos</h3>
                         <img src="img/dataschool/py1/strings4.png" alt="Strings Upper"><br>
                     </section>
+
+                    <section>
+                        <h3>Función <code class="python">help</code></h3>
+                        Nos devuelve una breve explicación del método que consultamos.<br>
+                        <img src="img/dataschool/py1/help1.png" alt="Función help">
+                    </section>
+
 
                     <section>
                         <h2>Ingreso de datos</h2>
