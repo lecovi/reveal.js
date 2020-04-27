@@ -47,7 +47,7 @@
                         <hr>
                         <p>
                             <small><a href="https://www.linkedin.com/in/leandrocolombo/" target="_blank"><i class="fab fa-linkedin"></i> Leandro E. Colombo Viña</a> | <a href="https://twitter.com/lecovi" target="_blank"><i class="fab fa-twitter"></i> @lecovi</a> <br> 
-                                <a href="https://bitson.group" target="_blank"><i class="fas fa-envelope"></i> leo &lt;at&gt; bitson.group</a></small>
+                                <!-- <a href="https://bitson.group" target="_blank"><i class="fas fa-envelope"></i> leo &lt;at&gt; bitson.group</a>--> </small>
                         </p>
                         <aside class="notes"><small>
                             <ul>
@@ -63,9 +63,6 @@
                     </section>
 
                     <section>
-                        <h2>URL Presentación</h2>
-                        <a href="https://bit.ly/dataschool-python1"><i class="fas fa-link"></i> https://bit.ly/dataschool-python1</a>
-                        <hr>
                         <h3>Archivos de Ejemplo</h3>
                         <a href="https://github.com/lecovi/dataschool-py1" target="_blank"><i class="fab fa-github"></i> https://github.com/lecovi/dataschool-py1</a><br>
                         <a href="https://bit.ly/dataschool-python1-files"><i class="fas fa-download"></i> Descargar ZIP</a>
@@ -280,7 +277,7 @@
                 <section data-background-image="img/dataschool/py1/data-bg-down-left.png" data-background-opacity="0.4">
                     <section>
                         <h2>El Famoso...</h2>
-                        <small><a href="https://raw.githubusercontent.com/lecovi/dataschool-py1/master/hola_mundo.ipynb" target="_blank"><i class="fas fa-download"></i> hola_mundo.ipynb</a></small>
+                        <small><a href="https://colab.research.google.com/github/lecovi/dataschool-py1/blob/master/hola_mundo.ipynb" target="_blank"><i class="fas fa-download"></i> hola_mundo.ipynb</a></small>
                         <img src="img/dataschool/py1/colab-hola_mundo.png" alt="Hola Mundo!">
                         <small><a href="http://helloworldcollection.de/" target="_blank"><i class="fas fa-globe-americas"></i> The Hello World Collection</a></small>
                         <aside class="notes"><small>
@@ -317,7 +314,7 @@ print("Hola Mundo!")
                 <section data-background-image="img/dataschool/py1/data-bg-down-left.png" data-background-opacity="0.4">
                     <section>
                         <h3>Funciones</h3>
-                        <small><a href="https://raw.githubusercontent.com/lecovi/dataschool-py1/master/primeros_pasos.ipynb" target="_blank"><i class="fas fa-download"></i> primeros_pasos.ipynb</a></small><br>
+                        <small><a href="https://colab.research.google.com/github/lecovi/dataschool-py1/blob/master/primeros_pasos.ipynb" target="_blank"><i class="fas fa-download"></i> primeros_pasos.ipynb</a></small><br>
                         Una función es un <em>conjunto de instrucciones</em> que se llaman con un <b class="fragment highlight-blue">nombre</b>, acepta <b class="fragment highlight-blue">argumentos</b> y devuelve un <b class="fragment highlight-blue">valor</b>.
                         <pre><code data-trim contenteditable>
                             print("Hola Mundo!")
@@ -361,7 +358,7 @@ print("Hola Mundo!")
                 <section data-background-image="img/dataschool/py1/data-bg-down-left.png" data-background-opacity="0.4">
                     <section>
                         <h3>Palabras reservadas</h3>
-                        <small><a href="https://raw.githubusercontent.com/lecovi/dataschool-py1/master/sintaxis_basica.ipynb" target="_blank"><i class="fas fa-download"></i> sintaxis_basica.ipynb</a></small>
+                        <small><a href="https://colab.research.google.com/github/lecovi/dataschool-py1/blob/master/sintaxis_basica.ipynb" target="_blank"><i class="fas fa-download"></i> sintaxis_basica.ipynb</a></small>
                         <p>Python tiene 35 palabras reservadas</p>
                         <pre><code>
 False       await       else        import      pass
@@ -390,7 +387,7 @@ async       elif        if          or          yield
                 <section data-background-image="img/dataschool/py1/data-bg-down-left.png" data-background-opacity="0.4">
                     <section>
                         <h3>Tipos de Datos Básicos</h3>
-                        <p><small><a href="https://raw.githubusercontent.com/lecovi/dataschool-py1/master/tipos_de_datos.ipynb" target="_blank"><i class="fas fa-download"></i> tipos_de_datos.ipynb</a></small></p>
+                        <p><small><a href="https://colab.research.google.com/github/lecovi/dataschool-py1/blob/master/tipos_de_datos.ipynb" target="_blank"><i class="fas fa-download"></i> tipos_de_datos.ipynb</a></small></p>
                         <ol>
                             <li>Númericos:</li>
                             <ol>
@@ -493,14 +490,68 @@ async       elif        if          or          yield
                         <img src="img/dataschool/py1/help1.png" alt="Función help">
                     </section>
 
-
                     <section>
                         <h2>Ingreso de datos</h2>
                         <ul>
                             <li>Texto: <code>input("<em>Mensaje</em>")</code>.</li>
                         </ul>
-                        <img src="img/dataschool/py1/input1.png" alt="Strings Upper"><br>
+                        <img src="img/dataschool/py1/input1.png" alt="Input"><br>
                         <small>Con <code>input()</code> siempre se ingresa un <code>str</code>, si se quiere tener un valor numérico hay que convertirlo explícitamente <code>int()</code>, <code>float()</code></small>
+                        <aside class="notes"><small>
+                        </small></aside>
+                    </section>
+                </section>
+
+                <!-- Colecciones -->
+                <section data-background-image="img/dataschool/py1/data-bg-down-left.png" data-background-opacity="0.4">
+                    <section>
+                        <h3>Colecciones</h3>
+                        <ol>
+                            <li>Listas.</li>
+                            <span class="fragment fade-out">
+                                <li>Tuplas.</li>
+                                <li>Diccionarios.</li>
+                                <li>Sets.</li>
+                            </span>
+                        </ol>
+                        <aside class="notes"><small>
+                        </small></aside>
+                    </section>
+
+                    <section>
+                        <h2>Listas</h2>
+                        <p><small><a href="https://colab.research.google.com/github/lecovi/dataschool-py1/blob/master/listas.ipynb" target="_blank"><i class="fas fa-download"></i> listas.ipynb</a></small></p>
+                        <ul>
+                            <li>Colección ordenada y modificable.</li>
+                            <li>Pueden contener cualquier tipo de dato.</li>
+                            <li>Se utilizan corchetes <strong>[ ]</strong>.</li>
+                            <li>Accesible como <code>lista[<em>posición</em>]</code></li>
+                            <li><em>Slicing</em>: <code>lista[<em>inicio</em>:<em>fin</em>:<em>salto</em>]</code></li>
+                        </ul>
+                        <aside class="notes"><small>
+                        </small></aside>
+                    </section>
+
+                    <section>
+                        <h2>Probando Listas</h2>
+                        <img src="img/dataschool/py1/listas1.png" alt="Listas"><br>
+                        <aside class="notes"><small>
+                        </small></aside>
+                    </section>
+
+                    <section>
+                        <h3>Métodos en Listas</h3>
+                        <ul>
+                            <li><code><strong>sort()</strong></code>: ordena la lista.</li>
+                            <li><code><strong>reverse()</strong></code>: invierte el orden.</li>
+                            <li><code><strong>pop(<em>posición</em>)</strong></code>: extrae un elemento.</li>
+                            <li><code><strong>append(<em>item</em>)</strong></code>: agrega un elemento.</li>
+                            <li><code><strong>insert(<em>posición, item</em>)</strong></code>: inserta un elemento.</li>
+                            <li><code><strong>remove(<em>item</em>)</strong></code>: elimina la primer ocurrencia de <em>item</em>.</li>
+                            <li><code><strong>count(<em>item</em>)</strong></code>: cuenta las ocurrencias de <em>item</em>.</li>
+                            <li><code><strong>index(<em>item</em>)</strong></code>: devuelve la posición de <em>item</em>.</li>
+                            <li><code><strong>extend(<em>lista</em>)</strong></code>: extiende la lista con <em>lista</em>.</li>
+                        </ul>
                         <aside class="notes"><small>
                         </small></aside>
                     </section>
@@ -509,10 +560,13 @@ async       elif        if          or          yield
                 <section data-background-image="img/dataschool/py1/data-bg-down-left.png" data-background-opacity="0.4">
                     <h2>#DataSchool</h2>
                     <h3>Introducción a Python</h3>
-                    <a href="https://bit.ly/lecovi-site"><i class="fas fa-globe-americas"></i> https://bit.ly/lecovi-site</a>
+                    <small><a href="https://bit.ly/lecovi-site"><i class="fas fa-globe-americas"></i> https://bit.ly/lecovi-site</a></small>
                     <hr>
-                    <small><a href="https://www.linkedin.com/in/leandrocolombo/" target="_blank"><i class="fab fa-linkedin"></i> Leandro E. Colombo Viña</a> | <a href="https://twitter.com/lecovi" target="_blank"><i class="fas fa-paper-plane"></i> <i class="fab fa-twitter"></i> @lecovi</a> <br> 
-                    <a href="https://bitson.group" target="_blank"><i class="fas fa-envelope"></i> leo &lt;at&gt; bitson.group</a></small>
+                    <h4>Examen</h4>
+                    <a href="https://bit.ly/dataschool2_examen_dia_1"><i class="fas fa-poll"></i> https://bit.ly/dataschool2_examen_dia_1</a>
+                    <hr>
+                    <small><a href="https://www.linkedin.com/in/leandrocolombo/" target="_blank"><i class="fab fa-linkedin"></i> Leandro E. Colombo Viña</a> | <a href="https://t.me/lecovi" target="_blank"><i class="fas fa-paper-plane"></i> <a href="https://twitter.com/lecovi" target="_blank"><i class="fab fa-twitter"></i> @lecovi</a> <br> 
+                    <!-- <a href="https://bitson.group" target="_blank"><i class="fas fa-envelope"></i> leo &lt;at&gt; bitson.group</a> --></small>
                     <br>
                     <small>
                     <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">
