@@ -47,16 +47,12 @@
                         <hr>
                         <p>
                             <small>
-                                <a href="https://www.linkedin.com/in/leandrocolombo/" target="_blank"><i class="fab fa-linkedin"></i> Leandro E. Colombo Viña</a> | <a href="https://twitter.com/lecovi" target="_blank"><i class="fab fa-twitter"></i> @lecovi</a> <br> 
-                                <a href="https://bitson.group" target="_blank"><i class="fas fa-envelope"></i> leo &lt;at&gt; bitson.group</a>
+                                <a href="https://www.linkedin.com/in/leandrocolombo/" target="_blank"><i class="fab fa-linkedin"></i> Leandro E. Colombo Viña</a> | <a href="https://twitter.com/lecovi" target="_blank"><i class="fab fa-twitter"></i> @lecovi</a> <br>
                             </small>
                         </p>
                     </section>
 
                     <section>
-                        <h2>URL Presentación</h2>
-                        <a href="https://bit.ly/dataschool-python2"><i class="fas fa-link"></i> https://bit.ly/dataschool-python2</a>
-                        <hr>
                         <h3>Archivos de Ejemplo</h3>
                         <a href="https://github.com/lecovi/dataschool-py2" target="_blank"><i class="fab fa-github"></i> https://github.com/lecovi/dataschool-py2</a><br>
                         <a href="https://bit.ly/dataschool-python2-files"><i class="fas fa-download"></i> Descargar ZIP</a>
@@ -105,7 +101,7 @@
 
                     <section>
                         <h3>Funciones</h3>
-                        <small><a href="https://raw.githubusercontent.com/lecovi/dataschool-py1/master/primeros_pasos.ipynb" target="_blank"><i class="fas fa-download"></i> primeros_pasos.ipynb</a></small><br>
+                        <small><a href="https://colab.research.google.com/github/lecovi/dataschool-py1/blob/master/primeros_pasos.ipynb" target="_blank"><i class="fas fa-download"></i> primeros_pasos.ipynb</a></small><br>
                         Una función es un <em>conjunto de instrucciones</em> que se llaman con un <b class="fragment highlight-blue">nombre</b>, acepta <b class="fragment highlight-blue">argumentos</b> y devuelve un <b class="fragment highlight-blue">valor</b>.
                         <pre><code data-trim contenteditable>
                             print("Hola Mundo!")
@@ -147,7 +143,7 @@
                 <section data-background-image="img/dataschool/py1/data-bg-down-left.png" data-background-opacity="0.4">
                     <section>
                         <h2>Funciones</h2>
-                        <small><a href="https://raw.githubusercontent.com/lecovi/dataschool-py2/master/funciones.ipynb" target="_blank"><i class="fas fa-download"></i> funciones.ipynb</a></small><br>
+                        <small><a href="https://colab.research.google.com/github/lecovi/dataschool-py1/blob/master/funciones.ipynb" target="_blank"><i class="fas fa-download"></i> funciones.ipynb</a></small><br>
                         <ul>
                             <li>Son fragmentos reutilizables de código.</li>
                             <li>Pueden recibir argumentos.</li>
@@ -213,7 +209,7 @@ def nombre_funcion(par1, par2=100, *args, **kwargs):
                 <section data-background-image="img/dataschool/py1/data-bg-down-left.png" data-background-opacity="0.4">
                     <section>
                         <h3>Lógica booleana</h3>
-                        <small><a href="https://raw.githubusercontent.com/lecovi/dataschool-py2/master/booleanos.ipynb" target="_blank"><i class="fas fa-download"></i> booleanos.ipynb</a></small><br>
+                        <small><a href="https://colab.research.google.com/github/lecovi/dataschool-py1/blob/master/booleanos.ipynb" target="_blank"><i class="fas fa-download"></i> booleanos.ipynb</a></small><br>
                         <img src="img/dataschool/py2/booleanos1.png" alt="Valores Booleanos">
                     </section>
 
@@ -253,9 +249,8 @@ def nombre_funcion(par1, par2=100, *args, **kwargs):
                 <section data-background-image="img/dataschool/py1/data-bg-down-left.png" data-background-opacity="0.4">
                     <section>
                         <h3>Colecciones</h3>
-                        <p><small>Se puede ver un ejemplo en <a href="https://raw.githubusercontent.com/lecovi/short-intro-python/master/colecciones.py" target="_blank">colecciones.py</a></small></p>
                         <ol>
-                            <li>Listas.</li>
+                            <li class="fragment fade-out">Listas.</li>
                             <li>Tuplas.</li>
                             <li>Diccionarios.</li>
                             <li>Sets.</li>
@@ -265,58 +260,8 @@ def nombre_funcion(par1, par2=100, *args, **kwargs):
                     </section>
 
                     <section>
-                        <h2>Listas</h2>
-                        <ul>
-                            <li>Colección ordenada y modificable.</li>
-                            <li>Pueden contener cualquier tipo de dato.</li>
-                            <li>Se utilizan corchetes <strong>[ ]</strong>.</li>
-                            <li>Accesible como <code>lista[<em>posición</em>]</code></li>
-                            <li><em>Slicing</em>: <code>lista[<em>inicio</em>:<em>fin</em>:<em>salto</em>]</code></li>
-                        </ul>
-                        <aside class="notes"><small>
-                        </small></aside>
-                    </section>
-
-                    <section>
-                        <h2>Probando Listas</h2>
-                        <pre><code class="python">>>> lista = ['pan', "huevos", 10, "azúcar", 3.67]
->>> lista
-['pan', 'huevos', 10, 'azúcar', 3.67]
->>> lista[1]
-'huevos'
->>> lista[1] = 'huevos blancos'
->>> lista
-['pan', 'huevos blancos', 10, 'azúcar', 3.67]
->>> 'azúcar' in lista
-True
->>> lista[-1]
-3.67
->>> lista[1:3]
-['huevos blancos', 10]
-                        </code></pre>
-                        <aside class="notes"><small>
-                        </small></aside>
-                    </section>
-
-                    <section>
-                        <h3>Métodos en Listas</h3>
-                        <ul>
-                            <li><code><strong>sort()</strong></code>: ordena la lista.</li>
-                            <li><code><strong>reverse()</strong></code>: invierte el orden.</li>
-                            <li><code><strong>pop(<em>posición</em>)</strong></code>: extrae un elemento.</li>
-                            <li><code><strong>append(<em>item</em>)</strong></code>: agrega un elemento.</li>
-                            <li><code><strong>insert(<em>posición, item</em>)</strong></code>: inserta un elemento.</li>
-                            <li><code><strong>remove(<em>item</em>)</strong></code>: elimina la primer ocurrencia de <em>item</em>.</li>
-                            <li><code><strong>count(<em>item</em>)</strong></code>: cuenta las ocurrencias de <em>item</em>.</li>
-                            <li><code><strong>index(<em>item</em>)</strong></code>: devuelve la posición de <em>item</em>.</li>
-                            <li><code><strong>extend(<em>lista</em>)</strong></code>: extiende la lista con <em>lista</em>.</li>
-                        </ul>
-                        <aside class="notes"><small>
-                        </small></aside>
-                    </section>
-
-                    <section>
                         <h2>Tuplas</h2>
+                        <small><a href="https://colab.research.google.com/github/lecovi/dataschool-py1/blob/master/tuplas.ipynb" target="_blank"><i class="fas fa-download"></i> tuplas.ipynb</a></small>
                         <ul>
                             <li>Colección ordenada e Inmutable.</li>
                             <li>Pueden contener cualquier tipo de dato.</li>
@@ -324,7 +269,7 @@ True
                             <li>Accesible como <code>tupla[<em>posición</em>]</code></li>
                             <li><em>Slicing</em>: <code>tupla[<em>inicio</em>:<em>fin</em>:<em>salto</em>]</code></li>
                             <li>Más ligeras que las listas.</li>
-                            <li>No tienen métodos.</li>
+                            <li>Soportan sólo 2 métodos: `index` y `count`.</li>
                         </ul>
                         <aside class="notes"><small>
                         </small></aside>
@@ -332,6 +277,7 @@ True
 
                     <section>
                         <h2>Diccionario</h2>
+                        <small><a href="https://colab.research.google.com/github/lecovi/dataschool-py1/blob/master/diccionarios.ipynb" target="_blank"><i class="fas fa-download"></i> diccionarios.ipynb</a></small>
                         <ul>
                             <li>Colección NO ordenada.</li>
                             <li>Modificable.</li>
@@ -350,7 +296,7 @@ True
 
                     <section>
                         <h2>Probando Diccionarios</h2>
-                        <img src="img/python1/dicts.png" alt="Diccionarios"><br>
+                        <img src="img/dataschool/py2/dicts1.png" alt="Diccionarios"><br>
                         <aside class="notes"><small>
                         </small></aside>
                     </section>
@@ -398,26 +344,13 @@ True
                             </ul>
                         </ul>
                     </section>
-
-                    <section>
-                        <h2>Extras</h2>
-                        <ul>
-                            <li>Con <code><strong>len</strong></code> nos devuelve la cantidad de elementos:</li>
-                            <ul>
-                                <li>Listas y Tuplas.</li>
-                                <li>Tuplas (claves, valor) de un Diccionario.</li>
-                            </ul>
-                        </ul>
-                        <aside class="notes"><small>
-                        </small></aside>
-                    </section>
                 </section>
 
                 <!-- Control de Flujo -->
                 <section data-background-image="img/dataschool/py1/data-bg-down-left.png" data-background-opacity="0.4">
                     <section>
                         <h3>Control de Flujo</h3>
-                        <p><small>Se puede ver un ejemplo en <a href="https://raw.githubusercontent.com/lecovi/short-intro-python/master/control_flujo.py" target="_blank">control_flujo.py</a></small></p>
+                        <small><a href="https://colab.research.google.com/github/lecovi/dataschool-py1/blob/master/condicionales.ipynb" target="_blank"><i class="fas fa-download"></i> condicionales.ipynb</a></small>
                         <ul>
                             <li>Condicionales: </li>
                             <ol>
@@ -456,7 +389,7 @@ True
 
                     <section>
                         <h2>If...elif...else</h2>
-                        <img width="60%" src="img/python1/if-elif-else.png" alt="IF ELIF ELSE">
+                        <img src="img/dataschool/py2/condicionales1.png" alt="IF ELIF ELSE">
                         <p class="frament">¿Por qué me dice que no es una opción válida?</p>
                         <aside class="notes"><small>
                             Se ingresó el valor con input => es texto no número.
@@ -465,14 +398,14 @@ True
 
                     <section>
                         <h2>While</h2>
-                        <img width="60%" src="img/python1/while.png" alt="WHILE">
+                        <img src="img/dataschool/py2/while1.png" alt="WHILE">
                         <aside class="notes"><small>
                         </small></aside>
                     </section>
 
                     <section>
                         <h2>For ... in</h2>
-                        <img width="80%" src="img/python1/for.png" alt="FOR IN">
+                        <img src="img/dataschool/py2/for1.png" alt="FOR IN">
                         <aside class="notes"><small>
                         </small></aside>
                     </section>
@@ -481,19 +414,12 @@ True
                 <section>
                     <section>
                         <h2>Módulos</h2>
-                        <p><small>Se puede ver un ejemplo en <a href="https://raw.githubusercontent.com/lecovi/short-intro-python/master/modulos.py" target="_blank">modulos.py</a></small></p>
+                        <small><a href="https://colab.research.google.com/github/lecovi/dataschool-py1/blob/master/modulos.ipynb" target="_blank"><i class="fas fa-download"></i> modulos.ipynb</a></small><br>
                         <ul>
                             <li>Archivos individuales con código.</li>
                             <li>Se accede a ellos a través de <code>import</code>.</li>
                         </ul>
-                        <pre><code class="python">
-import funciones
-
-## Ahora podemos utilizar las funciones que hicimos antes.
-## Notemos que cuando realizamos el import, se ejecuta todo
-## el código anterior!
-funciones.imprimir_mensaje()
-                        </code></pre>
+                        <img src="img/dataschool/py2/modulo1.png" alt="Importando módulos">
                         <aside class="notes"><small>
                         Nótese que ejecuta TODO lo que hay en el módulo.
                         </small></aside>
@@ -501,39 +427,9 @@ funciones.imprimir_mensaje()
 
                     <section>
                         <h3>Importando selectivamente</h3>
-                        <p><small>Ejemplo de <a href="https://raw.githubusercontent.com/lecovi/short-intro-python/master/mensajes.py" target="_blank">mensajes.py</a></small></p>
-                        <pre><code class="python">
-def mensaje1():
-        print("Imprimiendo primer mensaje")
-
-def mensaje2():
-        print("Imprimiendo el segundo mensaje")
-
-print("Esto se ejecuta siempre")
-
-if __name__ == "__main__":
-        print("Esto se imprime si no es una importación")
-                        </code></pre>
+                        <img src="img/dataschool/py2/modulo2.png" alt="Importando módulos selectivamente con from">
                         <aside class="notes"><small>
                             Con ese IF se evita que se ejecute código cuando se importa el módulo.
-                        </small></aside>
-                    </section>
-
-                    <section>
-                        <h3>Importando selectivamente</h3>
-                        <p><small>Usándolo en <a href="https://raw.githubusercontent.com/lecovi/short-intro-python/master/modulos2.py" target="_blank">modulos2.py</a></small></p>
-                        <pre><code class="python">
-import mensajes
-
-## Si queremos omitir el tener que escribir el nombre del
-## módulo cuando tenemos que llamar a la función podemos
-## utilizar las cláusulas from ... import ...
-from mensajes import mensaje1
-
-mensaje1()
-print("Esto no es de mensaje, es de módulos2")
-                        </code></pre>
-                        <aside class="notes"><small>
                         </small></aside>
                     </section>
                 </section>
@@ -541,10 +437,13 @@ print("Esto no es de mensaje, es de módulos2")
                 <section data-background-image="img/dataschool/py1/data-bg-down-left.png" data-background-opacity="0.4">
                     <h2>#DataSchool</h2>
                     <h3>Introducción a Python</h3>
-                    <a href="https://bit.ly/lecovi-site"><i class="fas fa-globe-americas"></i> https://bit.ly/lecovi-site</a>
+                    <small><a href="https://bit.ly/lecovi-site"><i class="fas fa-globe-americas"></i> https://bit.ly/lecovi-site</a></small>
                     <hr>
-                    <small><a href="https://www.linkedin.com/in/leandrocolombo/" target="_blank"><i class="fab fa-linkedin"></i> Leandro E. Colombo Viña</a> | <a href="https://twitter.com/lecovi" target="_blank"><i class="fas fa-paper-plane"></i> <i class="fab fa-twitter"></i> @lecovi</a> <br> 
-                    <a href="https://bitson.group" target="_blank"><i class="fas fa-envelope"></i> leo &lt;at&gt; bitson.group</a></small>
+                    <h4>Examen</h4>
+                    <a href="https://bit.ly/dataschool2_examen_dia_2"><i class="fas fa-poll"></i> https://bit.ly/dataschool2_examen_dia_2</a>
+                    <hr>
+                    <small><a href="https://www.linkedin.com/in/leandrocolombo/" target="_blank"><i class="fab fa-linkedin"></i> Leandro E. Colombo Viña</a> | <a href="https://t.me/lecovi" target="_blank"><i class="fas fa-paper-plane"></i> <a href="https://twitter.com/lecovi" target="_blank"><i class="fab fa-twitter"></i> @lecovi</a> <br> 
+                    <!-- <a href="https://bitson.group" target="_blank"><i class="fas fa-envelope"></i> leo &lt;at&gt; bitson.group</a> --></small>
                     <br>
                     <small>
                     <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">
