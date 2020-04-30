@@ -1,0 +1,363 @@
+<!doctype html>
+<html lang="es">
+
+    <head>
+        <meta charset="utf-8">
+
+        <title>#DataSchool - Introducción a Python</title>
+
+        <meta name="description" content="Introducción a Python">
+        <meta name="author" content="Leandro E. Colombo Viña">
+
+        <meta name="apple-mobile-web-app-capable" content="yes" />
+        <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+        <link rel="stylesheet" href="css/reveal.css">
+        <link rel="stylesheet" href="css/theme/moon.css" id="theme">
+
+        <!-- For syntax highlighting -->
+        <link rel="stylesheet" href="lib/css/zenburn.css">
+
+        <!-- If the query includes 'print-pdf', use the PDF print sheet -->
+        <script>
+            document.write( '<link rel="stylesheet" href="css/print/' + ( window.location.search.match( /print-pdf/gi ) ? 'pdf' : 'paper' ) + '.css" type="text/css" media="print">' );
+        </script>
+
+        <!--[if lt IE 9]>
+        <script src="lib/js/html5shiv.js"></script>
+        <![endif]-->
+
+        <!-- Adding Font Awesome to our presentation -->
+        <script src="https://kit.fontawesome.com/e2fa45a4da.js" crossorigin="anonymous"></script>
+    </head>
+
+    <body>
+        <div class="reveal">
+            <div class="slides">
+                <!-- Presentación -->
+                <section data-background-image="img/dataschool/py1/data-bg-down-left.png" data-background-opacity="0.4">
+                    <section>
+                        <h2>#DataSchool</h2>
+                        <h3>Python</h3>
+                        <h4>Nadando con datos</h4>
+                        <p> <small><i class="fas fa-calendar-alt"></i> Jueves 30 de abril de 2020<br>
+                            <i class="fas fa-clock"></i> 10 a 12 (UTC-3) | 8 a 10 (UTC-5)</small></p>
+                        <hr>
+                        <p>
+                            <small>
+                                <a href="https://www.linkedin.com/in/leandrocolombo/" target="_blank"><i class="fab fa-linkedin"></i> Leandro E. Colombo Viña</a> | <a href="https://twitter.com/lecovi" target="_blank"><i class="fab fa-twitter"></i> @lecovi</a> <br>
+                            </small>
+                        </p>
+                    </section>
+
+                    <section>
+                        <h3>Archivos de Ejemplo</h3>
+                        <a href="https://github.com/lecovi/dataschool-py3" target="_blank"><i class="fab fa-github"></i> https://github.com/lecovi/dataschool-py3</a><br>
+                        <a href="https://bit.ly/dataschool-python3-files"><i class="fas fa-download"></i> Descargar ZIP</a>
+                        <aside class="notes"><small>
+                            Pueden ver la presentación desde.
+                        </small></aside>
+                    </section>
+                </section>
+
+                <!-- Características de Python -->
+                <section data-background-image="img/dataschool/py1/data-bg-down-left.png" data-background-opacity="0.4">
+                    <section>
+                        <h2>Repaso de Ayer</h2>
+                        <h3>Cadena de Texto</h3>
+                        Se definen entre <code>""</code> o <code>''</code><br>
+                        Y se les puede dar formato<br>
+                        <img src="img/dataschool/py1/strings2.png" alt="f-Strings"><br>
+                        <small>
+                            <a href="https://pyformat.info/"><i class="fas fa-link"></i> https://pyformat.info/</a><br>
+                            <a href="https://realpython.com/python-formatted-output/"><i class="fas fa-link"></i> https://realpython.com/python-formatted-output/</a>
+                        </small>
+                        <aside class="notes"><small>
+                        </small></aside> 
+                    </section>
+
+                    <section>
+                        <h2>Listas</h2>
+                        <p><small><a href="https://colab.research.google.com/github/lecovi/dataschool-py1/blob/master/listas.ipynb" target="_blank"><i class="fas fa-download"></i> listas.ipynb</a></small></p>
+                        <ul>
+                            <li>Colección ordenada y modificable.</li>
+                            <li>Pueden contener cualquier tipo de dato.</li>
+                            <li>Se utilizan corchetes <strong>[ ]</strong>.</li>
+                            <li>Accesible como <code>lista[<em>posición</em>]</code></li>
+                            <li><em>Slicing</em>: <code>lista[<em>inicio</em>:<em>fin</em>:<em>salto</em>]</code></li>
+                        </ul>
+                        <aside class="notes"><small>
+                        </small></aside>
+                    </section>
+
+                    <section>
+                        <h2>Tuplas</h2>
+                        <small><a href="https://colab.research.google.com/github/lecovi/dataschool-py1/blob/master/tuplas.ipynb" target="_blank"><i class="fas fa-download"></i> tuplas.ipynb</a></small>
+                        <ul>
+                            <li>Colección ordenada e Inmutable.</li>
+                            <li>Pueden contener cualquier tipo de dato.</li>
+                            <li>Se utilizan paréntesis <strong>( )</strong>.</li>
+                            <li>Accesible como <code>tupla[<em>posición</em>]</code></li>
+                            <li><em>Slicing</em>: <code>tupla[<em>inicio</em>:<em>fin</em>:<em>salto</em>]</code></li>
+                            <li>Más ligeras que las listas.</li>
+                            <li>Soportan sólo 2 métodos: <code>index</code> y <code>count</code>.</li>
+                        </ul>
+                        <aside class="notes"><small>
+                        </small></aside>
+                    </section>
+
+                    <section>
+                        <h2>Listas vs Tuplas</h2>
+                        <small><table>
+                            <thead>
+                                <tr>
+                                    <th></th>
+                                    <th>Listas</th>
+                                    <th>Tuplas</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Colección Ordenada</td>
+                                    <td>✔</td>
+                                    <td>✔</td>
+                                </tr>
+                                <tr>
+                                    <td>Mutable</td>
+                                    <td>✔</td>
+                                    <td>✖️</td>
+                                </tr>
+                                <tr>
+                                    <td>Accesible como <code>nombre[posición]</code></td>
+                                    <td>✔</td>
+                                    <td>✔</td>
+                                </tr>
+                                <tr>
+                                    <td>Slicing <code>[inicio:fin:paso]</code></td>
+                                    <td>✔</td>
+                                    <td>✔</td>
+                                </tr>
+                                <tr>
+                                    <td>Cualquier tipo de dato</td>
+                                    <td>✔</td>
+                                    <td>✔</td>
+                                </tr>
+                                <tr>
+                                    <td>Se construyen con</td>
+                                    <td><code>[]</code></td>
+                                    <td><code>()</code></td>
+                                </tr>
+                                <tr>
+                                    <td># métodos</td>
+                                    <td>11</td>
+                                    <td>2</td>
+                                </tr>
+                            </tbody>
+                        </table></small>
+                    </section>
+
+                    <section>
+                        <h3>Funciones</h3>
+                        <small><ul>
+                            <li>Son fragmentos reutilizables de código.</li>
+                            <li>Argumentos con identificadores [y con valor por defecto.].</li>
+                            <li>Tupla de Argumentos por posición (<code><strong>*</strong></code>).</li>
+                            <li>Diccionario de Argumentos (<code><strong>**</strong></code>).</li>
+                            <li>Devuelven un valor.</li>
+                        </ul></small>
+                        <pre><code class="python">
+def nombre_funcion(par1, par2=100, *args, **kwargs):
+    """ docstring
+        ...
+    """
+    instruccion1
+    instruccion2
+    ...
+    instruccionN
+    return value
+                        </code></pre>
+                        <aside class="notes"><small>
+                        </small></aside>
+                    </section>
+
+                    <section>
+                        <h3>Operadores Lógicos y Relacionales</h3>
+                        <ul>
+                            <li>Suma: <code>or</code></li>
+                            <li>Producto: <code>and</code></li>
+                            <li>Negación: <code>not</code></li>
+                            <hr>
+                            <li>Igualdad: <code>==</code></li>
+                            <li>No igualdad: <code>!=</code></li>
+                            <li>Mayor: <code>&gt;</code></li>
+                            <li>Menor: <code>&lt;</code></li>
+                            <li>Mayor o igual: <code>&gt;=</code></li>
+                            <li>Menor o igual: <code>&lt;=</code></li>
+                        </ul>
+                        <aside class="notes"><small>
+                        </small></aside>
+                    </section>
+
+                    <section>
+                        <h2>Diccionario</h2>
+                        <small><a href="https://colab.research.google.com/github/lecovi/dataschool-py1/blob/master/diccionarios.ipynb" target="_blank"><i class="fas fa-download"></i> diccionarios.ipynb</a></small>
+                        <ul>
+                            <li>Colección NO ordenada.</li>
+                            <li>Modificable.</li>
+                            <li>Conjunto <em>clave - valor</em>.</li>
+                            <ul>
+                                <li>clave: cualquier tipo de dato inmutable.</li>
+                                <li>valor: cualquier tipo de dato.</li>
+                            </ul>
+                            <li>Se utilizan llaves <strong>{ }</strong>.</li>
+                            <li>Accesible como <code>diccionario[<em>clave</em>]</code></li>
+                            <li>No hay <em>Slicing</em>.</li>
+                        </ul>
+                        <aside class="notes"><small>
+                        </small></aside>
+                    </section>
+
+                    <section>
+                        <h2>If...elif...else</h2>
+                        <img src="img/dataschool/py2/condicionales1.png" alt="IF ELIF ELSE">
+                        <p class="frament">¿Por qué me dice que no es una opción válida?</p>
+                        <aside class="notes"><small>
+                            Se ingresó el valor con input => es texto no número.
+                        </small></aside>
+                    </section>
+
+                    <section>
+                        <h2>While</h2>
+                        <img src="img/dataschool/py2/while1.png" alt="WHILE">
+                        <aside class="notes"><small>
+                        </small></aside>
+                    </section>
+
+                    <section>
+                        <h2>For ... in</h2>
+                        <img src="img/dataschool/py2/for1.png" alt="FOR IN">
+                        <aside class="notes"><small>
+                        </small></aside>
+                    </section>
+
+                    <section>
+                        <h2>Módulos</h2>
+                        <small><a href="https://colab.research.google.com/github/lecovi/dataschool-py1/blob/master/modulos.ipynb" target="_blank"><i class="fas fa-download"></i> modulos.ipynb</a></small><br>
+                        <ul>
+                            <li>Archivos individuales con código.</li>
+                            <li>Se accede a ellos a través de <code>import</code>.</li>
+                        </ul>
+                        <img src="img/dataschool/py2/modulo1.png" alt="Importando módulos">
+                        <aside class="notes"><small>
+                        Nótese que ejecuta TODO lo que hay en el módulo.
+                        </small></aside>
+                    </section>
+                </section>
+
+                <!-- Separador! -->
+                <section data-background-image="img/dataschool/py1/data-bg-down-left.png" data-background-opacity="0.4">
+                    <p><em>entonces...</em></p>
+                    <h3>Manos a la obra</h3>
+                    <img width="40%" height="40%" src="img/ManosALaObra.gif" alt="Manos a la Obra">
+                    <aside class="notes"><small>
+                    </small></aside>
+                </section>
+
+                <!-- Pandas -->
+                <section data-background-image="img/dataschool/py1/data-bg-down-left.png" data-background-opacity="0.4">
+                    <section>
+                        <h2>Pandas</h2>
+                        <small><a href="https://pandas.pydata.org/"><i class="fas fa-link"></i> https://pandas.pydata.org/</a><br></small><br>
+                        <img width="35%" src="https://pandas.pydata.org/docs/_images/01_table_dataframe.svg" alt="Pandas Dataframe"><br>
+                        <q cite="https://pandas.pydata.org/docs/getting_started/overview.html">the most powerful and flexible open source data analysis / manipulation tool available in any language.</q>
+                        <aside class="notes"><small>
+                            Arrancó en 2008<br>
+                            Recién en Ene/20 salió la versión 1.0.0<br>
+                            <ul>
+                                <li>Tabular data with heterogeneously-typed columns, as in an SQL table or Excel spreadsheet</li>
+                                <li>Ordered and unordered (not necessarily fixed-frequency) time series data.</li>
+                                <li>Arbitrary matrix data (homogeneously typed or heterogeneous) with row and column labels</li>
+                                <li>Any other form of observational / statistical data sets. The data actually need not be labeled at all to be placed into a pandas data structure</li>
+                            </ul>
+                        </small></aside>
+                    </section>
+
+                    <section>
+                        <h2>Matplotlib</h2>
+                        <small><a href="https://matplotlib.org/"><i class="fas fa-link"></i> https://matplotlib.org/</a><br></small><br>
+                        <img src="img/dataschool/py3/matplotlib.png" alt="Pandas Dataframe"><br>
+                        <q cite="https://matplotlib.org/">Matplotlib is a comprehensive library for creating static, animated, and interactive visualizations in Python.<br>Matplotlib makes easy things easy and hard things possible.</q>
+                        <aside class="notes"><small>
+                            Arrancó en 2008<br>
+                            Recién en Ene/20 salió la versión 1.0.0<br>
+                            <ul>
+                                <li>Tabular data with heterogeneously-typed columns, as in an SQL table or Excel spreadsheet</li>
+                                <li>Ordered and unordered (not necessarily fixed-frequency) time series data.</li>
+                                <li>Arbitrary matrix data (homogeneously typed or heterogeneous) with row and column labels</li>
+                                <li>Any other form of observational / statistical data sets. The data actually need not be labeled at all to be placed into a pandas data structure</li>
+                            </ul>
+                        </small></aside>
+                    </section>
+                </section>
+
+                <section data-background-image="img/dataschool/py1/data-bg-down-left.png" data-background-opacity="0.4">
+                    <h2>#DataSchool</h2>
+                    <h3>Introducción a Python</h3>
+                    <small><a href="https://bit.ly/lecovi-site"><i class="fas fa-globe-americas"></i> https://bit.ly/lecovi-site</a></small>
+                    <hr>
+                    <h4>Examen</h4>
+                    <a href="https://bit.ly/dataschool2_examen_dia_3"><i class="fas fa-poll"></i> https://bit.ly/dataschool2_examen_dia_3</a>
+                    <hr>
+                    <small><a href="https://www.linkedin.com/in/leandrocolombo/" target="_blank"><i class="fab fa-linkedin"></i> Leandro E. Colombo Viña</a> | <a href="https://t.me/lecovi" target="_blank"><i class="fas fa-paper-plane"></i> <a href="https://twitter.com/lecovi" target="_blank"><i class="fab fa-twitter"></i> @lecovi</a> <br> 
+                    <!-- <a href="https://bitson.group" target="_blank"><i class="fas fa-envelope"></i> leo &lt;at&gt; bitson.group</a> --></small>
+                    <br>
+                    <small>
+                    <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">
+                        <img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png" /></a>
+                    <p>Este trabajo está licenciado bajo <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License</a>.</p></small>
+                </section>
+
+            </div>
+
+        </div>
+            
+        <script src="lib/js/head.min.js"></script>
+        <script src="js/reveal.js"></script>
+        
+        <script>
+
+            // Full list of configuration options available here:
+            // https://github.com/hakimel/reveal.js#configuration
+            Reveal.initialize({
+                controls: true,
+                progress: true,
+                history: true,
+                center: true,
+                slideNumber: true,
+                mouseWheel: true,
+                previewLinks: false,
+
+                theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
+                transition: Reveal.getQueryHash().transition || 'default', // default/cube/page/concave/zoom/linear/fade/none
+
+                // Parallax scrolling
+                // parallaxBackgroundImage: 'https://s3.amazonaws.com/hakim-static/reveal-js/reveal-parallax-1.jpg',
+                // parallaxBackgroundSize: '2100px 900px',
+
+                // Optional libraries used to extend on reveal.js
+                dependencies: [
+                    { src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+                    { src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+                    { src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+                    { src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+                    { src: 'plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+                    { src: 'plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }
+                ]
+            });
+
+        </script>
+
+    </body>
+</html>
